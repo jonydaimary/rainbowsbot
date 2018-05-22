@@ -44,7 +44,7 @@ client.on("message", async message => {
         .setColor('#00ff00')
         .setDescription(`**Kick** - команда, которая выгоняет игрока с сервера`);
 
-        message.channel.send({embed})
+        message.channel.send({embed});
         }
 
     if (command === 'info') {
