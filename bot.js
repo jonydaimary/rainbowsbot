@@ -37,16 +37,18 @@ client.on("message", async message => {
     if(message.content.indexOf(config.prefix) !== 0) return;
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
- 
-    if(command === 'helpkick') {
-        let embed = new Discord.RichEnbed()
-        .setTitle("Help/Kick")
-        .setColor('#00ff00')
-        .setDescription(`**Kick** - команда, которая выгоняет игрока с сервера`);
 
-        message.channel.send({embed});
-        }
+    if (command === 'helphelp') {
+        let embed = new Discord.RichEmbed()
+            .setTitle("Help/Help")
+            .setColor('#00ff00')
+            .setDescription(`**Help** - команда, которая вызывает перечень доступных команд`)
+            .setFooter("Rainbow`s System", "https://i.imgur.com/3qMCgHk.jpg");
 
+            message.channel.send({embed});
+
+          }
+    
     if (command === 'info') {
         let embed = new Discord.RichEmbed()
             .setTitle("Rainbow`s Private bot")
