@@ -40,9 +40,9 @@ client.on("message", async message => {
  
     if(command === 'help_kick')
         let enbed = new Discord.RichEnbed()
-        .setTitle("Help/Help")
+        .setTitle("Help/Kick")
         .setColor('#00ff00')
-        .setDescription(`**Help** - команда, которая выгоняет игрока с сервера`);
+        .setDescription(`**Kick** - команда, которая выгоняет игрока с сервера`);
 
         message.channel.send({embed})
 
