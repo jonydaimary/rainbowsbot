@@ -213,7 +213,22 @@ client.on("message", async message => {
         message.channel.bulkDelete(fetched)
             .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
     }
-   
+    help_command = ['']
+    
+    if(command === help1) {
+        let limit = 8;
+        let all_pages = Math.ceil(help_commands.length/limit);
+        let current_page = parseInt(args[0]);
+        if (current_page > all_pages || current_page < 1 || !isNumeric(args[0]))
+            current_page = 1;
+        let curr_commands = help_commands.slice(1+((current_page-1)*limit), (limit+1)+((current_page-1)*limit)).join('\n');
+        let all_commands = '';
+        if (!botFullRights.includes(message.channel.id))
+            all_commands = '***Внимание!*** В этом списке отображены команды, которые доступны в этом чате. Чтобы получить доступ ко всем командам, идите в <#418096126957453337>\n';
+        let newPage = '';
+        if (current_page < all_pages)
+            newPage = `\n\n**Для просмотра следующей страницы напишите \`${process.env.PREFIX}${command} ${current_page+1}\`**`;
+    }
 });
  
 client.login(process.env.TOKEN).catch(console.error);
