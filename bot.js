@@ -49,6 +49,61 @@ client.on("message", async message => {
 
           }
     
+    if (command === 'helpban') {
+        let embed = new Discord.RichEmbed()
+            .setTitle("Help/Ban")
+            .setColor('#00ff00')
+            .setDescription(`**Ban** - команда, которая банит игрока на сервере`)
+            .setFooter("Rainbow`s System", "https://i.imgur.com/3qMCgHk.jpg");
+       
+            message.channel.send({embed});
+       
+        }
+
+    if (command === 'helpkick') {
+        let embed = new Discord.RichEmbed()
+            .setTitle("Help/Ban")
+            .setColor('#00ff00')
+            .setDescription(`**Kick** - команда, которая выгоняет игрока с сервера`)
+            .setFooter("Rainbow`s System", "https://i.imgur.com/3qMCgHk.jpg");
+           
+            message.channel.send({embed});
+           
+        }
+
+    if (command === 'helppurge') {
+        let embed = new Discord.RichEmbed()
+            .setTitle("Help/Purge")
+            .setColor('#00ff00')
+            .setDescription(`**Purge** - команда, которая очищает определенное кол-во сообщений в чате`)
+            .setFooter("Rainbow`s System", "https://i.imgur.com/3qMCgHk.jpg");
+               
+            message.channel.send({embed});
+               
+        }
+
+    if (command === 'helpping') {
+        let embed = new Discord.RichEmbed()
+            .setTitle("Help/Ping")
+            .setColor('#00ff00')
+            .setDescription(`**Ping** - команда, которая отправляет запрос на сервер`)
+            .setFooter("Rainbow`s System", "https://i.imgur.com/3qMCgHk.jpg");
+                   
+            message.channel.send({embed});
+                   
+        }
+            
+          if (command === 'helpinfo') {
+         let embed = new Discord.RichEmbed()
+            .setTitle("Help/Info")
+            .setColor('#00ff00')
+            .setDescription(`**Info** - команда, которая описывает основные характеристики бота, информацию о нём`)
+            .setFooter("Rainbow`s System", "https://i.imgur.com/3qMCgHk.jpg");
+    
+            message.channel.send({embed});
+    
+           }
+
     if (command === 'info') {
         let embed = new Discord.RichEmbed()
             .setTitle("Rainbow`s Private bot")
