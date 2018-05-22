@@ -5,17 +5,17 @@ const token = process.env.TOKEN
  
 client.on("ready", () => {
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
-    client.user.setActivity(`Rainbow's Server`, { type : 'STREAMING'}).catch(console.error);
+    client.user.setActivity(`rb!help`, { type : 'STREAMING'}).catch(console.error);
 });
  
 client.on("guildCreate", guild => {
     console.log(`New guild joined: ${guild.name} (id, ${guild.id}). This guild has ${guild.memberCount} members!`);
-    client.user.setActivity(`Rainbow's Server`, { type : 'STREAMING'}).catch(console.error);
+    client.user.setActivity(`rb!help`, { type : 'STREAMING'}).catch(console.error);
 });
  
 client.on("guildDelete", guild => {
     console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-    client.user.setActivity(`Rainbow's Server`, { type : 'STREAMING'}).catch(console.error);
+    client.user.setActivity(`rb!help`, { type : 'STREAMING'}).catch(console.error);
 });
 
 client.on('guildMemberAdd', (member) => {
@@ -38,72 +38,27 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    if (command === 'helphelp') {
+    if (command === 'help') {
         let embed = new Discord.RichEmbed()
-            .setTitle("Help/Help")
-            .setColor('#00ff00')
-            .setDescription(`**Help** - команда, которая вызывает перечень доступных команд`)
-            .setFooter("Rainbow`s System", "https://i.imgur.com/3qMCgHk.jpg");
+            .setTitle("Помощь")
+            .setColor('#800080')
+            .setDescription(`Информация о командах \n \n **• help** - команда, которая вызывает перечень команд бота \n **• ban** - команда, которая банит игрока на сервере \n **•kick** - команда, которая выгоняет игрока с сервера \n \n **Для просмотра второй страницы введите rb!help2**`)
+            .setFooter("Страница 1/2");
 
             message.channel.send({embed});
 
           }
-    
-    if (command === 'helpban') {
+        if (command === 'help2') {
         let embed = new Discord.RichEmbed()
-            .setTitle("Help/Ban")
-            .setColor('#00ff00')
-            .setDescription(`**Ban** - команда, которая банит игрока на сервере`)
-            .setFooter("Rainbow`s System", "https://i.imgur.com/3qMCgHk.jpg");
-       
-            message.channel.send({embed});
-       
-        }
-
-    if (command === 'helpkick') {
-        let embed = new Discord.RichEmbed()
-            .setTitle("Help/Ban")
-            .setColor('#00ff00')
-            .setDescription(`**Kick** - команда, которая выгоняет игрока с сервера`)
-            .setFooter("Rainbow`s System", "https://i.imgur.com/3qMCgHk.jpg");
-           
-            message.channel.send({embed});
-           
-        }
-
-    if (command === 'helppurge') {
-        let embed = new Discord.RichEmbed()
-            .setTitle("Help/Purge")
-            .setColor('#00ff00')
-            .setDescription(`**Purge** - команда, которая очищает определенное кол-во сообщений в чате`)
-            .setFooter("Rainbow`s System", "https://i.imgur.com/3qMCgHk.jpg");
-               
-            message.channel.send({embed});
-               
-        }
-
-    if (command === 'helpping') {
-        let embed = new Discord.RichEmbed()
-            .setTitle("Help/Ping")
-            .setColor('#00ff00')
-            .setDescription(`**Ping** - команда, которая отправляет запрос на сервер`)
-            .setFooter("Rainbow`s System", "https://i.imgur.com/3qMCgHk.jpg");
-                   
-            message.channel.send({embed});
-                   
-        }
-
-          if (command === 'helpinfo') {
-         let embed = new Discord.RichEmbed()
-            .setTitle("Help/Info")
-            .setColor('#00ff00')
-            .setDescription(`**Info** - команда, которая описывает основные характеристики бота, информацию о нём`)
-            .setFooter("Rainbow`s System", "https://i.imgur.com/3qMCgHk.jpg");
+            .setTitle("Помощь")
+            .setColor('#800080')
+            .setDescription(`Информация о командах \n \n **• purge** - команда, которая очищает определенное кол-во сообщений в чате \n **• ping** - команда, которая отправляет запрос на сервер \n **•info** - команда, которая содержит ключевую информацию о боте`)
+            .setFooter("Страница 2/2");
     
             message.channel.send({embed});
     
-           }
-
+        }
+    
     if (command === 'info') {
         let embed = new Discord.RichEmbed()
             .setTitle("Rainbow`s Private bot")
@@ -128,7 +83,7 @@ client.on("message", async message => {
     if (command === 'help') {
         let embed = new Discord.RichEmbed()
         .setTitle('Список доступных команд:')
-        .setDescription("Команды для бота: \n **Префикс - rb! ** \n • **help** - список команд \n • **ban** - забанить игрока \n • **kick** - кикнуть игрока \n • **purge** очистить сообщения \n • **ping** - запрос на сервер \n • **info** - информация о боте \n Для получения информации о команде введите ***rb!help[команда]*** __без пробелов__")
+        .setDescription("Команды для бота: \n **Префикс - rb! ** \n • **help** - список команд \n • **ban** - забанить игрока \n • **kick** - кикнуть игрока \n • **purge** очистить сообщения \n • **ping** - запрос на сервер \n • **info** - информация о боте \n • stats - состояние бота\n Для получения информации о команде введите ***rb!help[команда]*** __без пробелов__")
         .setColor('#800080')
         .setFooter("R𝕒i𝕟b𝕠w#1111", "https://i.imgur.com/vM67SRdh.jpg");         
     
@@ -214,34 +169,6 @@ client.on("message", async message => {
             .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
     }
     
-    if (!error && pattern !== 'hid') {
-        let cmd = '';
-        if (pattern !== null)
-            cmd = cmd + `\`${aliases[0]} ${pattern}\``;
-        else
-            cmd = cmd + `\`${aliases[0]}\``;
-
-        if (description !== null)
-            cmd = cmd + ` — ${description}`;
-        help_commands.push(cmd);
-        }
-    
-        help_command = ['']
-
-    if(command === "help1") {
-        let limit = 8;
-        let all_pages = Math.ceil(help_commands.length/limit);
-        let current_page = parseInt(args[0]);
-        if (current_page > all_pages || current_page < 1 || !isNumeric(args[0]))
-            current_page = 1;
-        let curr_commands = help_commands.slice(1+((current_page-1)*limit), (limit+1)+((current_page-1)*limit)).join('\n');
-        let all_commands = '';
-        if (!botFullRights.includes(message.channel.id))
-            all_commands = '***Внимание!*** В этом списке отображены команды, которые доступны в этом чате. Чтобы получить доступ ко всем командам, идите в <#418096126957453337>\n';
-        let newPage = '';
-        if (current_page < all_pages)
-            newPage = `\n\n**Для просмотра следующей страницы напишите \`${process.env.PREFIX}${command} ${current_page+1}\`**`;
-    }
 });
  
 client.login(process.env.TOKEN).catch(console.error);
