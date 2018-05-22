@@ -214,8 +214,8 @@ client.on("message", async message => {
             .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
     }
     help_command = ['']
-    
-    if(command === help1) {
+
+    if(command === "help1") {
         let limit = 8;
         let all_pages = Math.ceil(help_commands.length/limit);
         let current_page = parseInt(args[0]);
