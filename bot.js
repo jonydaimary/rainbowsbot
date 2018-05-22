@@ -39,7 +39,7 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase();
  
     if(command === 'help_kick')
-        let enbed = new Discord.RichEnbed()
+        let embed = new Discord.RichEnbed()
         .setTitle("Help/Kick")
         .setColor('#00ff00')
         .setDescription(`**Kick** - команда, которая выгоняет игрока с сервера`);
