@@ -52,7 +52,7 @@ client.on("message", async message => {
         let embed = new Discord.RichEmbed()
             .setTitle("Помощь")
             .setColor('#800080')
-            .setDescription(`Информация о командах \n \n **• purge** - команда, которая очищает определенное кол-во сообщений в чате \n **• ping** - команда, которая отправляет запрос на сервер \n **•info** - команда, которая содержит ключевую информацию о боте`)
+            .setDescription(`Информация о командах \n \n **• purge** - команда, которая очищает определенное кол-во сообщений в чате \n **• ping** - команда, которая отправляет запрос на сервер \n **•info** - команда, которая содержит ключевую информацию о боте \n **•stats** - команда, которая содержит статистику бота в данный момент`)
             .setFooter("Страница 2/2");
     
             message.channel.send({embed});
@@ -80,7 +80,7 @@ client.on("message", async message => {
              message.channel.send({embed});
     
             }
-            
+
     if (command === "ping") {
         const m = await message.channel.send("Ping?");
         m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
