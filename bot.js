@@ -80,16 +80,7 @@ client.on("message", async message => {
              message.channel.send({embed});
     
             }
-    if (command === 'help') {
-        let embed = new Discord.RichEmbed()
-        .setTitle('Список доступных команд:')
-        .setDescription("Команды для бота: \n **Префикс - rb! ** \n • **help** - список команд \n • **ban** - забанить игрока \n • **kick** - кикнуть игрока \n • **purge** очистить сообщения \n • **ping** - запрос на сервер \n • **info** - информация о боте \n • stats - состояние бота\n Для получения информации о команде введите ***rb!help[команда]*** __без пробелов__")
-        .setColor('#800080')
-        .setFooter("R𝕒i𝕟b𝕠w#1111", "https://i.imgur.com/vM67SRdh.jpg");         
-    
-        message.channel.send({embed})
-        }
- 
+            
     if (command === "ping") {
         const m = await message.channel.send("Ping?");
         m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
