@@ -3,5 +3,6 @@ Rainbow's Bot - бот, специально написанный для Discord
 
 Перед использованием кода необходимо согласовать это с разработчиком
 
-Discord - Rainbow#111
+Discord - Rainbow#1111
+
 Вконтакте - https://vk.com/romanovyoutube
