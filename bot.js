@@ -38,6 +38,14 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
  
+    if(command === 'help kick')
+        let enbed = new Discord.RichEnbed()
+        .setTitle("Help/Help")
+        .setColor('#00ff00')
+        .setDescription(`**Help** - команда, которая вызывает список доступных команд`);
+
+        message.channel.send({embed})
+
     if (command === 'info') {
         let embed = new Discord.RichEmbed()
             .setTitle("Rainbow`s Private bot")
