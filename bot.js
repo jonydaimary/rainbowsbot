@@ -38,7 +38,7 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
  
-    if(command === 'help kick')
+    if(command === 'help_kick')
         let enbed = new Discord.RichEnbed()
         .setTitle("Help/Help")
         .setColor('#00ff00')
