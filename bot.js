@@ -213,7 +213,20 @@ client.on("message", async message => {
         message.channel.bulkDelete(fetched)
             .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
     }
-    help_command = ['']
+    
+    if (!error && pattern !== 'hid') {
+        let cmd = '';
+        if (pattern !== null)
+            cmd = cmd + `\`${aliases[0]} ${pattern}\``;
+        else
+            cmd = cmd + `\`${aliases[0]}\``;
+
+        if (description !== null)
+            cmd = cmd + ` — ${description}`;
+        help_commands.push(cmd);
+        }
+    
+        help_command = ['']
 
     if(command === "help1") {
         let limit = 8;
