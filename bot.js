@@ -42,7 +42,7 @@ client.on("message", async message => {
         let enbed = new Discord.RichEnbed()
         .setTitle("Help/Help")
         .setColor('#00ff00')
-        .setDescription(`**Help** - команда, которая вызывает список доступных команд`);
+        .setDescription(`**Help** - команда, которая выгоняет игрока с сервера`);
 
         message.channel.send({embed})
 
