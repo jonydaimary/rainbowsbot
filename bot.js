@@ -150,4 +150,4 @@ client.on("message", async message => {
    
 });
  
-client.login(config.token).catch(console.error);
+client.login(process.env.TOKEN).catch(console.error);
