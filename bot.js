@@ -41,8 +41,8 @@ client.on("message", async message => {
     if (command === 'help') {
         let embed = new Discord.RichEmbed()
             .setTitle("Помощь")
-            .setColor('#800080')
-            .setDescription(`Информация о командах \n \n **• help** - команда, которая вызывает перечень команд бота \n **• ban** - команда, которая банит игрока на сервере \n **•kick** - команда, которая выгоняет игрока с сервера \n \n **Для просмотра второй страницы введите rb!help2**`)
+            .setColor('#80080')
+            .setDescription(`Информация о командах \n \n **• help** - команда, которая вызывает перечень команд бота \n **• ban** - команда, которая банит игрока на сервере \n **•kick** - команда, которая выгоняет игрока с сервера \n **• gif** - команда, которая отправляет Gif-изображение сервера \n \n **Для просмотра второй страницы введите rb!help2**`)
             .setFooter("Страница 1/2");
 
             message.channel.send({embed});
@@ -51,7 +51,7 @@ client.on("message", async message => {
         if (command === 'help2') {
         let embed = new Discord.RichEmbed()
             .setTitle("Помощь")
-            .setColor('#800080')
+            .setColor('#80080')
             .setDescription(`Информация о командах \n \n **• purge** - команда, которая очищает определенное кол-во сообщений в чате \n **• ping** - команда, которая отправляет запрос на сервер \n **•info** - команда, которая содержит ключевую информацию о боте \n **•stats** - команда, которая содержит статистику бота в данный момент`)
             .setFooter("Страница 2/2");
     
@@ -62,7 +62,7 @@ client.on("message", async message => {
     if (command === 'info') {
         let embed = new Discord.RichEmbed()
             .setTitle("Rainbow`s Private bot")
-            .setColor('#800080')
+            .setColor('#80080')
             .setDescription(`***Rainbow's Bot - бот, который разработан на языке JavaScript \nСпециально создан для Rainbow's Server***`)
             .setFooter("Created by R𝕒i𝕟b𝕠w#1111", "https://i.imgur.com/vM67SRdh.jpg");
 
@@ -74,7 +74,7 @@ client.on("message", async message => {
         let embed = new Discord.RichEmbed()
             .setTitle('Как вам GIF-ка?')
             .setDescription("Rainbow`s Server's GIF image")
-            .setColor('#00FFFF')
+            .setColor('#80080')
             .setThumbnail("https://media.giphy.com/media/1jl6KT45wrBmlOgd83/giphy.gif")
     
              message.channel.send({embed});
@@ -90,7 +90,7 @@ client.on("message", async message => {
     if(!message.member.roles.some(r=>["SERVER ADMIN"].includes(r.name)) )
         return message.reply("У вас нет прав для выполнения данной команды");
         const embed = new Discord.RichEmbed()
-            .setColor(`#ff00ff`)
+            .setColor(`#00ff00`)
             .setTitle('Статистика')
             .setThumbnail(client.user.avatarURL);
         embed.addField('Пинг', client.ping, true);
