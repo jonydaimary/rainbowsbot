@@ -5,7 +5,7 @@ Discord - Rainbow#1111
 
 Вконтакте - https://vk.com/romanovyoutube
 
-Copyright 2018 © [Rainbow's Server](https://discord.gg/qZWdVRj)( (кликните на Rainbow`s Server, чтобы попасть на Discord сервер). Все права защищены.
+Copyright 2018 © [Rainbow's Server](https://discord.gg/qZWdVRj) (кликните на Rainbow`s Server, чтобы попасть на Discord сервер). Все права защищены.
 Нарушение авторских прав наказуемо.
 
 # Благодарность
