@@ -45,10 +45,10 @@ client.on("message", async message => {
         let arr = {'online': 'Онлайн', 'dnd': 'Не беспокоить', 'idle': 'Нет на месте', 'offline': 'Оффлайн'};
         let embed = new Discord.RichPresence()
         .setTitle("Статус пользователя")
-        .setDescription(message.channel.send(arr[user.presence.status]))
+    .setDescription(arr[user.presence.status])
         .setColor("#800080");
     
-        message .channel.send({embed});
+        message.channel.send({embed});
         }
     
     if (command === 'help') {
