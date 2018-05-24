@@ -46,9 +46,9 @@ client.on("message", async message => {
         let embed = new Discord.RichPresence()
         .setTitle("Статус пользователя")
         .setDescription(message.channel.send(arr[user.presence.status]))
-        .setColor("#800080")
+        .setColor("#800080");
     
-        message.channel.send({embed});
+        message .channel.send({embed});
         }
     
     if (command === 'help') {
