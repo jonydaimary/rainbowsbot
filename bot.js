@@ -38,6 +38,14 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
+    if (command === 'status') {
+        message.delete();
+        let user = message.mentions.users.first();
+        if (!user ) return message.channel.send('Ошибка!');
+        let arr = {'online': 'Онлайн', 'dnd': 'Не беспокоить', 'idle': 'Нет на месте', 'offline': 'Оффлайн'};
+        message.channel.send(arr.get(user.presence.status));
+        }
+    
     if (command === 'help') {
         let embed = new Discord.RichEmbed()
             .setTitle("Помощь")
