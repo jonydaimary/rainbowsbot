@@ -13,3 +13,7 @@ Copyright 2018 © [Rainbow's Server](https://discord.gg/qZWdVRj) (кликнит
 Огромное спасибо zziger`у, который помог в кодировании бота
 
 Discord - zziger#8040
+
+# Жалобы
+
+Заметили ошибку? Пишите сюда:  [Rainbow's Server](https://discord.gg/qZWdVRj)
