@@ -41,9 +41,9 @@ client.on("message", async message => {
     if (command === 'status') {
         message.delete();
         let user = message.mentions.users.first();
-        if (!user ) return message.channel.send('Ошибка!');
+    if (!user ) return message.channel.send('Ошибка!');
         let arr = {'online': 'Онлайн', 'dnd': 'Не беспокоить', 'idle': 'Нет на месте', 'offline': 'Оффлайн'};
-        message.channel.send(arr.get(user.presence.status));
+        message.channel.send(arr[user.presence.status]);
         }
     
     if (command === 'help') {
