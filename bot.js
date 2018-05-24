@@ -43,7 +43,12 @@ client.on("message", async message => {
         let user = message.mentions.users.first();
     if (!user ) return message.channel.send('Ошибка!');
         let arr = {'online': 'Онлайн', 'dnd': 'Не беспокоить', 'idle': 'Нет на месте', 'offline': 'Оффлайн'};
-        message.channel.send(arr[user.presence.status]);
+        let embed = new Discord.RichPresence()
+        .setTitle("Статус пользователя")
+        .setDescription(message.channel.send(arr[user.presence.status]))
+        .setColor("#800080")
+    
+        message.channel.send({embed});
         }
     
     if (command === 'help') {
