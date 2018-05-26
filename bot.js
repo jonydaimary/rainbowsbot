@@ -43,7 +43,7 @@ client.on("message", async message => {
     if (command === 'user') {
         message.delete();
         let member = message.mentions.members.first();
-        let createdAt = new Date(user.createdAt)
+        let createdAt = new Date(createdAt)
         if (!member) user = message.member;
         if(!message.member.roles.some(r=>["SERVER ADMIN", "Главный Модератор", "Модератор"].includes(r.name)) )
         return message.reply("У вас нет прав для выполнения данной команды");
