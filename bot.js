@@ -40,7 +40,7 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     
-    if (message.content === '/join') {
+    if (command === 'join') {
         // Only try to join the sender's voice channel if they are in one themselves
         if (message.member.voiceChannel) {
           message.member.voiceChannel.join()
