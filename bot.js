@@ -32,16 +32,33 @@ client.on('guildMemberAdd', (member) => {
 
 
 client.on("message", async message => {
- 
+ // Direct Messages - #00ff00
+ // Chat messages - #800080
+
     if(message.author.bot) return;
     if(message.content.indexOf(config.prefix) !== 0) return;
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
+    if (command === 'user') {
+        message.delete();
+        let user = message.mentions.users.first();
+        if (!user) user = message.author;
+        if(!message.member.roles.some(r=>["SERVER ADMIN", "Главный Модератор", "Модератор"].includes(r.name)) )
+        return message.reply("У вас нет прав для выполнения данной команды");
+        let embed = new Discord.RichEmbed()
+        .setTitle("User info")
+        .setColor('#800080')
+        .setDescription('Информация о пользователе: \n ${user.avatar}, \n ${user.name} \n ${user.id} ')
+        
+        message.channel.send({embed});
+
+    }
+    
     if (command === 'status') {
         message.delete();
         let user = message.mentions.users.first();
-        if (!user ) return message.channel.send('Ощипка нахуй');
+        if (!user ) return message.channel.send('Ошибка');
         let arr = {'online': 'Онлайн', 'dnd': 'Не беспокоить', 'idle': 'Нет на месте', 'offline': 'Оффлайн'};
         message.channel.send(arr[user.presence.status]);
         }
