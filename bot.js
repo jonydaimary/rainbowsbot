@@ -46,10 +46,11 @@ client.on("message", async message => {
         if (!member) user = message.member;
         if(!message.member.roles.some(r=>["SERVER ADMIN", "Главный Модератор", "Модератор"].includes(r.name)) )
         return message.reply("У вас нет прав для выполнения данной команды");
+        let arr = {'online': 'Онлайн', 'dnd': 'Не беспокоить', 'idle': 'Нет на месте', 'offline': 'Оффлайн'};
         let embed = new Discord.RichEmbed()
         .setTitle("User info")
         .setColor('#800080')
-        .setDescription(`Информация о пользователе: \n  Name: ${member.displayName} \n ID: ${member.id}`)
+        .setDescription(`Информация о пользователе: \n  Name: ${member.displayName} \n ID: ${member.id} \n Status: ${arr[member.user.presence.status]}`)
         .setThumbnail(member.user.avatarURL);
         
         message.channel.send({embed});
