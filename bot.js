@@ -42,18 +42,19 @@ client.on("message", async message => {
 
     if (command === 'user') {
         message.delete();
-        let user = message.mentions.users.first();
-        if (!user) user = message.author;
+        let member = message.mentions.members.first();
+        if (!member) user = message.member;
         if(!message.member.roles.some(r=>["SERVER ADMIN", "Главный Модератор", "Модератор"].includes(r.name)) )
         return message.reply("У вас нет прав для выполнения данной команды");
         let embed = new Discord.RichEmbed()
         .setTitle("User info")
         .setColor('#800080')
-        .setDescription(`Информация о пользователе: \n ${user.avatar}, \n ${user.name} \n ${user.id}`)
+        .setDescription(`Информация о пользователе: \n Name: ${member.displayName} \n ID: ${member.id}`)
+        .setImage(member.avatarURL);
         
         message.channel.send({embed});
-
-    }
+        
+        }
     
     if (command === 'status') {
         message.delete();
