@@ -45,7 +45,7 @@ client.on("message", async message => {
         let member = message.mentions.members.first();
         if (!member) user = message.member;
         if(!message.member.roles.some(r=>["SERVER ADMIN", "Главный Модератор", "Модератор"].includes(r.name)) )
-        return message.reply("У вас нет прав для выполнения данной команды");
+        return message.reply("у вас нет прав для выполнения данной команды");
         let arr = {'online': 'Онлайн', 'dnd': 'Не беспокоить', 'idle': 'Нет на месте', 'offline': 'Оффлайн'};
         let embed = new Discord.RichEmbed()
         .setTitle("Информация о пользователе")
@@ -115,7 +115,7 @@ client.on("message", async message => {
  
     if(command ==="stats") {
     if(!message.member.roles.some(r=>["SERVER ADMIN"].includes(r.name)) )
-        return message.reply("У вас нет прав для выполнения данной команды");
+        return message.reply("у вас нет прав для выполнения данной команды");
         const embed = new Discord.RichEmbed()
             .setColor(`#00ff00`)
             .setTitle('Статистика')
@@ -139,7 +139,7 @@ client.on("message", async message => {
  
     if (command === "kick") {
         if(!message.member.roles.some(r=>["SERVER ADMIN", "Главный Модератор", "Модератор"].includes(r.name)) )
-            return message.reply("У вас нет прав для выполнения данной команды");
+            return message.reply("у вас нет прав для выполнения данной команды");
  
         let member = message.mentions.members.first() || message.guild.members.get(args[0]);
         if(!member)
@@ -158,7 +158,7 @@ client.on("message", async message => {
  
     if(command === "ban") {
         if(!message.member.roles.some(r=>["SERVER ADMIN"].includes(r.name)) )
-            return message.reply("У вас нет прав для выполнения данной команды");
+            return message.reply("у вас нет прав для выполнения данной команды");
  
         let member = message.mentions.members.first();
         if(!member)
@@ -180,7 +180,7 @@ client.on("message", async message => {
         if(!deleteCount || deleteCount < 2 || deleteCount > 100)
             return message.reply("Укажите число от 2 до 100");
         if(!message.member.roles.some(r=>["SERVER ADMIN", "Главный Модератор", "Модератор"].includes(r.name)) )
-            return message.reply("У вас нет прав для выполнения данной команды");
+            return message.reply("у вас нет прав для выполнения данной команды");
  
         const fetched = await message.channel.fetchMessages({count: deleteCount});
         message.channel.bulkDelete(fetched)
