@@ -39,19 +39,6 @@ client.on("message", async message => {
     if(message.content.indexOf(config.prefix) !== 0) return;
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-    
-    if (command === 'join') {
-        // Only try to join the sender's voice channel if they are in one themselves
-        if (message.member.voiceChannel) {
-          message.member.voiceChannel.join()
-            .then(connection => { // Connection is an instance of VoiceConnection
-              message.reply('Я успешко подключился к каналу!');
-            })
-            .catch(console.log);
-        } else {
-          message.reply('Сначала присоединитесь к каналу!');
-        }
-      }
 
     if (command === 'user') {
         message.delete();
