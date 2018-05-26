@@ -40,6 +40,17 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
+    if (command === 'link') {
+    let embed = new Discord.RichEmbed()
+    .setAuthor("R𝕒i𝕟b𝕠w#1111", "https://i.imgur.com/vM67SRdh.jpg")
+    .setTitle('Ссылка-приглашение на Rainbow`s Server')
+    .setDescription('https://discord.gg/qZWdVRj')
+    .setColor('#800080')
+    .setFooter('𝓡𝓪𝓲𝓷𝓫𝓸𝔀`𝓼 𝓢𝓮𝓻𝓿𝓮𝓻 🌈');
+
+    member.send({embed})
+    }
+    
     if (command === 'user') {
         message.delete();
         let member = message.mentions.members.first();
