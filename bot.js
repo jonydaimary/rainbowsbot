@@ -50,7 +50,7 @@ client.on("message", async message => {
         let embed = new Discord.RichEmbed()
         .setTitle("Информация о пользователе")
         .setColor('#800080')
-        .setDescription(`Name: ${member.displayName} \n ID: <${member.id}> \n Status: ${arr[member.user.presence.status]}`)
+        .setDescription(`Name: ${member.displayName} ${user.tag} \n ID: <@${member.id}> \n Created: ${user.createdAt} \n Last message: ${user.lastMessage} \n Status: ${arr[member.user.presence.status]}`)
         .setThumbnail(member.user.avatarURL);
         
         message.channel.send({embed});
