@@ -42,11 +42,10 @@ client.on("message", async message => {
 
     if (command === 'link') {
     let embed = new Discord.RichEmbed()
-    .setTitle('Ссылка-приглашение на Rainbow`s Server')
+    .setTitle('Ссылка-приглашение для Rainbow`s Server')
     .setDescription('https://discord.gg/qZWdVRj')
-    .setColor('#800080')
-    .setFooter("R𝕒i𝕟b𝕠w#1111", "https://i.imgur.com/vM67SRdh.jpg");
-
+    .setColor('#800080');
+    
         message.channel.send({embed})
     }
     
