@@ -40,6 +40,12 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
+    if (command === tts) {
+        message.delete();
+        message.channel.send('Hi')
+
+    }
+    
     if (command === 'user') {
         message.delete();
         let member = message.mentions.members.first();
