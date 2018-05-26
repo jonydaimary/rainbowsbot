@@ -48,7 +48,7 @@ client.on("message", async message => {
     .setColor('#800080')
     .setFooter('𝓡𝓪𝓲𝓷𝓫𝓸𝔀`𝓼 𝓢𝓮𝓻𝓿𝓮𝓻 🌈');
 
-        message.send({embed})
+        message.channel.send({embed})
     }
     
     if (command === 'user') {
