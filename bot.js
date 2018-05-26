@@ -43,7 +43,6 @@ client.on("message", async message => {
     if (command === 'user') {
         message.delete();
         let member = message.mentions.members.first();
-        let createdAt = new Date(createdAt)
         if (!member) user = message.member;
         if(!message.member.roles.some(r=>["SERVER ADMIN", "Главный Модератор", "Модератор"].includes(r.name)) )
         return message.reply("У вас нет прав для выполнения данной команды");
@@ -51,7 +50,7 @@ client.on("message", async message => {
         let embed = new Discord.RichEmbed()
         .setTitle("Информация о пользователе")
         .setColor('#800080')
-        .setDescription(`**Name**: ${member.displayName} \n**ID**: ${member.id} \n **Created at**: ${user.createdAt} \n**Status**: ${arr[member.user.presence.status]}`)
+        .setDescription(`**Name**: ${member.displayName} \n**ID**: ${member.id} \n**Status**: ${arr[member.user.presence.status]}`)
         .setThumbnail(member.user.avatarURL);
         
         message.channel.send({embed});
