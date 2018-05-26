@@ -40,7 +40,7 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    if (command === tts) {
+    if (command === 'tts') {
         message.delete();
         message.channel.send('Hi')
 
