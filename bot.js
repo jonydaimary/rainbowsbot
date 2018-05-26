@@ -48,9 +48,9 @@ client.on("message", async message => {
         return message.reply("У вас нет прав для выполнения данной команды");
         let arr = {'online': 'Онлайн', 'dnd': 'Не беспокоить', 'idle': 'Нет на месте', 'offline': 'Оффлайн'};
         let embed = new Discord.RichEmbed()
-        .setTitle("User info")
+        .setTitle("Информация о пользователе")
         .setColor('#800080')
-        .setDescription(`Информация о пользователе: \n  Name: ${member.displayName} \n ID: ${member.id} \n Status: ${arr[member.user.presence.status]}`)
+        .setDescription(`Name: ${member.displayName} \n ID: <${member.id}> \n Status: ${arr[member.user.presence.status]}`)
         .setThumbnail(member.user.avatarURL);
         
         message.channel.send({embed});
