@@ -57,7 +57,7 @@ client.on("message", async message => {
         .addField('Muwwka', 'Главный модератор')
         .addField('Sharfik', 'Главный модератор')
         .addField('Aksi', 'Модератор')
-        .setThumbnail(`https://media.giphy.com/media/1Q9CsjzWyt2qVzM0GH/giphy.gif`)
+        .setThumbnail(`https://media.giphy.com/media/uBdswgAPEq3tTCrUH6/giphy.gif`)
         .setColor('#800080');
     
             message.channel.send({embed})
