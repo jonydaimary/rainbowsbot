@@ -40,6 +40,18 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
+    if (command === 'playlists', 'playlist', 'music', 'музыка') {
+    let embed = new Discord.RichEmbed()
+    .setTitle('Ссылки на музыкальные плейлисты')
+    .addField('Monstercat', `https://www.youtube.com/playlist?list=PLe8jmEHFkvsaDOOWcREvkgFoj6MD0pQ67`)
+    .addField('DubstepGutter', `https://www.youtube.com/watch?v=HD3BbsFR0Kk&list=PLAL-r3tHdQs0-7uaF76kAyhZCVpy-3k2v`)
+    .addField('Proximity', `https://www.youtube.com/watch?v=PJRj2rIQEF4&list=PL3osQJLUr9gJC2gv-uC2IB8xuFfbWamag\n https://www.youtube.com/watch?v=SMs0GnYze34&list=PL3osQJLUr9gJBEBihy6C6x3fiRec_PtQK`)
+    .addField('TrapNation', `https://www.youtube.com/watch?v=pxR2A7NApYI&list=PLC1og_v3eb4jJtActnUFBXYrTbr7oF6N-`)
+    .setColor('#800080');
+    
+        message.channel.send({embed})
+    }
+    
     if (command === 'link') {
     let embed = new Discord.RichEmbed()
     .setTitle('Ссылка-приглашение для Rainbow`s Server')
