@@ -31,12 +31,6 @@ client.on('guildMemberAdd', (member) => {
     
 })
 
-client.on("guildMemberAdd", guild => {
-    console.log(`К серверу присоединился (id: ${member.id}`);
-    
-});
-
-
 client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
@@ -55,6 +49,15 @@ client.on("message", async message => {
         message.channel.send({embed})
     }
     
+    if (command === 'staff') {
+        let embed = new Discord.RichEmbed()
+        .setTitle('Персонал сервера')
+        .setDescription('**RA1NBOW** - главный администратор, владелец сервер \n**Фрейзен** - главный администратор \n**Muwwka** - главный модератор \n**Sharfik** - главный модератор \n**Aksi** - модератор')
+        .setColor('#800080');
+    
+            message.channel.send({embed})
+        }
+
     if (command === 'user') {
         message.delete();
         let member = message.mentions.members.first();
@@ -84,7 +87,7 @@ client.on("message", async message => {
         let embed = new Discord.RichEmbed()
             .setTitle("Помощь")
             .setColor('#800080')
-            .setDescription(`Информация о командах \n \n **• help** - команда, которая вызывает перечень команд бота \n **• ban** - команда, которая банит игрока на сервере \n **•kick** - команда, которая выгоняет игрока с сервера \n **• gif** - команда, которая отправляет Gif-изображение сервера \n **• user** - команда, которая показывает основную информацию о пользователе.\n \n **Для просмотра второй страницы введите rb!help2**`)
+            .setDescription(`Информация о командах \n \n **• help** - команда, которая вызывает перечень команд бота \n **• ban** - команда, которая банит игрока на сервере \n **•kick** - команда, которая выгоняет игрока с сервера \n **• gif** - команда, которая отправляет Gif-изображение сервера \n **• user** - команда, которая показывает основную информацию о пользователе \n **• staff** - команда, которая показывает персонал сервера \n \n **Для просмотра второй страницы введите rb!help2**`)
             .setFooter("Страница 1/2");
 
             message.channel.send({embed});
