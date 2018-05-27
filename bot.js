@@ -53,15 +53,11 @@ client.on("message", async message => {
         let embed = new Discord.RichEmbed()
         .setTitle('Персонал сервера')
         .addField('RA1NBOW', 'Главный администратор, владелец сервера')
-        .setThumbnail(`https://imgur.com/gallery/tKMrc2O`)
         .addField('Фрейзен', 'Главный администратор')
-        .setThumbnail(`https://imgur.com/a/6QebZyW`)
         .addField('Muwwka', 'Главный модератор')
-        .setThumbnail(`https://imgur.com/a/TZPAIdC`)
         .addField('Sharfik', 'Главный модератор')
-        .setThumbnail(`https://imgur.com/a/QWA2AzH`)
         .addField('Aksi', 'Модератор')
-        .setThumbnail(`https://imgur.com/a/F7eqPSS`)
+        .setThumbnail(`https://media.giphy.com/media/1Q9CsjzWyt2qVzM0GH/giphy.gif`)
         .setColor('#800080');
     
             message.channel.send({embed})
