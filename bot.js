@@ -52,7 +52,16 @@ client.on("message", async message => {
     if (command === 'staff') {
         let embed = new Discord.RichEmbed()
         .setTitle('Персонал сервера')
-        .setDescription('**RA1NBOW** - главный администратор, владелец сервер \n**Фрейзен** - главный администратор \n**Muwwka** - главный модератор \n**Sharfik** - главный модератор \n**Aksi** - модератор')
+        .addField('RA1NBOW - главный администратор, владелец сервера')
+        .addThumbnail('https://imgur.com/gallery/tKMrc2O')
+        .addField('Фрейзен - главный администратор')
+        .addThumbnail('https://imgur.com/a/6QebZyW')
+        .addField('Muwwka - главный модератор')
+        .addThumbnail('https://imgur.com/a/TZPAIdC')
+        .addField('Sharfik - главный модератор')
+        .addThumbnail('https://imgur.com/a/QWA2AzH')
+        .addField('Aksi - модератор')
+        .addThumbnail('https://imgur.com/a/F7eqPSS')
         .setColor('#800080');
     
             message.channel.send({embed})
@@ -87,7 +96,7 @@ client.on("message", async message => {
         let embed = new Discord.RichEmbed()
             .setTitle("Помощь")
             .setColor('#800080')
-            .setDescription(`Информация о командах \n \n **• help** - команда, которая вызывает перечень команд бота \n **• ban** - команда, которая банит игрока на сервере \n **•kick** - команда, которая выгоняет игрока с сервера \n **• gif** - команда, которая отправляет Gif-изображение сервера \n **• user** - команда, которая показывает основную информацию о пользователе \n **• staff** - команда, которая показывает персонал сервера \n \n **Для просмотра второй страницы введите rb!help2**`)
+            .setDescription(`Информация о командах \n \n **• help** - команда, которая вызывает перечень команд бота \n **• ban** - команда, которая банит игрока на сервере \n **•kick** - команда, которая выгоняет игрока с сервера \n **• gif** - команда, которая отправляет GIF-изображение сервера \n **• user** - команда, которая показывает основную информацию о пользователе \n **• staff** - команда, которая показывает персонал сервера \n \n **Для просмотра второй страницы введите rb!help2**`)
             .setFooter("Страница 1/2");
 
             message.channel.send({embed});
