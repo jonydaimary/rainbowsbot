@@ -40,7 +40,7 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    if (command === 'playlists', 'playlist', 'music', 'музыка') {
+    if (command === 'playlist') {
     let embed = new Discord.RichEmbed()
     .setTitle('Ссылки на музыкальные плейлисты')
     .addField('Monstercat', `https://www.youtube.com/playlist?list=PLe8jmEHFkvsaDOOWcREvkgFoj6MD0pQ67`)
