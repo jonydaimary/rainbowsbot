@@ -52,11 +52,11 @@ client.on("message", async message => {
     if (command === 'staff') {
         let embed = new Discord.RichEmbed()
         .setTitle('Персонал сервера')
-        .addField('RA1NBOW', 'Главный администратор, владелец сервера')
-        .addField('Фрейзен', 'Главный администратор')
-        .addField('Muwwka', 'Главный модератор')
-        .addField('Sharfik', 'Главный модератор')
-        .addField('Aksi', 'Модератор')
+        .addField('<@340171098874183680>', 'Главный администратор, владелец сервера')
+        .addField('<@337113655839555584>', 'Главный администратор')
+        .addField('<@305408196078600192>', 'Главный модератор')
+        .addField('<@291277208431886356>', 'Главный модератор')
+        .addField('<@392738552225464325>', 'Модератор')
         .setThumbnail(`https://media.giphy.com/media/1Q9CsjzWyt2qVzM0GH/giphy.gif`)
         .setColor('#800080');
     
