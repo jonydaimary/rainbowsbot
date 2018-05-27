@@ -26,20 +26,15 @@ client.on('guildMemberAdd', (member) => {
     .addField('Информация о сервере', `Основной аудиторией которого являются игроки абсолютно всех жанров игр. На сервере всегда можно поискать напарника по другим игровым дисциплинам.\n Обязательно прочитай <#390193321315926017>. \n **Мы рады, что ты зашел к нам** \n По вопросам обращайся к SERVER ADMIN, Главному модератору или Модератору`)
     .setColor('00ff00')
     .setFooter('Rainbow`s server 🌈 Welcome!');
-   
-    member.send({embed})
-});
+    
+    message.channel.send({embed});
+    
+})
 
-client.on('guildMemberAdd', (guild) => {
-    let embed = new Discord.RichEmbed()
-    .setTitle('Новый участник')
-    .setDescription(`К серверу присоединился ${member.name}!`)
-    .setColor('800080')
-    .setFooter('Rainbow`s server 🌈 Welcome!');
-   
-    member.send({embed})
+client.on("guildMemberAdd", guild => {
+    console.log(`К серверу присоединился (id: ${member.id}`);
+    
 });
-
 
 
 client.on("message", async message => {
