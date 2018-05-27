@@ -52,15 +52,15 @@ client.on("message", async message => {
     if (command === 'staff') {
         let embed = new Discord.RichEmbed()
         .setTitle('Персонал сервера')
-        .addField('RA1NBOW - главный администратор, владелец сервера')
+        .addField('RA1NBOW', 'Главный администратор, владелец сервера')
         .setThumbnail(`https://imgur.com/gallery/tKMrc2O`)
-        .addField('Фрейзен - главный администратор')
+        .addField('Фрейзен', 'Главный администратор')
         .setThumbnail(`https://imgur.com/a/6QebZyW`)
-        .addField('Muwwka - главный модератор')
+        .addField('Muwwka', 'Главный модератор')
         .setThumbnail(`https://imgur.com/a/TZPAIdC`)
-        .addField('Sharfik - главный модератор')
+        .addField('Sharfik', 'Главный модератор')
         .setThumbnail(`https://imgur.com/a/QWA2AzH`)
-        .addField('Aksi - модератор')
+        .addField('Aksi', 'Модератор')
         .setThumbnail(`https://imgur.com/a/F7eqPSS`)
         .setColor('#800080');
     
