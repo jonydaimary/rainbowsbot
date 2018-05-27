@@ -30,6 +30,17 @@ client.on('guildMemberAdd', (member) => {
     member.send({embed})
 });
 
+client.on('guildMemberAdd', (guild) => {
+    let embed = new Discord.RichEmbed()
+    .setTitle('Новый участник')
+    .setDescription(`К серверу присоединился ${member.name}!`)
+    .setColor('800080')
+    .setFooter('Rainbow`s server 🌈 Welcome!');
+   
+    member.send({embed})
+});
+
+
 
 client.on("message", async message => {
  // Direct Messages - #00ff00
