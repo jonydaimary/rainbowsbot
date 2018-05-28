@@ -37,9 +37,9 @@ client.on('guildMemberAdd', (member) => {
     .setDescription(`К серверу присоединился ${member.user.tag}, `)
     .setColor('#800080')
     .setFooter(`Rainbow's server 🌈 Welcome!`)
-    .setThumbnail(member.user.avatarURL);
+    .setThumbnail(`https://media.giphy.com/media/dIL9AEkMQel0QLIjRR/giphy.gif`);
     
-    client.channels.get('400010351518941195').send({embed});
+    client.channels.get('400010351518941195', '357086268234137610').send({embed});
     
 })
 
@@ -49,7 +49,6 @@ client.on('guildMemberRemove', (member) => {
     .setDescription(`С сервера ушел ${member.user.tag}`)
     .setColor('#800080')
     .setFooter(`Rainbow's server 🌈 Welcome!`)
-    .setThumbnail(member.user.avatarURL);
     
     client.channels.get('400010351518941195').send({embed});
     
