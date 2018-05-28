@@ -27,7 +27,7 @@ client.on('guildMemberAdd', (member) => {
     .setColor('00ff00')
     .setFooter('Rainbow`s server 🌈 Welcome!');
     
-    channel.send({embed});
+    member.send({embed});
     
 })
 
