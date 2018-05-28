@@ -39,7 +39,8 @@ client.on('guildMemberAdd', (member) => {
     .setFooter(`Rainbow's server 🌈 Welcome!`)
     .setThumbnail(`https://media.giphy.com/media/dIL9AEkMQel0QLIjRR/giphy.gif`);
     
-    client.channels.get('400010351518941195', '357086268234137610').send({embed});
+    client.channels.get('400010351518941195').send({embed});
+    client.channels.get('357086268234137610').send({embed});
     
 })
 
