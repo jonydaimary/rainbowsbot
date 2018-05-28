@@ -33,12 +33,12 @@ client.on('guildMemberAdd', (member) => {
 
 client.on('guildMemberAdd', (member) => {
     let embed = new Discord.RichEmbed()
-    .setTitle('Новый участник сервера')
-    .setDescription(`К серверу присоединлся ${member.user.tag}`)
-    .setColor('#80080')
+    .setTitle(`Новый участник сервера`)
+    .setDescription(`К серверу присоединился ${member.user.tag}`)
+    .setColor('#800080')
     .setFooter(`Rainbow's server 🌈 Welcome!`)
     
-    client.channels.get('айди').send({embed});
+    client.channels.get('400010351518941195').send({embed});
     
 })
 
