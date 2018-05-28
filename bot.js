@@ -31,6 +31,17 @@ client.on('guildMemberAdd', (member) => {
     
 })
 
+client.on('guildMemberAdd', (member) => {
+    let embed = new Discord.RichEmbed()
+    .setTitle('Новый участник сервера')
+    .setDescription(`К серверу присоединлся ${member.user.tag}`)
+    .setColor('#80080')
+    .setFooter(`Rainbow's server 🌈 Welcome!`)
+    
+    client.channels.get('айди').send({embed});
+    
+})
+
 client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
