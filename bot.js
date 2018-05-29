@@ -196,7 +196,7 @@ client.on("message", async message => {
     }
  
     if (command === "kick") {
-        if(!message.member.roles.some(r=>["SERVER ADMIN", "Главный Модератор", "Модератор"].includes(r.name)) )
+        if(!message.member.roles.some(r=>["Главный Администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
             return message.reply("у вас нет прав для выполнения данной команды");
  
         let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -215,7 +215,7 @@ client.on("message", async message => {
     }
  
     if(command === "ban") {
-        if(!message.member.roles.some(r=>["SERVER ADMIN"].includes(r.name)) )
+        if(!message.member.roles.some(r=>["Главный Администратор"].includes(r.name)) )
             return message.reply("у вас нет прав для выполнения данной команды");
  
         let member = message.mentions.members.first();
