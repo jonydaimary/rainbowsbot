@@ -55,6 +55,12 @@ client.on('guildMemberRemove', (member) => {
     
 })
 
+let mtch = match.match(/discord(app\.com|\.gg|\.me|\.io)\/?(invite\/)?([_a-zA-Z0-9]{5,32})/i);
+     if (!arr.includes(mtch[3])) {
+     message.member.kick('Ссылка-приглашение')
+            
+     }
+
 client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
