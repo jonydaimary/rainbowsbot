@@ -172,7 +172,7 @@ client.on("message", async message => {
     }
  
     if(command ==="stats") {
-    if(!message.member.roles.some(r=>["Главный администратор"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Главный Администратор"].includes(r.name)) )
         return message.reply("у вас нет прав для выполнения данной команды");
         const embed = new Discord.RichEmbed()
             .setColor(`#00ff00`)
