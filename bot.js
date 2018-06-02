@@ -49,7 +49,7 @@ client.on('guildMemberRemove', (member) => {
     .setTitle(`Участник покинул сервер`)
     .setDescription(`С сервера ушел ${member.user.tag}`)
     .setColor('#800080')
-    .setFooter(`Rainbow's server 🌈 Welcome!`)
+    .setFooter(`Rainbow's server 🌈 Goodbye!`)
     
     client.channels.get('400010351518941195').send({embed});
     
@@ -102,7 +102,7 @@ client.on("message", async message => {
         message.delete();
         let member = message.mentions.members.first();
         if (!member) user = message.member;
-        if(!message.member.roles.some(r=>["Главный администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
+        if(!message.member.roles.some(r=>["Главный Администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
         return message.reply("у вас нет прав для выполнения данной команды");
         let arr = {'online': 'Онлайн', 'dnd': 'Не беспокоить', 'idle': 'Нет на месте', 'offline': 'Оффлайн'};
         let embed = new Discord.RichEmbed()
