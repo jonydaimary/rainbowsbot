@@ -74,6 +74,17 @@ client.on("message", async message => {
         
             message.channel.send({embed})
         }
+        
+    if (command === 'premium') {
+        let embed = new Discord.RichEmbed()
+        .setTitle('Платная роль "PREMIUM"')
+        .setDescription(`**Перед покупкой оповестить <@340171098874183680>**`)
+        .addField(`**Цена**`,`100₽`)
+        .addField(`Оплата`, `http://www.donationalerts.ru/r/rainbows_server`)
+        .setColor('#800080');
+            
+            message.channel.send({embed})
+        }
 
     if (command === 'playlist') {
     let embed = new Discord.RichEmbed()
