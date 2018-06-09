@@ -67,14 +67,14 @@ client.on("message", async message => {
     if (command === 'vip') {
         let embed = new Discord.RichEmbed()
         .setTitle('Платная роль "VIP"')
-        .setDescription(`Описание платной роли`)
-        .addField(`**Цена** - 50₽\n**Перед покупкой необходимо оповестить <@340171098874183680>`)
-        .addField('Покупка', `http://www.donationalerts.ru/r/rainbows_server`)
+        .setDescription(`**Перед покупкой оповестить <@340171098874183680>**`)
+        .addField(`**Цена**`,`50₽`)
+        .addField(`Оплата`, `http://www.donationalerts.ru/r/rainbows_server`)
         .setColor('#800080');
         
             message.channel.send({embed})
         }
-    
+
     if (command === 'playlist') {
     let embed = new Discord.RichEmbed()
     .setTitle('Ссылки на музыкальные плейлисты')
