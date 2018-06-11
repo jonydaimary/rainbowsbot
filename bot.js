@@ -124,8 +124,6 @@ client.on("message", async message => {
         message.delete();
         let member = message.mentions.members.first();
         if (!member) user = message.member;
-        if(!message.member.roles.some(r=>["Главный Администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
-        return message.reply("у вас нет прав для выполнения данной команды");
         let arr = {'online': 'Онлайн', 'dnd': 'Не беспокоить', 'idle': 'Нет на месте', 'offline': 'Оффлайн'};
         let embed = new Discord.RichEmbed()
         .setTitle("Информация о пользователе")
@@ -149,7 +147,7 @@ client.on("message", async message => {
         let embed = new Discord.RichEmbed()
             .setTitle("Помощь")
             .setColor('#800080')
-            .setDescription(`Информация о командах \n\n**   rb!** - префикс бота\n **• vip** - команда для покупки VIP\n **• premium** - команда для покупки PREMIUM\n **• help** - команда, которая вызывает перечень команд бота \n **• gif** - команда, которая отправляет GIF-изображение сервера \n **• user** - команда, которая показывает основную информацию о пользователе \n **• staff** - команда, которая показывает персонал сервера \n \n **Для просмотра второй страницы введите rb!help2**`)
+            .setDescription(`Информация о командах \n\n**   rb!** - префикс бота\n\n **• vip** - команда для покупки VIP\n **• premium** - команда для покупки PREMIUM\n **• help** - команда, которая вызывает перечень команд бота \n **• gif** - команда, которая отправляет GIF-изображение сервера \n **• user** - команда, которая показывает основную информацию о пользователе \n **• staff** - команда, которая показывает персонал сервера \n \n **Для просмотра второй страницы введите rb!help2**`)
             .setFooter("Страница 1/2");
 
             message.channel.send({embed});
