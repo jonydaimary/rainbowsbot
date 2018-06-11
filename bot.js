@@ -64,6 +64,13 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
+if(command === `typing`) {
+    message.channel.startTyping()
+    message.channel.send(`Test`);
+
+
+}
+    
     if (command === 'vip') {
         let embed = new Discord.RichEmbed()
         .setTitle('Платная роль "VIP"')
