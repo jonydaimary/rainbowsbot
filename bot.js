@@ -66,8 +66,6 @@ client.on("message", async message => {
 
 if(command === `typing`) {
     message.channel.startTyping()
-    message.channel.send(`Test`);
-
 
 }
     
