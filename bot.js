@@ -57,6 +57,7 @@ client.on('guildMemberRemove', (member) => {
 })
 
 client.on("message", async message => {
+    
  // Direct Messages - #00ff00
  // Chat messages - #800080
 
@@ -112,9 +113,8 @@ client.on("message", async message => {
         let embed = new Discord.RichEmbed()
         .setTitle('Персонал сервера')
         .addField('Главный администратор, владелец сервера:', '<@340171098874183680>')
-        .addField('Главный администратор:', '<@337113655839555584>')
-        .addField('Главные модераторы:', '<@305408196078600192>\n<@291277208431886356>')
-        .addField('Модераторы:', '<@392738552225464325>')
+        .addField('Главный администратор','<@305408196078600192>')
+        .addField('Главные модераторы:', '\n<@291277208431886356>\n<@392738552225464325>')
         .setThumbnail(`https://media.giphy.com/media/1Q9CsjzWyt2qVzM0GH/giphy.gif`)
         .setColor('#800080');
     
