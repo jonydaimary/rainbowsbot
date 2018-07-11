@@ -71,7 +71,7 @@ client.on("message", async message => {
         .addField(`ДОБРО ПОЖАЛОВАТЬ`, `Перед тем, как начать общение на нашем севере, ознакомьтесь с основной информацией`)
         .setFooter(`Администрация | 11.07.2018`)
         .setColor(`#800080`)
-        .setThumbnail(`https://imgur.com/a/RNFgaoN`);
+        .setThumbnail(`https://imgur.com/r1yKCSM`);
 
         message.channel.send({embed})
         }
