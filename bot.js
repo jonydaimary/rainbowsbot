@@ -173,7 +173,7 @@ client.on("message", async message => {
         message.delete();
         let embed = new Discord.RichEmbed()
         .addField(`РЕКВЕЗИТЫ ОПЛАТЫ`, `**QIWI КОШЕЛЁК**\nhttps://qiwi.me/rbserver\n**ЯНДЕКС.ДЕНЬГИ**\n410013536900031`)
-        .setThumbnail(`Логотип Qiwi`)
+        .setThumbnail(`https://corp.qiwi.com/dam/jcr:fbce4856-723e-44a2-a54f-e7b164785f01/qiwi_sign_rgb.png`)
         .setColor(`#800080`);
          
         message.channel.send({embed})
