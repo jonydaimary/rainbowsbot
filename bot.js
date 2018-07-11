@@ -89,7 +89,7 @@ client.on("message", async message => {
 
     if (command === 'c') {
         let embed = new Discord.RichEmbed()
-        .addField(`О НОВИЧКАХ`,'У каждого есть роль <@357128316735586305>. Она выдаётся при подключении к серверу. Новичок не имеет никаких особых прав и привилегий на сервере')
+        .addField(`О НОВИЧКАХ`,'У каждого есть роль <@Новичок>. Она выдаётся при подключении к серверу. Новичок не имеет никаких особых прав и привилегий на сервере')
         .setColor(`#800080`)
         .setFooter(`Администрация | 11.07.2018`);
         
@@ -99,7 +99,7 @@ client.on("message", async message => {
     if (command === 'vip') {
         let embed = new Discord.RichEmbed()
         .setTitle('Платная роль "VIP"')
-        .setDescription(`**Перед покупкой оповестить <@&357128316735586305>**`)
+        .setDescription(`**Перед покупкой оповестить <@340171098874183680>**`)
         .addField(`**Цена**`,`50₽`)
         .addField(`Оплата`, `http://www.donationalerts.ru/r/rainbows_server`)
         .setColor('#800080');
