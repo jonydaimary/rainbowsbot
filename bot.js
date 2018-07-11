@@ -81,7 +81,7 @@ client.on("message", async message => {
         message.delete();
         let embed = new Discord.RichEmbed()
         .addField(`ПОСТОЯННАЯ ССЫЛКА НА СЕРВЕР`, `https://discord.gg/qZWdVRj`)
-        .addField(`• donationallerts`, `http://www.donationalerts.ru/r/rainbows_server`)
+        .addField(`• donationallerts`, `http://www.donationalerts.ru/r/rainbows_server\n**• qiwi**\nhttps://qiwi.me/rbserver`)
         .setThumbnail(`https://imgur.com/r1yKCSM`)
         .setColor(`#800080`)
         .setFooter(`Администрация | 11.07.2018`);
@@ -98,7 +98,87 @@ client.on("message", async message => {
         
         message.channel.send({embed})
         }
+
+    if (command === 'd') {
+        message.delete();
+        let embed = new Discord.RichEmbed()
+        .addField(`РОЛИ СЕРВЕРА`, `**Главный администратор** является главным на сервере. Он следит, чтобы персонал выполнял свои обязанности и отвечает за рекламу сервера\n\nЕсли вы встретили нарушителя вы можете пожаловаться на него персоналу с ролями **Главный модератор** и **Модератор**\n\n**Помощник** - это человек, отвечающий на все вопросы участников **в специальном текстовом канале**\n\n\n\nЕсли вы долгое время на сервере и персонал вам доверяет, Вы можете получить роль **Проверенный участник** Она выдаётся по желанию администрации\n\nРоль **Кодер** выдаётся участникам, умеющих программировать на различных языках`)
+        .setColor(`#800080`)
+        .setFooter(`Администрация | 11.07.2018`);  
+        message.channel.send({embed})
+    }
+
+    if (command === 'e') {
+        message.delete();
+        let embed = new Discord.RichEmbed()
+        .addField(`ПАРТНЁРСТВО`, `На нашем сервере предусмотрен обмен партнерскими ссылками. Вы должны сообщить **Главному администратору** о том, что вы хотите стать партнёром. Если вашу заявку примут, Вам скажут о дальнейших действиях\n**РАЗМЕЩЕНИЕ ПАРТНЁРСКИХ ССЫЛОК БЕЗ СОГЛАСИЯ АДМИНИСТРАЦИИ ЗАПРЕЩЕНО**\n\n**ТРЕБОВАНИЯ ДЛЯ ПАРТНЕРОВ**\n\n• На Вашем сервере должно быть не менее 70 участников (не считая ботов)\n• На Вашем сервере должен присутствовать актив (должно происходить общение)\n• Вы должны разместить наш партнёрский текст на своём сервере`)
+        .setColor(`#800080`)
+        .setFooter(`Администрация | 11.07.2018`);
+        
+        message.channel.send({embed})
+        }
+
+    if (command === 'f') {
+        message.delete();
+        let embed = new Discord.RichEmbed()
+        .addField(`ТЕКСТОВЫЕ КАНАЛЫ`, `#информация - канал, в котором представлена **основная информация**\n#правила - канал, в котором написаны **правила**\n#партнеры - канал для обмена **партнерскими ссылками**\n#события - канал для публикации **новостей** на сервере\n#chat - основной **чат** сервера\n#bots - канал для использования **ботов** \n#colors - канал для изменения **цвета**\n#support-chat - канал, в котором Вы можете посмотреть задать свои вопросы\n#achievements - канал для информации о **достижениях**\n#java - канал тематики языка Java\n#java-script - канал тематики языка JavaScript\n#python - канал тематики языка Python\n#php - канал тематики языка PHP`)
+        .setColor(`#800080`)
+        .setFooter(`Администрация | 11.07.2018`);
+
+            
+        message.channel.send({embed})
+        }
+        
+    if (command === 'g') {
+        message.delete();
+        let embed = new Discord.RichEmbed()
+        .addField(`СИСТЕМА ВАРНОВ`, `**WARN** - предупреждение\nУ каждого участника есть право получить 3 варна. Они выдаются за нарушение правил. Администрация в праве кикать/понижать в должности при накоплении трёх варнов`)
+        .setColor(`#800080`)
+        .setFooter(`Администрация | 11.07.2018`);
     
+        message.channel.send({embed})
+        }
+
+    if (command === 'h') {
+        message.delete();
+        let embed = new Discord.RichEmbed()
+        .addField(`СИСТЕМА ОПЫТА`, `По мере получения новых уровней Вы можете получить роли, с более полезными правами\n\nНиже представлены требования для получения ролей\n\n[требования]\n\nУровень можно повысить проявляя активность в чате. Для того, чтобы избежать спама, бот засчитывает только одно сообщение в минуту. При получении уровня бот отправляет Вам в ват сообщение об этом`)
+        .setColor(`#800080`)
+        .setFooter(`Администрация | 11.07.2018`);
+
+        
+        message.channel.send({embed})
+        }
+
+    if (command === 'i') {
+         message.delete();
+        let embed = new Discord.RichEmbed()
+        .addField(`ВИДЫ ФИНАНСОВОЙ ПОДДЕРЖКИ`, `Вы можете поддержать нас. Все деньги пойдут на улучшение и развитие сервере`)
+        .setColor(`#800080`);
+      
+        message.channel.send({embed})
+        }
+
+    if (command === 'j') {
+        message.delete();
+        let embed = new Discord.RichEmbed()
+        .addField(`ДОНАТ`, `**DONATE** - пожертвование\nВы можете пожертвовать некоторую сумму нашему серверу. При пожертвовании от **50₽** вы получаете роль @VIP . При пожертвовании от **100₽** вы получаете роль @PREMIUM\nВсе деньги идут на развитие сервере`)
+        .setColor(`#800080`)
+        .setFooter(`Администрация | 11.08.2018`)
+         
+        message.channel.send({embed})
+    }
+
+    if (command === 'k') {
+        message.delete();
+        let embed = new Discord.RichEmbed()
+        .addField(`РЕКВЕЗИТЫ ОПЛАТЫ`, `**QIWI КОШЕЛЁК**\nhttps://qiwi.me/rbserver\n**ЯНДЕКС.ДЕНЬГИ**\n410013536900031`)
+        .setThumbnail(`Логотип Qiwi`)
+        .setColor(`#800080`);
+         
+        message.channel.send({embed})
+    }
+
     if (command === 'vip') {
         let embed = new Discord.RichEmbed()
         .setTitle('Платная роль "VIP"')
