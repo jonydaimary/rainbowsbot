@@ -71,7 +71,7 @@ client.on("message", async message => {
         .addField(`ДОБРО ПОЖАЛОВАТЬ`, `Перед тем, как начать общение на нашем севере, ознакомьтесь с основной информацией`)
         .setFooter(`Администрация | 11.07.2018`)
         .setColor(`#800080`)
-        .setThumbnail(`https://imgur.com/r1yKCSM`);
+        .setThumbnail(`https://i.imgur.com/r1yKCSM.jpg`);
 
         message.channel.send({embed})
         }
@@ -79,7 +79,7 @@ client.on("message", async message => {
     if (command === 'b') {
         let embed = new Discord.RichEmbed()
         .addField(`ПОСТОЯННАЯ ССЫЛКА НА СЕРВЕР`, `https://discord.gg/qZWdVRj`)
-        .addField(`**• donationallerts`, `http://www.donationalerts.ru/r/rainbows_server`)
+        .addField(`• donationallerts`, `http://www.donationalerts.ru/r/rainbows_server`)
         .setThumbnail(`https://imgur.com/r1yKCSM`)
         .setColor(`#800080`)
         .setFooter(`Администрация | 11.07.2018`);
@@ -89,7 +89,7 @@ client.on("message", async message => {
 
     if (command === 'c') {
         let embed = new Discord.RichEmbed()
-        .addField(`О НОВИЧКАХ, У каждого есть роль <@357128316735586305>. Она выдаётся при подключении к серверу. Новичок не имеет никаких особых прав и привилегий на сервере`)
+        .addField(`О НОВИЧКАХ`,'У каждого есть роль <@357128316735586305>. Она выдаётся при подключении к серверу. Новичок не имеет никаких особых прав и привилегий на сервере')
         .setColor(`#800080`)
         .setFooter(`Администрация | 11.07.2018`);
         
