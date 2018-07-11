@@ -65,6 +65,16 @@ client.on("message", async message => {
     if(message.content.indexOf(config.prefix) !== 0) return;
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
+
+    if (command === 'a') {
+        let embed = new Discord.RichEmbed()
+        .addField(`ДОБРО ПОЖАЛОВАТЬ`, `Перед тем, как начать общение на нашем севере, ознакомьтесь с основной информацией`)
+        .setFooter(`Администрация | 11.07.2018`)
+        .setColor(`#800080`)
+        .setThumbnail(`[Аватарка сервера]`)
+
+        message.channel.send({embed})
+        }
     
     if (command === 'vip') {
         let embed = new Discord.RichEmbed()
