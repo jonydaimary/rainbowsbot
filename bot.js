@@ -78,8 +78,21 @@ client.on("message", async message => {
 
     if (command === 'b') {
         let embed = new Discord.RichEmbed()
-        .setThumbnail(`https://media.giphy.com/media/enqOTFRE7pNym3Aats/giphy.gif`);
+        .addField(`ПОСТОЯННАЯ ССЫЛКА НА СЕРВЕР`, `https://discord.gg/qZWdVRj`)
+        .addField(`**• donationallerts`, `http://www.donationalerts.ru/r/rainbows_server`)
+        .setThumbnail(`https://imgur.com/r1yKCSM`)
+        .setColor(`#800080`)
+        .setFooter(`Администрация | 11.07.2018`);
     
+        message.channel.send({embed})
+        }
+
+    if (command === 'c') {
+        let embed = new Discord.RichEmbed()
+        .addField(`О НОВИЧКАХ, У каждого есть роль <@357128316735586305>. Она выдаётся при подключении к серверу. Новичок не имеет никаких особых прав и привилегий на сервере`)
+        .setColor(`#800080`)
+        .setFooter(`Администрация | 11.07.2018`);
+        
         message.channel.send({embed})
         }
     
