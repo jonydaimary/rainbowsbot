@@ -75,6 +75,13 @@ client.on("message", async message => {
 
         message.channel.send({embed})
         }
+
+    if (command === 'b') {
+        let embed = new Discord.RichEmbed()
+        .setThumbnail(`https://media.giphy.com/media/enqOTFRE7pNym3Aats/giphy.gif`);
+    
+        message.channel.send({embed})
+        }
     
     if (command === 'vip') {
         let embed = new Discord.RichEmbed()
