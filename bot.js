@@ -99,7 +99,7 @@ client.on("message", async message => {
     if (command === 'vip') {
         let embed = new Discord.RichEmbed()
         .setTitle('Платная роль "VIP"')
-        .setDescription(`**Перед покупкой оповестить <@340171098874183680>**`)
+        .setDescription(`**Перед покупкой оповестить <@&357128316735586305>**`)
         .addField(`**Цена**`,`50₽`)
         .addField(`Оплата`, `http://www.donationalerts.ru/r/rainbows_server`)
         .setColor('#800080');
