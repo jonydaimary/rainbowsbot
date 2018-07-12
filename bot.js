@@ -83,20 +83,25 @@ client.on("message", async message => {
             let reason = args.join(" ").slice(22);
             
             let reportEmbed = new Discord.RichEmbed()
-            .setDescription("Жалобы")
+            .setDescription("Жалоба")
             .setColor("#800080")
             .addField("Нарушитель", `${rUser}, ID: ${rUser.id}`)
             .addField("Жалоба отправлена", `${message.author}, ID: ${message.author.id}`)
             .addField("Канал", message.channel)
             .addField("Время", message.createdAt)
-            .addField("Причина", reason);
+            .addField("Причина", reason)
+
+            let reportedEmbed = new Discord.RichEmbed()
+            .addField("Жалоба отправлена", `В скором времени персонал проверит её`)
+            .addField("Нарушитель", `${rUser}`)
+            .addField("Причина", reason)
             
             let reportschannel = message.guild.channels.find(`name`, "staffchat");
             if(!reportschannel) return message.channel.send("Не могу найти канал, для отправки жалобы");
             
             message.delete().catch(O_o=>{});
             reportschannel.send(reportEmbed);
-            message.channel.send("Жалоба отправлена на рассмотрение");
+            message.channel.send(reportedEmbed);
             
             return;
             }
