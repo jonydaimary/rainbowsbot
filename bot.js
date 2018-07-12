@@ -96,6 +96,7 @@ client.on("message", async message => {
             
             message.delete().catch(O_o=>{});
             reportschannel.send(reportEmbed);
+            message.channel.send("Жалоба отправлена на рассмотрение");
             
             return;
             }
