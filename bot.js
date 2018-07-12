@@ -87,11 +87,11 @@ client.on("message", async message => {
             .setColor("#800080")
             .addField("Нарушитель", `${rUser}, ID: ${rUser.id}`)
             .addField("Жалоба отправлена", `${message.author}, ID: ${message.author.id}`)
-            .addField("Канал", `message.channel`)
-            .addField("Время", `message.createdAt`)
+            .addField("Канал", message.channel)
+            .addField("Время", message.createdAt)
             .addField("Причина", reason);
             
-            let reportschanel = message.guild.channels.find(`name`, "staffchat");
+            let reportschannel = message.guild.channels.find(`name`, "staffchat");
             if(!reportschannel) return message.channel.send("Не могу найти канал, для отправки жалобы");
             
             message.delete().catch(O_o=>{});
