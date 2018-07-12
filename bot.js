@@ -68,20 +68,6 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    db.updateValue(message.author.id + message.guild.id, 1).then(i => {
-
-        let messages;
-        if(i.value == 25) messages = 25; //level 1
-        else if(i.value == 50) messages = 50; //level 2
-        else if(i.value == 75) messages = 75 // level 3
-
-        if (!isNaN(messages)) {
-            db.updateValue(`userLevel_${messages.author.id + message.guild.id}`, 1).then(o => {
-                message.channel.send(`Вы отправили ${messages} сообщений, поэтому ваш уровень повышен! Сейчас у вас ${o.value} уровень`)
-            })
-        }
-    })
-    
     if (command === 'a') {
         message.delete();
         let embed = new Discord.RichEmbed()
