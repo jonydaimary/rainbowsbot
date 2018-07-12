@@ -77,7 +77,30 @@ client.on("message", async message => {
         message.channel.send({embed})
         }
 
-    if (command === 'b') {
+        if(command === 'report') {
+            let rUser = message.guild.member(message.mentions.users.first() || message.get.members.get(args[0]));
+            if(!rUser) return message.channel.send("Не могу найти пользователя");
+            let reason = args.join(" ").slice(22);
+            
+            let reportEmbed = Discord.RichEmbed()
+            .setDescription("Жалобы")
+            .setColor("#800080")
+            .addField("Нарушитель", `${rUser}, ID: ${rUser.id}`)
+            .addField("Жалоба отправлена", `${message.author}, ID: ${message.author.id}`)
+            .addField("Канал", `message.channel`)
+            .addField("Время", `message.createdAt`)
+            .addField("Причина", reason);
+            
+            let reportschanel = message.guild.channels.find(`name`, "staffchat");
+            if(!reportschannel) return message.channel.send("Не могу найти канал, для отправки жалобы");
+            
+            message.delete().catch(O_o=>{});
+            reportschannel.send(reportEmbed);
+            
+            return;
+            }
+    
+        if (command === 'b') {
         message.delete();
         let embed = new Discord.RichEmbed()
         .addField(`ПОСТОЯННАЯ ССЫЛКА НА СЕРВЕР`, `https://discord.gg/qZWdVRj`)
