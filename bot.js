@@ -95,6 +95,7 @@ client.on("message", async message => {
             .addField("Жалоба отправлена", `В скором времени персонал проверит её`)
             .addField("Нарушитель", `${rUser}`)
             .addField("Причина", reason)
+            .setColor("#800080");
             
             let reportschannel = message.guild.channels.find(`name`, "staffchat");
             if(!reportschannel) return message.channel.send("Не могу найти канал, для отправки жалобы");
