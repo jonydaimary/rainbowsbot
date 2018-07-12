@@ -82,7 +82,7 @@ client.on("message", async message => {
             if(!rUser) return message.channel.send("Не могу найти пользователя");
             let reason = args.join(" ").slice(22);
             
-            let reportEmbed = Discord.RichEmbed()
+            let reportEmbed = new Discord.RichEmbed()
             .setDescription("Жалобы")
             .setColor("#800080")
             .addField("Нарушитель", `${rUser}, ID: ${rUser.id}`)
