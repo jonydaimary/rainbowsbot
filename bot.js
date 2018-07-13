@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 const token = process.env.TOKEN
-
+const db = require("quick.db");
 client.on("ready", () => {
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
     client.user.setActivity(`rb!help`, { type : 'STREAMING', url: 'https://twitch.tv/romanvoyoutube'}).catch(console.error);
@@ -66,6 +66,21 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
+    db.updateValue(message.author.id + message.guild.id, 1).then(i => {
+
+    let messages;
+    if(i.value == 25) messages = 25; //level 1
+    else if(i.value == 50) messages = 50; //level 2
+    else if(i.value == 75) messages = 75 // level 3
+
+    if (!isNaN(messages)) {
+        db.updateValue(`userLevel_${messages.author.id + message.guild.id}`, 1).then(o => {
+             message.channel.send(`Вы отправили ${messages} сообщений, поэтому ваш уровень повышен! Сейчас у вас ${o.value} уровень`)
+        })
+    }
+})
+
+    
     if (command === 'a') {
         message.delete();
         let embed = new Discord.RichEmbed()
