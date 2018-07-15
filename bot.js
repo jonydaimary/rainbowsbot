@@ -69,8 +69,6 @@ client.on("message", async message => {
 
     const Discord = require("discord.js");
     
-    const ms = require("ms");
-
 module.exports.run = async (bot, message, args) => {
 
   //!tempmute @user 1s/m/h/d
