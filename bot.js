@@ -69,8 +69,6 @@ module.exports.run = async (bot, message, args) => {
 
   //!tempmute @user 1s/m/h/d
 
-if(command === 'tempmute') {
-  
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!tomute) return message.reply("Couldn't find user.");
   if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Can't mute them!");
@@ -112,7 +110,7 @@ if(command === 'tempmute') {
 module.exports.help = {
   name: "tempmute"
 }
-}   
+  
  
  if (command === 'a') {
         message.delete();
