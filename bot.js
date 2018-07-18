@@ -59,9 +59,9 @@ client.on('guildMemberRemove', (member) => {
 client.on("message", async message => {
     if (message.author.bot) return;
     if (message.channel.type !== 'text') return;
-    if (message.content.indexOf(prefix) !== 0) return;
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();  
+    if (message.content.indexOf(config.prefix) !== 0) return;
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
  // Direct Messages - #00ff00
  // Chat messages - #800080
 
