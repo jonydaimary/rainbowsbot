@@ -66,7 +66,7 @@ client.on("message", async message => {
  // Chat messages - #800080
 
  if (command === 'report') {
-    let rUsesr = message.guild.member(message.mentions.users.first() || message.get.members.get(args[0]));
+    let rUser = message.guild.member(message.mentions.users.first() || message.get.members.get(args[0]));
     if(!rUser) return message.channel.send("Не могу найти пользователя");
     let reason = args.join(" ").slice(22);
     
