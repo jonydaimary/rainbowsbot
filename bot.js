@@ -75,8 +75,8 @@ client.on("message", async message => {
     .setColor("#800080")
     .addField("Нарушитель", `${rUser}, ID: ${rUser.id}`)
     .addField("Жалоба отправлена", `${message.author}, ID: ${message.author.id}`)
-    .addField("Канал", 'message.channel')
-    .addField("Время", 'message.createdAt')
+    .addField("Канал", message.channel)
+    .addField("Время", message.createdAt)
     .addField("Причина", reason);
     
     let reportschannel = message.guild.channels.find(`name`, "staffchat");
