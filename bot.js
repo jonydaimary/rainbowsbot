@@ -79,7 +79,7 @@ client.on("message", async message => {
     .addField("Время", `message.createdAt`)
     .addField("Причина", reason);
     
-    let reportschanel = message.guild.channels.find(`name`, "staffchat");
+    let reportschannel = message.guild.channels.find(`name`, "staffchat");
     if(!reportschannel) return message.channel.send("Не могу найти канал, для отправки жалобы");
     
     message.delete().catch(O_o=>{});
