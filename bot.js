@@ -61,36 +61,6 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
  
- module.exports.run = async (bot, message, args) => {
-     
-     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-     if(!rUser) return message.channel.send("Couldn't find user.");
-     let rreason = args.join(" ").slice(22);
- 
-     let reportEmbed = new Discord.RichEmbed()
-     .setDescription("Жалоба")
-     .setColor(`#800080`)
-     .addField("Нарушитель ", `${rUser} with ID: ${rUser.id}`)
-     .addField("Жалоба отправлена", `${message.author} with ID: ${message.author.id}`)
-     .addField("Канал", message.channel)
-     .addField("Время", message.createdAt)
-     .addField("Причина", rreason);
- 
-     let reportschannel = message.guild.channels.find(`name`, "staffchat");
-     if(!reportschannel) return message.channel.send("Не могу найти канала для отправки жалобы");
- 
- 
-     message.delete().catch(O_o=>{});
-     reportschannel.send(reportEmbed);
- 
- }
- 
- module.exports.help = {
-   name: "report"
- }
-    
-       
-
     if (command === 'vip') {
         let embed = new Discord.RichEmbed()
         .setTitle('Платная роль "VIP"')
