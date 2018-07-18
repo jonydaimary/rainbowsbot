@@ -78,12 +78,19 @@ client.on("message", async message => {
     .addField("Канал", message.channel)
     .setTimestamp(message.createdAt)
     .addField("Причина", reason);
-    
+
+    let reportingEmbed = new Discord.RichEmbed()
+    .setDescription("Жалоба отправлена")
+    .setColor("#800080")
+    .addField("Нарушитель", `${rUser}, ID: ${rUser.id}`)
+    .addField("Причина", reason);
+
     let reportschannel = message.guild.channels.find(`name`, "staffchat");
     if(!reportschannel) return message.channel.send("Не могу найти канал, для отправки жалобы");
     
     message.delete().catch(O_o=>{});
     reportschannel.send(reportEmbed);
+    message.channel.send(reportingEmbed)
     
     return;
     }
