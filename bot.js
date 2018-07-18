@@ -64,28 +64,43 @@ client.on("message", async message => {
  
 
 
-    if (command === 'report') {
-    let rUsesr = message.guild.member(message.mentions.users.first() || message.get.members.get(args[0]));
-    if(!rUser) return message.channel.send("Не могу найти пользователя");
-    let reason = args.join(" ").slice(22);
-    
-    let reportEmbed = Discord.RichEmbed()
-    .setDescription("Жалобы")
-    .setColor("#800080")
-    .addField("Нарушитель", `${rUser}, ID: ${rUser.id}`)
-    .addField("Жалоба отправлена", `${message.author}, ID: ${message.author.id}`)
-    .addField("Канал", `message.channel`)
-    .addField("Время", `message.createdAt`)
-    .addField("Причина", reason);
-    
-    let reportschanel = message.guild.channels.find(`name`, "staffchat");
-    if(!reportschannel) return message.channel.send("Не могу найти канал, для отправки жалобы");
-    
-    message.delete().catch(O_o=>{});
-    reportschannel.send(reportEmbed);
-    
-    return;
-    }
+ const Discord = require("discord.js");
+ const botconfig = require("../botconfig.json");
+ const red = botconfig.red;
+ const green = botconfig.green;
+ const orange = botconfig.orange;
+ 
+ module.exports.run = async (bot, message, args) => {
+ 
+     if(args[0] == "help"){
+       message.reply("Usage: !report <user> <reason>");
+       return;
+     }
+     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+     if(!rUser) return message.channel.send("Couldn't find user.");
+     let rreason = args.join(" ").slice(22);
+ 
+     let reportEmbed = new Discord.RichEmbed()
+     .setDescription("Жалоба")
+     .setColor(`#800080`)
+     .addField("Нарушитель ", `${rUser} with ID: ${rUser.id}`)
+     .addField("Жалоба отправлена", `${message.author} with ID: ${message.author.id}`)
+     .addField("Канал", message.channel)
+     .addField("Время", message.createdAt)
+     .addField("Причина", rreason);
+ 
+     let reportschannel = message.guild.channels.find(`name`, "staffchat");
+     if(!reportschannel) return message.channel.send("Не могу найти канала для отправки жалобы");
+ 
+ 
+     message.delete().catch(O_o=>{});
+     reportschannel.send(reportEmbed);
+ 
+ }
+ 
+ module.exports.help = {
+   name: "report"
+ }
     
        
 
