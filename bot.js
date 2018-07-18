@@ -76,7 +76,7 @@ client.on("message", async message => {
     .addField("Нарушитель", `${rUser}, ID: ${rUser.id}`)
     .addField("Жалоба отправлена", `${message.author}, ID: ${message.author.id}`)
     .addField("Канал", message.channel)
-    .addField("Время", message.createdAt)
+    .setTimestamp(message.createdAt)
     .addField("Причина", reason);
     
     let reportschannel = message.guild.channels.find(`name`, "staffchat");
