@@ -65,7 +65,7 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
 
- let xp = require("../xp.json");
+ let xp = require("/xp.json");
  
  module.exports.run = async (bot, message, args) => {
  
