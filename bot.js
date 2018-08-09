@@ -126,7 +126,7 @@ client.on("message", async message => {
         let embed = new Discord.RichEmbed()
         .addField(`ПОСТОЯННАЯ ССЫЛКА НА СЕРВЕР`, `https://discord.gg/CtRp5GB`)
         .addField(`• donationallerts`, `http://www.donationalerts.ru/r/rainbows_server\n**• qiwi**\nhttps://qiwi.me/rbserver`)
-        .setThumbnail(`https://imgur.com/r1yKCSM`)
+        .setThumbnail(`https://imgur.com/r1yKCSM.jpg`)
         .setColor(`#800080`)
         .setFooter(`Администрация | 09.08.2018`);
     
