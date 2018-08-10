@@ -75,55 +75,6 @@ client.on("message", async message => {
     });
 }, 3e5)
 
-//!
-module.exports.run = async (bot, message, args) => {
-
-    //!tempmute @user 1s/m/h/d
-  
-    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!tomute) return message.reply("Не могу найти пользователя");
-    if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Не могу замутить этого пользователя");
-    let muterole = message.guild.roles.find(`name`, "RBmute");
-    //start of create role
-    if(!muterole){
-      try{
-        muterole = await message.guild.createRole({
-          name: "muted",
-          color: "#000000",
-          permissions:[]
-        })
-        message.guild.channels.forEach(async (channel, id) => {
-          await channel.overwritePermissions(muterole, {
-            SEND_MESSAGES: false,
-            ADD_REACTIONS: false
-          });
-        });
-      }catch(e){
-        console.log(e.stack);
-      }
-    }
-    //end of create role
-    let mutetime = args[1];
-    if(!mutetime) return message.reply("Вы не указали время");
-  
-    await(tomute.addRole(muterole.id));
-    message.reply(`<@${tomute.id}> был замучен на ${ms(ms(mutetime))}`);
-  
-    setTimeout(function(){
-      tomute.removeRole(muterole.id);
-      message.channel.send(`<@${tomute.id}> был размучен`);
-    }, ms(mutetime));
-  
-  
-  //end of module
-  }
-  
-  module.exports.help = {
-    name: "tempmute"
-  }
-//!
-
-
 if (command === 'report') {
     let rUser = message.guild.member(message.mentions.users.first() || message.get.members.get(args[0]));
     if(!rUser) return message.channel.send("Не могу найти пользователя");
