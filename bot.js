@@ -67,13 +67,13 @@ client.on("message", async message => {
  // Chat messages - #800080
 
  setInterval(() => {
-    let guild = client.guilds.get('469596213491138570 ');
+    let guild = client.guilds.get('469596213491138570');
     guild.members.forEach((id, member) => {
         if (member.roles.has('469612245744091181') && !member.roles.has('470625504035078154')) {
             member.addRole('470625504035078154')
         }
     });
-}, 6e5)
+}, 3e5)
 
   if (command === 'report') {
     let rUser = message.guild.member(message.mentions.users.first() || message.get.members.get(args[0]));
