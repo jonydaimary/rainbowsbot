@@ -123,6 +123,7 @@ module.exports.run = async (bot, message, args) => {
   }
 //!
 
+
 if (command === 'report') {
     let rUser = message.guild.member(message.mentions.users.first() || message.get.members.get(args[0]));
     if(!rUser) return message.channel.send("Не могу найти пользователя");
