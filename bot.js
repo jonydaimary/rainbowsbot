@@ -87,9 +87,7 @@ if (command === 'mute') {
     .addField(`Кого замутили:`, `${message.mentions.members.first}`)
     .setTimestamp(message.createdAt);
 
-    let mutechannel = message.guild.channels.find(`name`, "стафф-чат");
 
-    message.mutechannel.send(embed)
     message.channel.send(embed)
 
 }
