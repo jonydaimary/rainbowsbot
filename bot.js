@@ -76,27 +76,18 @@ client.on("message", async message => {
 }, 3e5)
 
 if (command === 'mute') {
-    let member1 = message.mentions.members.first();
+    let member = message.mentions.members.first();
 
-    member1.addRole('477550132355661834')
+    member.addRole('477550132355661834')
 
-    let embed1 = new Discord.RichEmbed()
+    let embed = new Discord.RichEmbed()
     .setDescription("Пользователь замучен!")
     .setColor("#800080")
     .addField(`Кто замутил:`, `${message.author}`)
     .addField(`Кого замутили:`, `${member1}`)
     .setTimestamp(message.createdAt)
 
-    message.channel.send(embed1);
-
-    let embed2 = new Discord.RichEmbed()
-
-    .setDescription("Вы были замучены на **Rainbow`s Server**")
-    .setColor("#00ff00")
-    .addField(`Вас замутил:`, `${message.author}`);
-
-    message.member.send(embed2);
-
+    message.channel.send(embed);
 }
 
 if (command === 'unmute') {
@@ -230,7 +221,7 @@ if (command === 'report') {
         let embed = new Discord.RichEmbed()
             .setTitle("Помощь")
             .setColor('#800080')
-            .setDescription(`Информация о командах\n\n __S__ - команды, доступные только персоналу \n\n**   rb!** - префикс бота\n\n **• vip** - команда для покупки VIP\n **• premium** - команда для покупки PREMIUM\n **• help** - команда, которая вызывает перечень команд бота \n **• gif** - команда, которая отправляет GIF-изображение сервера\n **• report** - команда, которая отправляет жалобу на игрока \n __S__ **• user** - команда, которая показывает основную информацию о пользователе \n **• staff** - команда, которая показывает персонал сервера \n \n **Для просмотра второй страницы введите rb!help2**`)
+            .setDescription(`Информация о командах\n\n __S__ - команды, доступные только персоналу \n\n**   rb!** - префикс бота\n\n **• vip** - команда для покупки VIP\n **• premium** - команда для покупки PREMIUM\n **• help** - команда, которая вызывает перечень команд бота \n **• gif** - команда, которая отправляет GIF-изображение сервера\n **• report** - команда, которая отправляет жалобу на игрока \n __S__ **• user** - команда, которая показывает основную информацию о пользователе \n **• staff** - команда, которая показывает персонал сервера\n __S__ **•mute** - команда, которая мутит игрока\n \n **Для просмотра второй страницы введите rb!help2**`)
             .setFooter("Страница 1/2");
 
             message.channel.send({embed});
