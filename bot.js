@@ -89,7 +89,13 @@ if (command === 'mute') {
 
     message.channel.send(embed1);
 
-    
+    let embed2 = new Discord.RichEmbed()
+
+    .setDescription("Вы были замучны на **Rainbow`s Server**")
+    .setColor("#00ff00")
+    .setFooter(`${message.author}`);
+
+    message.member.send(embed2);
 
 }
 
