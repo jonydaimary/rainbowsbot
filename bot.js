@@ -77,7 +77,7 @@ client.on("message", async message => {
 
 if (command === 'mute') {
     let member = message.mentions.members.first();
-    guild.member.mute
+    member.mute
 
 }
 
