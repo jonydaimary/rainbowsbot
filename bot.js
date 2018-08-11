@@ -93,7 +93,7 @@ if (command === 'mute') {
     .setTimestamp(message.createdAt)
     .addField("Причина", reason);
 
-    muteschannel.send(reportEmbed);
+    muteschannel.send(embed);
 
 
     message.channel.send(embed);
