@@ -79,10 +79,7 @@ if (command === 'mute') {
     let member = message.mentions.members.first();
 
     let reason = args.join(" ").slice(22);
-
-    let muteschannel = message.guild.channels.find(`name`, "стафф-чат");
-    if(!muteschannel) return message.channel.send("Не могу найти канал, для отправки оповещения");
-
+    
     member.addRole('477550132355661834')
 
     let embed = new Discord.RichEmbed()
@@ -92,9 +89,6 @@ if (command === 'mute') {
     .addField(`Кого замутили:`, `${member}`)
     .setTimestamp(message.createdAt)
     .addField("Причина", reason);
-
-    muteschannel.send(embed);
-
 
     message.channel.send(embed);
 
