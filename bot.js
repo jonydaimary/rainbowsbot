@@ -91,9 +91,9 @@ if (command === 'mute') {
 
     let embed2 = new Discord.RichEmbed()
 
-    .setDescription("Вы были замучны на **Rainbow`s Server**")
+    .setDescription("Вы были замучены на **Rainbow`s Server**")
     .setColor("#00ff00")
-    .addField(`${message.author}`);
+    .addField(`Вас замутил:`, `${message.author}`);
 
     message.member.send(embed2);
 
