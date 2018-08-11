@@ -84,7 +84,7 @@ if (command === 'mute') {
     .setDescription("Пользователь замучен!")
     .setColor("#800080")
     .addField(`Кто замутил:`, `${message.author}`)
-    .addField(`Кого замутили:`, `${member1}`)
+    .addField(`Кого замутили:`, `${member}`)
     .setTimestamp(message.createdAt)
 
     message.channel.send(embed);
