@@ -87,7 +87,26 @@ if (command === 'mute') {
     .addField(`Кого замутили:`, `${message.mentions.members.first}`)
     .setTimestamp(message.createdAt);
 
+    let mutechannel = message.guild.channels.find(`name`, "стафф-чат");
+
+    message.mutechannel.send(embed)
     message.channel.send(embed)
+
+}
+
+if (command === 'unmute') {
+    let member = message.mentions.members.first();
+    
+    member.removeRole('477550132355661834')
+    
+    let embed = new Discord.RichEmbed()
+    .setDescription("Пользователь размучен!")
+    .setColor("#800080")
+    .addField(`Кого размутили:`, `${member}`)
+    .setTimestamp(message.createdAt);
+    
+    message.channel.send(embed)
+    
     
 
 }
