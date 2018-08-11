@@ -77,10 +77,10 @@ client.on("message", async message => {
 
 if (command === 'mute') {
     let member = message.mentions.members.first();
-    
+
     member.addRole('477550132355661834')
 
-    let reportEmbed = new Discord.RichEmbed()
+    let embed = new Discord.RichEmbed()
     .setDescription("Пользователь замучен!")
     .setColor("#800080")
     .addField(`Кто замутил:`, `${message.author}`)
