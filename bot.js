@@ -80,14 +80,16 @@ if (command === 'mute') {
 
     member.addRole('477550132355661834')
 
-    let embed = new Discord.RichEmbed()
+    let embed1 = new Discord.RichEmbed()
     .setDescription("Пользователь замучен!")
     .setColor("#800080")
     .addField(`Кто замутил:`, `${message.author}`)
     .addField(`Кого замутили:`, `${member}`)
     .setTimestamp(message.createdAt)
 
-    message.channel.send(embed);
+    message.channel.send(embed1);
+
+    
 
 }
 
