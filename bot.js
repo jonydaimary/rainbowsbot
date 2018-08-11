@@ -78,8 +78,6 @@ client.on("message", async message => {
 if (command === 'mute') {
     let member = message.mentions.members.first();
 
-    let reason = args.join(" ").slice(22);
-    
     member.addRole('477550132355661834')
 
     let embed = new Discord.RichEmbed()
@@ -88,7 +86,6 @@ if (command === 'mute') {
     .addField(`Кто замутил:`, `${message.author}`)
     .addField(`Кого замутили:`, `${member}`)
     .setTimestamp(message.createdAt)
-    .addField("Причина", reason);
 
     message.channel.send(embed);
 
