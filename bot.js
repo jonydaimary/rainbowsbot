@@ -87,7 +87,7 @@ if (command === 'mute') {
     .addField(`Кого замутили:`, `${message.mentions.members.first}`)
     .setTimestamp(message.createdAt);
 
-    let mutechannel = guild.channels.id('469600390455885833');
+    let mutechannel = guildChannel.id('469600390455885833');
 
     message.mutechannel.send(embed)
     message.channel.send(embed)
