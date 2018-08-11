@@ -76,7 +76,9 @@ client.on("message", async message => {
 }, 3e5)
 
 if (command === 'mute') {
-    message.mentions.members.first.addRole('477550132355661834');
+    let member = message.mentions.members.first();
+    
+    member.addRole('477550132355661834')
 
     let reportEmbed = new Discord.RichEmbed()
     .setDescription("Пользователь замучен!")
