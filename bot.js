@@ -143,7 +143,7 @@ if (command === 'report') {
     if (command === 'link') {
     let embed = new Discord.RichEmbed()
     .setTitle('Ссылка-приглашение для Rainbow`s Server')
-    .setDescription('https://discord.gg/qZWdVRj')
+    .setDescription('https://discord.gg/CtRp5GB')
     .setColor('#800080');
 
         message.channel.send({embed})
