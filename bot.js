@@ -78,17 +78,25 @@ client.on("message", async message => {
 if (command === 'mute') {
     let member = message.mentions.members.first();
 
+    let reason = args.join(" ").slice(22);
+
+    let mutechannel = message.guild.channels.find(`name`, "стафф-чат");
+    if(!reportschannel) return message.channel.send("Не могу найти канал, для отправки оповещения");
+
     member.addRole('477550132355661834')
 
     let embed = new Discord.RichEmbed()
     .setDescription("Пользователь замучен!")
     .setColor("#800080")
     .addField(`Кто замутил:`, `${message.author}`)
-    .addField(`Кого замутили:`, `${message.mentions.members.first}`)
-    .setTimestamp(message.createdAt);
+    .addField(`Кого замутили:`, `${member}`)
+    .setTimestamp(message.createdAt)
+    .addField("Причина", reason);
+
+    muteschannel.send(reportEmbed);
 
 
-    message.channel.send(embed)
+    message.channel.send(embed);
 
 }
 
