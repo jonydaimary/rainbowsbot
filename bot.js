@@ -76,15 +76,15 @@ client.on("message", async message => {
 }, 3e5)
 
 if (command === 'mute') {
-    let member = message.mentions.members.first();
+    let member1 = message.mentions.members.first();
 
-    member.addRole('477550132355661834')
+    member1.addRole('477550132355661834')
 
     let embed1 = new Discord.RichEmbed()
     .setDescription("Пользователь замучен!")
     .setColor("#800080")
     .addField(`Кто замутил:`, `${message.author}`)
-    .addField(`Кого замутили:`, `${member}`)
+    .addField(`Кого замутили:`, `${member1}`)
     .setTimestamp(message.createdAt)
 
     message.channel.send(embed1);
@@ -93,7 +93,7 @@ if (command === 'mute') {
 
     .setDescription("Вы были замучны на **Rainbow`s Server**")
     .setColor("#00ff00")
-    .setFooter(`${message.author}`);
+    .addField(`${message.author}`);
 
     message.member.send(embed2);
 
