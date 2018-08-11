@@ -75,6 +75,12 @@ client.on("message", async message => {
     });
 }, 3e5)
 
+if (command === 'mute') {
+    let member = message.mentions.members.first();
+    guild.member.mute
+
+}
+
 if (command === 'report') {
     let rUser = message.guild.member(message.mentions.users.first() || message.get.members.get(args[0]));
     if(!rUser) return message.channel.send("Не могу найти пользователя");
@@ -170,7 +176,7 @@ if (command === 'report') {
         let embed = new Discord.RichEmbed()
         .setTitle("Информация о пользователе")
         .setColor('#800080')
-        .setDescription(`**Name**: ${member.displayName} \n**ID**: ${member.id} \n**Status**: ${arr[member.user.presence.status]} \n**Joined at:** ${member.joinedAt}`)
+        .setDescription(`**Name**: ${member.displayName} \n**ID**: ${member.id} \n**Status**: ${arr[member.user.presence.status]}`)
         .setThumbnail(member.user.avatarURL);
         
         message.channel.send({embed});
