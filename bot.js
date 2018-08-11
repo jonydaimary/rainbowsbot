@@ -170,7 +170,7 @@ if (command === 'report') {
         let embed = new Discord.RichEmbed()
         .setTitle("Информация о пользователе")
         .setColor('#800080')
-        .setDescription(`**Name**: ${member.displayName} \n**ID**: ${member.id} \n**Status**: ${arr[member.user.presence.status]} \n**Joined at:** ${guild.member.joinedAt}`)
+        .setDescription(`**Name**: ${member.displayName} \n**ID**: ${member.id} \n**Status**: ${arr[member.user.presence.status]} \n**Joined at:** ${member.joinedAt}`)
         .setThumbnail(member.user.avatarURL);
         
         message.channel.send({embed});
