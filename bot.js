@@ -80,8 +80,8 @@ if (command === 'mute') {
 
     let reason = args.join(" ").slice(22);
 
-    let mutechannel = message.guild.channels.find(`name`, "стафф-чат");
-    if(!reportschannel) return message.channel.send("Не могу найти канал, для отправки оповещения");
+    let muteschannel = message.guild.channels.find(`name`, "стафф-чат");
+    if(!muteschannel) return message.channel.send("Не могу найти канал, для отправки оповещения");
 
     member.addRole('477550132355661834')
 
