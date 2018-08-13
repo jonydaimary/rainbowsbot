@@ -76,6 +76,8 @@ client.on("message", async message => {
 }, 3e5)
 
 if (command === 'mute') {
+    if(!message.member.roles.some(r=>["Главный Администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
+    return message.reply("у вас нет прав для выполнения данной команды");
     let member = message.mentions.members.first();
 
     member.addRole('477550132355661834')
