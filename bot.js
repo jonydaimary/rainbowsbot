@@ -75,37 +75,55 @@ client.on("message", async message => {
     });
 }, 3e5)
 
-if (command === 'mute') {
-    if(!message.member.roles.some(r=>["Главный Администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
-    return message.reply("у вас нет прав для выполнения данной команды");
-    let member = message.mentions.members.first();
+if(command === `mute`) {
+    if(!message.member.hasPermissions("MANAGE_MESSAGES")) return message.channel.sendMessage("У вас нет прав");
 
-    member.addRole('477550132355661834')
+    let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+    if(!toMute) return message.channel.sendMessage("Вы указали несуществующего пользователя");
+    
+    let role = message.guild.role.find(r => r.name === "RBMute");
+    if(!role) {
+        try {
+            role = await message.guild.createRole({
+                name: "RBMute",
+                color: "#00000",
+                permissions: []
+            });
 
-    let embed = new Discord.RichEmbed()
-    .setDescription("Пользователь замучен!")
-    .setColor("#800080")
-    .addField(`Кто замутил:`, `${message.author}`)
-    .addField(`Кого замутили:`, `${member}`)
-    .setTimestamp(message.createdAt)
+            message.guild.channels.forEach(async (channel, id) => {
+                await channel.overwritePermissions(role, {
+                    SEND_MESSAGES: false,
+                    ADD_REACTIONS: false
+                });
+            });
+        } catch(e) {
+            console.log(e.stack);
+        }
+    }
 
-    message.channel.send(embed);
+    if(toMute.roles.has(role.id)) return message.channel.sendMessage("Этот пользователь уже замучен");
+
+    await toMute.addRole(role);
+    message.channel.sendMessage("Пользователь замучен");
+
+    return
+
 }
 
-if (command === 'unmute') {
-    let member = message.mentions.members.first();
+if(command === `unmute`) {
+    if(!message.member.hasPermissions("MANAGE_MESSAGES")) return message.channel.sendMessage("У вас нет прав");
+
+    let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+    if(!toMute) return message.channel.sendMessage("Вы указали несуществующего пользователя");
     
-    member.removeRole('477550132355661834')
+    let role = message.guild.role.find(r => r.name === "RBMute");
     
-    let embed = new Discord.RichEmbed()
-    .setDescription("Пользователь размучен!")
-    .setColor("#800080")
-    .addField(`Кого размутили:`, `${member}`)
-    .setTimestamp(message.createdAt);
-    
-    message.channel.send(embed)
-    
-    
+    if(!role || !toMute.roles.has(role.id)) return message.channel.sendMessage("Этот пользователь не замучен");
+
+    await toMute.removeRole(role);
+    message.channel.sendMessage("Пользователь размучен");
+
+    return
 
 }
 
