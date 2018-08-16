@@ -78,6 +78,7 @@ client.on("message", async message => {
 if(command === `mute`) {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("У вас нет прав");
 
+    let mutemember = message.guild.member(message.mentions.users.first())
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if(!toMute) return message.channel.send("Вы указали несуществующего пользователя");
 
@@ -103,7 +104,7 @@ if(command === `mute`) {
 
     if(toMute.roles.has(role.id)) return message.channel.send("Этот пользователь уже замучен");
 
-    await toMute.addRole(role);
+    await mutemember.addRole(role);
 
     message.channel.send("Пользователь замучен");
 
