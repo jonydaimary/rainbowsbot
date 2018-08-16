@@ -111,7 +111,7 @@ if(command === `mute`) {
     let embed = new Discord.RichEmbed()
     .setDescription("Пользователь замучен")
     .setColor("#800080")
-    .addField("Кого замутили:", `${toMute.id}`)
+    .addField("Кого замутили:", toMute)
     .addField("Кто замутил:", `${message.author}`);
 
     message.channel.send(embed);
