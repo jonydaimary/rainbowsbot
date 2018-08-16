@@ -81,7 +81,7 @@ if(command === `mute`) {
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if(!toMute) return message.channel.send("Вы указали несуществующего пользователя");
 
-    let reason = args.join(" ").slice(22)
+    
 
     let role = message.guild.roles.find(r => r.name === "RBMute");
     if(!role) {
@@ -107,13 +107,15 @@ if(command === `mute`) {
 
     await toMute.addRole(role);
 
+    let reason = args.join(" ").slice(22)
+
     
     let embed = new Discord.RichEmbed()
     .setDescription("Пользователь замучен")
     .setColor("#800080")
     .addField("Кого замутили:", toMute)
     .addField("Кто замутил:", `${message.author}`)
-    .addField("Причина:", `${reason}`);
+    .addField("Причина:", reason);
 
     message.channel.send(embed);
 
@@ -152,13 +154,13 @@ if (command === 'report') {
     .addField("Жалоба отправлена", `${message.author}, ID: ${message.author.id}`)
     .addField("Канал", message.channel)
     .setTimestamp(message.createdAt)
-    .addField("Причина", reason);
+    .addField("Причина:", reason);
 
     let reportingEmbed = new Discord.RichEmbed()
     .setDescription("Жалоба отправлена")
     .setColor("#800080")
     .addField("Нарушитель", `${rUser}, ID: ${rUser.id}`)
-    .addField("Причина", reason);
+    .addField("Причина:", reason);
 
     let reportschannel = message.guild.channels.find(`name`, "стафф-чат");
     if(!reportschannel) return message.channel.send("Не могу найти канал, для отправки жалобы");
