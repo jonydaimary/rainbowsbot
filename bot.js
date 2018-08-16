@@ -82,7 +82,6 @@ if(command === `mute`) {
     if(!toMute) return message.channel.sendMessage("Вы указали несуществующего пользователя");
 
     let role = message.guild.roles.find(r => r.name === "RBMute");
-
     if(!role) {
         try {
             role = await message.guild.createRole({
@@ -102,9 +101,9 @@ if(command === `mute`) {
         }
     }
 
-    if(toMute.roles.has(role1.id)) return message.channel.sendMessage("Этот пользователь уже замучен");
+    if(toMute.roles.has(role.id)) return message.channel.sendMessage("Этот пользователь уже замучен");
 
-    await toMute.addRole(role1);
+    await toMute.addRole(role);
     message.channel.sendMessage("Пользователь замучен");
 
     return
@@ -117,9 +116,9 @@ if(command === `unmute`) {
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if(!toMute) return message.channel.sendMessage("Вы указали несуществующего пользователя");
     
-    let role1 = message.guild.roles.find(r => r.name === "RBMute");
+    let role = message.guild.roles.find(r => r.name === "RBMute");
     
-    if(!role || !toMute.roles.has(role1.id)) return message.channel.sendMessage("Этот пользователь не замучен");
+    if(!role || !toMute.roles.has(role.id)) return message.channel.sendMessage("Этот пользователь не замучен");
 
     await toMute.removeRole(role);
     message.channel.sendMessage("Пользователь размучен");
