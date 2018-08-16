@@ -105,9 +105,10 @@ if(command === `mute`) {
 
     await toMute.addRole(role);
 
-    let embed = new Discord.RichEmbed()
+    
     let rUser = message.guild.member(message.mentions.users.first() || message.get.members.get(args[0]))
-    let reason = args.join(" ").slice(22)
+    let reason = args.join(" ").slice(22);
+    let embed = new Discord.RichEmbed()
 
     .setDescription("Пользователь  замучен")
     .setColor("#800080")
