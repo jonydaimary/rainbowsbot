@@ -108,8 +108,8 @@ if(command === `mute`) {
     
     let rUser = message.guild.member(message.mentions.users.first() || message.get.members.get(args[0]))
     let reason = args.join(" ").slice(22);
+    
     let embed = new Discord.RichEmbed()
-
     .setDescription("Пользователь  замучен")
     .setColor("#800080")
     .addField("Кто замутил:", `${message.author}`)
