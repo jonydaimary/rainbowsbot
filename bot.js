@@ -108,7 +108,7 @@ if(command === `mute`) {
     await toMute.addRole(role);
 
     let reason = args.join(" ").slice(22)
-    let reportschannel = message.guild.channels.find(`name`, "стафф-чат")
+    let muteschannel = message.guild.channels.find(`name`, "стафф-чат")
 
     
     let embed = new Discord.RichEmbed()
@@ -119,7 +119,7 @@ if(command === `mute`) {
     .addField("Причина:", reason || 'Причина не указана');
 
     message.channel.send(embed)
-    reportschannel.send(reportEmbed);
+    muteschannel.send(embed);
 
 
     return
