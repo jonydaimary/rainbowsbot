@@ -136,14 +136,16 @@ if(command === `unmute`) {
     
     if(!role || !toMute.roles.has(role.id)) return message.channel.send("Этот пользователь не замучен");
 
-    await toMute.removeRole(role);
+    await toMute.removeRole(role)
+    let muteschannel = message.guild.channels.find(`name`, "стафф-чат");
 
     let embed = new Discord.RichEmbed()
     .setDescription("Пользователь размучен")
     .setColor("#800080")
     .addField("Кто размучен:", toMute.toString())
 
-    message.channel.send(embed);
+    message.channel.send(embed)
+    muteschannel.send(embed);
 
     return
 
