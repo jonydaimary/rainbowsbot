@@ -105,13 +105,14 @@ if(command === `mute`) {
 
     await toMute.addRole(role);
 
-    message.channel.send("Пользователь замучен");
-
     let embed = new Discord.RichEmbed()
-    .setColor("#00ff00")
-    .addField("Вы были замучены", `Вас замутил: ${message.author}`);
+    .setColor("#800080")
+    .setDescription("Пользователь замучен")
+    .addField(`Кого замутили:`, toMute)
+    .addField(`Кто замутил:`, `${message.author}`);
 
-    message.toMute.send(embed)
+    message.channel.send(embed);
+
 
     return
 
