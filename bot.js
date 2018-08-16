@@ -110,15 +110,16 @@ if(command === `mute`) {
     let reason = args.join(" ").slice(22);
     
     let embed = new Discord.RichEmbed()
-    .setDescription("Пользователь  замучен")
+    .setDescription("Пользователь замучен")
     .setColor("#800080")
-    .addField("Кто замутил:", `${message.author}`)
-    .addField("Кого замутили:", `${rUser.id}`)
-    .addField("Причина:", reason)
-
-    message.channel.send(embed);
+    .addField("Кого забанили", `${rUser}, ID: ${rUser.id}`)
+    .addField("Кто забанил", `${message.author}, ID: ${message.author.id}`)
+    .setTimestamp(message.createdAt)
+    .addField("Причина", reason);
 
     return
+
+    message.channel.send(embed)
 
 }
 
