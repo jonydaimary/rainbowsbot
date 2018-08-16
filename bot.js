@@ -76,7 +76,7 @@ client.on("message", async message => {
 }, 3e5)
 
 if(command === `mute`) {
-    if(!message.member.hasPermissions("MANAGE_MESSAGES")) return message.channel.sendMessage("У вас нет прав");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("У вас нет прав");
 
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if(!toMute) return message.channel.sendMessage("Вы указали несуществующего пользователя");
@@ -112,7 +112,7 @@ if(command === `mute`) {
 }
 
 if(command === `unmute`) {
-    if(!message.member.hasPermissions("MANAGE_MESSAGES")) return message.channel.sendMessage("У вас нет прав");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("У вас нет прав");
 
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if(!toMute) return message.channel.sendMessage("Вы указали несуществующего пользователя");
