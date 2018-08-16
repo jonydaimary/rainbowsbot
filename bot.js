@@ -113,7 +113,7 @@ if(command === `mute`) {
     .setColor("#800080")
     .addField("Кого замутили:", toMute)
     .addField("Кто замутил:", `${message.author}`)
-    .addField("Причина", reason);
+    .addField("Причина:", `${reason}`);
 
     message.channel.send(embed);
 
