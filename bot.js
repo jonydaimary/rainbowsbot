@@ -81,6 +81,8 @@ if(command === `mute`) {
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if(!toMute) return message.channel.send("Вы указали несуществующего пользователя");
 
+    let reason = args.join(" ").slice(22)
+
     let role = message.guild.roles.find(r => r.name === "RBMute");
     if(!role) {
         try {
@@ -105,14 +107,12 @@ if(command === `mute`) {
 
     await toMute.addRole(role);
 
-    let reason = args.join(" ").slice(22)
-    let embed = new Discord.RichEmbed()
     
+    let embed = new Discord.RichEmbed()
     .setDescription("Пользователь замучен")
     .setColor("#800080")
     .addField("Кого замутили:", toMute)
     .addField("Кто замутил:", `${message.author}`)
-    .setTimestamp(message.createdAt)
     .addField("Причина", reason);
 
     message.channel.send(embed);
