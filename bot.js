@@ -81,7 +81,7 @@ if(command === `mute`) {
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if(!toMute) return message.channel.sendMessage("Вы указали несуществующего пользователя");
 
-    let role1 = message.guild.role.has(r=>[`477550132355661834`].includes(r.id));
+    let role = message.guild.roles.find(r => r.name === "RBMute");
 
     if(!role) {
         try {
@@ -117,7 +117,7 @@ if(command === `unmute`) {
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if(!toMute) return message.channel.sendMessage("Вы указали несуществующего пользователя");
     
-    let role1 = message.guild.role.has(r=>[`477550132355661834`].includes(r.id));
+    let role1 = message.guild.roles.find(r => r.name === "RBMute");
     
     if(!role || !toMute.roles.has(role1.id)) return message.channel.sendMessage("Этот пользователь не замучен");
 
