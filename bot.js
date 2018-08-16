@@ -139,7 +139,7 @@ if(command === `unmute`) {
     await toMute.removeRole(role);
 
     let embed = new Discord.RichEmbed()
-    .setDescription("Пользователь замучен")
+    .setDescription("Пользователь размучен")
     .setColor("#800080")
     .addField("Кто размучен:", toMute.toString())
 
