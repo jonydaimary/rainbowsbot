@@ -108,6 +108,7 @@ if(command === `mute`) {
     await toMute.addRole(role);
 
     let reason = args.join(" ").slice(22)
+    let reportschannel = message.guild.channels.find(`name`, "стафф-чат")
 
     
     let embed = new Discord.RichEmbed()
@@ -117,7 +118,8 @@ if(command === `mute`) {
     .addField("Кто замутил:", `${message.author}`)
     .addField("Причина:", reason || 'Причина не указана');
 
-    message.channel.send(embed);
+    message.channel.send(embed)
+    reportschannel.send(reportEmbed);
 
 
     return
@@ -135,7 +137,13 @@ if(command === `unmute`) {
     if(!role || !toMute.roles.has(role.id)) return message.channel.send("Этот пользователь не замучен");
 
     await toMute.removeRole(role);
-    message.channel.send("Пользователь размучен");
+
+    let embed = new Discord.RichEmbed()
+    .setDescription("Пользователь замучен")
+    .setColor("#800080")
+    .addField("Кто размучен:", toMute.toString())
+
+    message.channel.send(embed);
 
     return
 
