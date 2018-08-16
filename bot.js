@@ -104,7 +104,18 @@ if(command === `mute`) {
     if(toMute.roles.has(role.id)) return message.channel.sendMessage("Этот пользователь уже замучен");
 
     await toMute.addRole(role);
-    message.channel.sendMessage("Пользователь замучен");
+
+    let embed = new Discord.RichEmbed()
+    let rUser = message.guild.member(message.mentions.users.first() || message.get.members.get(args[0]))
+    let reason = args.join(" ").slice(22)
+
+    .setDescription("Пользователь  замучен")
+    .setColor("#800080")
+    .addField("Кто замутил:", `${message.author}`)
+    .addField("Кого замутили:", `${rUser.id}`)
+    .addField("Причина:", reason)
+
+    message.channel.send(embed);
 
     return
 
