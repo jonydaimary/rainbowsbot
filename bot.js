@@ -76,10 +76,10 @@ client.on("message", async message => {
 }, 3e5)
 
 if(command === `mute`) {
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("У вас нет прав");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("У вас нет прав");
 
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-    if(!toMute) return message.channel.sendMessage("Вы указали несуществующего пользователя");
+    if(!toMute) return message.channel.send("Вы указали несуществующего пользователя");
 
     let role = message.guild.roles.find(r => r.name === "RBMute");
     if(!role) {
@@ -101,28 +101,34 @@ if(command === `mute`) {
         }
     }
 
-    if(toMute.roles.has(role.id)) return message.channel.sendMessage("Этот пользователь уже замучен");
+    if(toMute.roles.has(role.id)) return message.channel.send("Этот пользователь уже замучен");
 
     await toMute.addRole(role);
 
-    message.channel.sendMessage("Пользователь замучен");
+    message.channel.send("Пользователь замучен");
+
+    let embed = new Discord.RichEmbed()
+    .setColor("#00ff00")
+    .addField("Вы были замучены", `Вас замутил: ${message.author}`);
+
+    message.toMute.send(embed)
 
     return
 
 }
 
 if(command === `unmute`) {
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("У вас нет прав");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("У вас нет прав");
 
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-    if(!toMute) return message.channel.sendMessage("Вы указали несуществующего пользователя");
+    if(!toMute) return message.channel.send("Вы указали несуществующего пользователя");
     
     let role = message.guild.roles.find(r => r.name === "RBMute");
     
-    if(!role || !toMute.roles.has(role.id)) return message.channel.sendMessage("Этот пользователь не замучен");
+    if(!role || !toMute.roles.has(role.id)) return message.channel.send("Этот пользователь не замучен");
 
     await toMute.removeRole(role);
-    message.channel.sendMessage("Пользователь размучен");
+    message.channel.send("Пользователь размучен");
 
     return
 
@@ -246,7 +252,7 @@ if (command === 'report') {
             .setDescription(`Информация о командах\n\n __S__ - команды, доступные только персоналу \n\n**   rb!** - префикс бота\n\n **• vip** - команда для покупки VIP\n **• premium** - команда для покупки PREMIUM\n **• help** - команда, которая вызывает перечень команд бота \n **• gif** - команда, которая отправляет GIF-изображение сервера\n **• report** - команда, которая отправляет жалобу на игрока \n __S__ **• user** - команда, которая показывает основную информацию о пользователе \n **• staff** - команда, которая показывает персонал сервера\n __S__ **•(un)mute** - команда, которая мутит игрока\n \n **Для просмотра второй страницы введите rb!help2**`)
             .setFooter("Страница 1/2");
 
-            message.member.send({embed});
+            message.channel.send({embed});
 
           }
         if (command === 'help2') {
@@ -256,7 +262,7 @@ if (command === 'report') {
             .setDescription(`Информация о командах \n \n __S__ **• ban** - команда, которая банит игрока на сервере \n __S__ **•kick** - команда, которая выгоняет игрока с сервера \n __S__ **• purge** - команда, которая очищает определенное кол-во сообщений в чате \n **• ping** - команда, которая отправляет запрос на сервер \n **•info** - команда, которая содержит ключевую информацию о боте \n __S__ **•stats** - команда, которая содержит статистику бота в данный момент \n **• link** - команда, которая отправляет приглашение на сервер\n **• playlist** - команда, которая отправляет ссылки на музыкальные плейлисты (используется совместно с Rythm ботом)`)
             .setFooter("Страница 2/2");
     
-            message.member.send({embed});
+            message.channel.send({embed});
     
         }
     
