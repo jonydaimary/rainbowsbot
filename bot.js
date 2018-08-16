@@ -105,21 +105,9 @@ if(command === `mute`) {
 
     await toMute.addRole(role);
 
-    
-    let rUser = message.guild.member(message.mentions.users.first() || message.get.members.get(args[0]))
-    let reason = args.join(" ").slice(22);
-    
-    let embed = new Discord.RichEmbed()
-    .setDescription("Пользователь замучен")
-    .setColor("#800080")
-    .addField("Кого забанили", `${rUser}, ID: ${rUser.id}`)
-    .addField("Кто забанил", `${message.author}, ID: ${message.author.id}`)
-    .setTimestamp(message.createdAt)
-    .addField("Причина", reason);
+    message.channel.sendMessage("Пользователь замучен");
 
     return
-
-    message.channel.send(embed)
 
 }
 
