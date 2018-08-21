@@ -62,11 +62,11 @@ client.on("message", async message => {
     if (message.channel.type !== 'text') return;
     if (message.content.indexOf(config.prefix) !== 0) return;
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
+    const command =  args.shift().toLowerCase();
  // Direct Messages - #00ff00
  // Chat messages - #800080
 
- setInterval(() => {
+setInterval(() => {
     let guild = client.guilds.get('469596213491138570');
     guild.members.forEach((id, member) => {
         if (member.roles.has('469612245744091181') && !member.roles.has('470625504035078154')) {
@@ -96,7 +96,8 @@ if (command === 'lock') {
     channel.overwritePermissions(message.author.id, {
         CONNECT: true
     })
-}
+
+}   
 
 if (command === 'unlock') {
     let blacklist = [
