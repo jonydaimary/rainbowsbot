@@ -75,6 +75,18 @@ client.on("message", async message => {
     });
 }, 3e5)
 
+if (command === 'l') {
+    message.delete();
+    let embed = new Discord.RichEmbed()
+    .addField(`ПЕРСОНАЛЬНЫЕ КОМНАТЫ`, `Для каждого участника доступны индивидуальные комнаты. Вы можете перемещать, выключать микрофон, выключать звук участникам своей комнаты, и никто вам ничего не скажет. Чтобы получить комнату напишите в личные сообщения <@340171098874183680>`)
+    .setFooter(`Администрация | 11.07.2018`)
+    .setColor(`#800080`)
+    .setThumbnail(`https://i.imgur.com/r1yKCSM.jpg`);
+
+    message.channel.send({embed})
+    }
+
+
 if (command === 'lock') {
     let blacklist = [
         '469601334841311262',
