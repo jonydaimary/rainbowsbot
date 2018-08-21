@@ -5,6 +5,15 @@ const token = process.env.TOKEN
 const ms = require("ms");
 
 client.on("ready", () => {
+    setInterval(() => {
+        let guild = client.guilds.get('469596213491138570');
+        guild.members.forEach((id, member) => {
+            console.log(member.user.tag)
+            if (member.roles.has('469612245744091181') && !member.roles.has('470625504035078154')) {
+                member.addRole('470625504035078154')
+            }
+        });
+    }, 3e5)
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
     client.user.setActivity(`rb!help`, { type : 'STREAMING', url: 'https://twitch.tv/romanvoyoutube'}).catch(console.error);
 });
@@ -66,15 +75,7 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
 
-setInterval(() => {
-    let guild = client.guilds.get('469596213491138570');
-    guild.members.forEach((id, member) => {
-        console.log(member.user.tag)
-        if (member.roles.has('469612245744091181') && !member.roles.has('470625504035078154')) {
-            member.addRole('470625504035078154')
-        }
-    });
-}, 3e5)
+
 
 
 
