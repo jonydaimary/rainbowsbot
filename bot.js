@@ -66,7 +66,8 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
 
- setInterval(() => {
+if (command === `check`) {
+     setInterval(() => {
     let guild = client.guilds.get('469596213491138570');
     guild.members.forEach((id, member) => {
         if (member.roles.has('469612245744091181') && !member.roles.has('470625504035078154')) {
@@ -75,6 +76,7 @@ client.on("message", async message => {
     });
 }, 3e5)
 
+}
 
 
 
