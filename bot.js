@@ -13,7 +13,7 @@ client.on("ready", () => {
                 member.addRole('470625504035078154')
             }
         });
-    }, 3e5)
+    }, 300000)
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
     client.user.setActivity(`rb!help`, { type : 'STREAMING', url: 'https://twitch.tv/romanvoyoutube'}).catch(console.error);
 });
@@ -74,11 +74,6 @@ client.on("message", async message => {
     const command =  args.shift().toLowerCase();
  // Direct Messages - #00ff00
  // Chat messages - #800080
-
-
-
-
-
 
 if (command === 'lock') {
     let blacklist = [
