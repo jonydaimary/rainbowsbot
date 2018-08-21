@@ -75,6 +75,43 @@ client.on("message", async message => {
     });
 }, 3e5)
 
+if (command === 'lock') {
+    let blacklist = [
+        '469601334841311262',
+        '469709697939669022',
+        '469602360071815168',
+        '469602042051035156',
+        '469607537843634176',
+    ];
+
+    let channel = message.member.voiceChannel;
+    if (!channel) return;
+    if (blacklist.includes(channel.id)) return;
+    channel.overwritePermissions(channel.guild.roles.find('name', '\@everyone'), {
+        CONNECT: false
+    })
+    channel.overwritePermissions(message.author.id, {
+        CONNECT: true
+    })
+}
+
+if (command === 'unlock') {
+    let blacklist = [
+        '469601334841311262',
+        '469709697939669022',
+        '469602360071815168',
+        '469602042051035156',
+        '469607537843634176',
+    ];
+
+    let channel = message.member.voiceChannel;
+    if (!channel) return;
+    if (blacklist.includes(channel.id)) return;
+    channel.overwritePermissions(channel.guild.roles.find('name', '\@everyone'), {
+        CONNECT: null
+    })
+}
+
 if(command === `mute`) {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("У вас нет прав");
 
