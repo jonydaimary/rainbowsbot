@@ -232,28 +232,6 @@ if (command === 'report') {
     }
    
  
- if (command === 'vip') {
-        let embed = new Discord.RichEmbed()
-        .setTitle('Платная роль "VIP"')
-        .setDescription(`**Перед покупкой оповестить <@340171098874183680>**`)
-        .addField(`**Цена**`,`50₽`)
-        .addField(`Оплата`, `http://www.donationalerts.ru/r/rainbows_server`)
-        .setColor('#800080');
-        
-            message.channel.send({embed})
-        }
-        
-    if (command === 'premium') {
-        let embed = new Discord.RichEmbed()
-        .setTitle('Платная роль "PREMIUM"')
-        .setDescription(`**Перед покупкой оповестить <@340171098874183680>**`)
-        .addField(`**Цена**`,`100₽`)
-        .addField(`Оплата`, `http://www.donationalerts.ru/r/rainbows_server`)
-        .setColor('#800080');
-            
-            message.channel.send({embed})
-        }
-
     if (command === 'playlist') {
     let embed = new Discord.RichEmbed()
     .setTitle('Ссылки на музыкальные плейлисты')
@@ -315,7 +293,7 @@ if (command === 'report') {
         let embed = new Discord.RichEmbed()
             .setTitle("Помощь")
             .setColor('#800080')
-            .setDescription(`Информация о командах\n\n __S__ - команды, доступные только персоналу \n\n**   rb!** - префикс бота\n\n **• vip** - команда для покупки VIP\n **• premium** - команда для покупки PREMIUM\n **• help** - команда, которая вызывает перечень команд бота \n **• gif** - команда, которая отправляет GIF-изображение сервера\n **• report** - команда, которая отправляет жалобу на игрока \n __S__ **• user** - команда, которая показывает основную информацию о пользователе \n **• staff** - команда, которая показывает персонал сервера\n __S__ **•(un)mute** - команда, которая мутит игрока\n \n **Для просмотра второй страницы введите rb!help2**`)
+            .setDescription(`Информация о командах\n\n __S__ - команды, доступные только персоналу \n\n**   rb!** - префикс бота\n\n**• help** - команда, которая вызывает перечень команд бота \n **• gif** - команда, которая отправляет GIF-изображение сервера\n **• report** - команда, которая отправляет жалобу на игрока \n __S__ **• user** - команда, которая показывает основную информацию о пользователе \n **• staff** - команда, которая показывает персонал сервера\n __S__ **•(un)mute** - команда, которая мутит игрока\n \n **Для просмотра второй страницы введите rb!help2**`)
             .setFooter("Страница 1/2");
 
             message.channel.send({embed});
