@@ -5,15 +5,6 @@ const token = process.env.TOKEN
 const ms = require("ms");
 
 client.on("ready", () => {
-    setInterval(() => {
-        let guild = client.guilds.get('469596213491138570');
-        guild.members.forEach((id, member) => {
-            console.log(member.user.tag)
-            if (member.roles.has('469612245744091181') && !member.roles.has('470625504035078154')) {
-                member.addRole('470625504035078154')
-            }
-        });
-    }, 300000)
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
     client.user.setActivity(`rb!help`, { type : 'STREAMING', url: 'https://twitch.tv/romanvoyoutube'}).catch(console.error);
 });
@@ -245,10 +236,10 @@ if (command === 'report') {
     if (command === 'staff') {
         let embed = new Discord.RichEmbed()
         .setTitle('Персонал сервера')
-        .addField('Главный администратор, владелец сервера:', '<@340171098874183680>')
-        .addField('Главный администратор','<@305408196078600192>')
+        .addField('Главный администратор:', '<@340171098874183680>')
+        .addField('Администратор','<@305408196078600192>')
         .addField('Главные модераторы:', '\n<@291277208431886356>\n<@392738552225464325>')
-        .addField('Модераторы:', '\n<@323053088346865665>\n<@287844541627891712>')
+        .addField('Модератор:', '\n<@323053088346865665>')
         .setThumbnail(`https://media.giphy.com/media/1Q9CsjzWyt2qVzM0GH/giphy.gif`)
         .setColor('#800080');
     
