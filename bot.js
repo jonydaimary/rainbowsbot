@@ -245,6 +245,7 @@ if (command === 'report') {
     
             message.channel.send({embed})
         }
+        
 
     if (command === 'user') {
         message.delete();
