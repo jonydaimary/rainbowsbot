@@ -82,7 +82,7 @@ client.on("message", async message => {
     let new_args = args;
     new_args.shift();
     let reason = new_args.join(' ').trim();
-
+ 
     let user = message.mentions.members.first();
     if (!user) return message.channel.send({embed: embed_error(`${message.author}, укажите существующего пользователя`)});
     if (user.user.id === message.author.id) return message.channel.send({embed: embed_error(`${user.user}, выдать варн самому себе нельзя.`)});
@@ -108,17 +108,15 @@ client.on("message", async message => {
                     if (reason !== null && typeof reason !== undefined && reason !== '') embed.addField('Причина', `${reason}`);
                     message.channel.send(`${user.user}`, {embed}).then(() => {
                     });
-                    try {
-                        //....
-                    } catch(error) {
-                        console.log(`Error occurred: ${Exception.message}\n${Exception.stack}`);
-                    }
                     message.guild.channels.get('469600390455885833').send({embed});
-                  
-                } catch (Exception) {message.channel.send({embed: embed_error('Ошибка варна.')})}
+                 
+                } catch (Exception) {
+                    console.log(`Error occurred: ${Exception.message}\n${Exception.stack}`);
+                    message.channel.send({embed: embed_error('Ошибка варна.')})
+                }
             }
         });
-
+ 
     }
 
 
