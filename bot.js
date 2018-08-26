@@ -95,8 +95,7 @@ client.on("message", async message => {
     collector.on('collect', msg => {
         if (['да'].includes(msg.content.toLowerCase())) {
                 try {
-                    let data = JSON.parse(body);
-                    let footer = 'Rainbow`s Warnings' + data.id;
+                    let footer = 'Rainbow`s Warnings';
                     if (reason === null || typeof reason === 'undefined') reason = 'Причина не указана.';
                     let embed = new Discord.RichEmbed()
                         .setTitle('Предупреждение')
