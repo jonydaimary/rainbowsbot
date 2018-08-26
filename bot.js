@@ -84,16 +84,16 @@ client.on("message", async message => {
     let reason = new_args.join(' ').trim();
 
     let user = message.mentions.members.first();
-    if (!user) return message.channel.send({embed: embed_error(`${message.author}, извините, но пользователь, которого вы упомянули, не является участником сервера или не существует`)});
-    if (user.user.id === message.author.id) return message.channel.send({embed: embed_error(`${user.user}, извините, но вы не можете наказать самого себя.`)});
-    if (user.user.bot) return message.channel.send({embed: embed_error(`${message.author}, извините, но вы не можете наказать бота`)});
+    if (!user) return message.channel.send({embed: embed_error(`${message.author}, укажите существующего пользователя`)});
+    if (user.user.id === message.author.id) return message.channel.send({embed: embed_error(`${user.user}, выдать варн самому себе нельзя.`)});
+    if (user.user.bot) return message.channel.send({embed: embed_error(`${message.author}, выдать варн боту нельзя`)});
     let reasontext = '';
     if (reason !== null && typeof reason !== undefined && reason !== '') reasontext = ` с причиной \`${reason}\``;
     if (reason === null || typeof reason === undefined || reason === '') reason = 'Причина не указана.';
-    let accepting = message.channel.send(`Вы уверены, что хотите выписать предупреждение пользователю \`${user.user.tag}\`${reasontext}?\n\n**Напишите \`да\`, чтобы подтведить.**`);
+    let accepting = message.channel.send(`Вы действительно хотите выдать варн пользователю \`${user.user.tag}\`${reasontext}?\n\n**Для подтверждения напишите \`да\`**`);
     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
     collector.on('collect', msg => {
-        if (['да', 'ага', 'кнш', 'конечно', 'конешно', 'давай', 'йес', 'yes', 'y', 'aga', 'go', 'da', 'го'].includes(msg.content.toLowerCase())) {
+        if (['да'].includes(msg.content.toLowerCase())) {
                 try {
                     let data = JSON.parse(body);
                     let footer = 'Rainbow`s Warnings' + data.id;
@@ -108,6 +108,7 @@ client.on("message", async message => {
                     if (reason !== null && typeof reason !== undefined && reason !== '') embed.addField('Причина', `${reason}`);
                     message.channel.send(`${user.user}`, {embed}).then(() => {
                     });
+                    message.guild.channels.get('469600390455885833').send({embed});
                 } catch (Exception) {message.channel.send({embed: embed_error('Ошибка варна.')})}
             }
         });
