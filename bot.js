@@ -66,6 +66,15 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
 
+ function embed_error(text) {
+    let error_emoji = client.emojis.get(emojis.error);
+    return new Discord.RichEmbed()
+        .setTitle('Ошибка')
+        .setColor('#C34E4E')
+        .setFooter('Rainbow`s Server')
+        .setDescription(`${error_emoji} ${text}`);
+ }
+ 
  if (command === `warn`) {
     message.delete();
     let new_args = args;
