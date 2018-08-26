@@ -66,7 +66,47 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
 
-if (command === 'lock') {
+ if (command === `warn`) {
+    message.delete();
+    let new_args = args;
+    new_args.shift();
+    let reason = new_args.join(' ').trim();
+
+    let user = message.mentions.members.first();
+    if (!user) return message.channel.send({embed: embed_error(`${message.author}, извините, но пользователь, которого вы упомянули, не является участником сервера или не существует`)});
+    if (user.user.id === message.author.id) return message.channel.send({embed: embed_error(`${user.user}, извините, но вы не можете наказать самого себя.`)});
+    if (user.user.bot) return message.channel.send({embed: embed_error(`${message.author}, извините, но вы не можете наказать бота`)});
+    let reasontext = '';
+    if (reason !== null && typeof reason !== undefined && reason !== '') reasontext = ` с причиной \`${reason}\``;
+    if (reason === null || typeof reason === undefined || reason === '') reason = 'Причина не указана.';
+    let accepting = message.channel.send(`Вы уверены, что хотите выписать предупреждение пользователю \`${user.user.tag}\`${reasontext}?\n\n**Напишите \`да\`, чтобы подтведить.**`);
+    const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
+    collector.on('collect', msg => {
+        if (['да', 'ага', 'кнш', 'конечно', 'конешно', 'давай', 'йес', 'yes', 'y', 'aga', 'go', 'da', 'го'].includes(msg.content.toLowerCase())) {
+            message.channel.startTyping();
+                try {
+                    let data = JSON.parse(body);
+                    let footer = 'Rainbow`s Warnings' + data.id;
+                    if (reason === null || typeof reason === 'undefined') reason = 'Причина не указана.';
+                    let embed = new Discord.RichEmbed()
+                        .setTitle('Предупреждение')
+                        // .setDescription(`**Пользователь:** ${user.user}\n**Модератор:** ${message.author}\n**Причина:**\n\n${reason}`)
+                        .addField('Пользователь', `${user.user} (\`${user.user.tag}\`)`, true)
+                        .addField('Модератор', `${message.author} (\`${message.author.tag}\`)`, true)
+                        .setFooter(footer)
+                        .setColor('#800080');
+                    if (reason !== null && typeof reason !== undefined && reason !== '') embed.addField('Причина', `${reason}`);
+                    message.channel.send(`${user.user}`, {embed}).then(() => {
+                    });
+                    message.guild.channels.get('426756919777165312').send({embed});
+                } catch (Exception) {message.channel.send({embed: embed_error('Ошибка варна.')})}
+            }
+        });
+
+    }
+
+
+ if (command === 'lock') {
     let blacklist = [
         '469601334841311262',
         '469709697939669022',
@@ -392,6 +432,6 @@ if (command === 'report') {
             .catch(error => message.reply(`Вы не можете удалить сообщения из-за ${error}`));
     }
     
-});
+ });
  
 client.login(process.env.TOKEN).catch(console.error);
