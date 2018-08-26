@@ -83,7 +83,6 @@ client.on("message", async message => {
     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
     collector.on('collect', msg => {
         if (['да', 'ага', 'кнш', 'конечно', 'конешно', 'давай', 'йес', 'yes', 'y', 'aga', 'go', 'da', 'го'].includes(msg.content.toLowerCase())) {
-            message.channel.startTyping();
                 try {
                     let data = JSON.parse(body);
                     let footer = 'Rainbow`s Warnings' + data.id;
