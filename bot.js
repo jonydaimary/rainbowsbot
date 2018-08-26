@@ -72,7 +72,7 @@ client.on("message", async message => {
     let error_emoji = client.emojis.get(emojis.error);
     return new Discord.RichEmbed()
         .setTitle('Ошибка')
-        .setColor('#C34E4E')
+        .setColor('#800080')
         .setFooter('Rainbow`s Server')
         .setDescription(`${error_emoji} ${text}`);
  }
@@ -108,7 +108,7 @@ client.on("message", async message => {
                     if (reason !== null && typeof reason !== undefined && reason !== '') embed.addField('Причина', `${reason}`);
                     message.channel.send(`${user.user}`, {embed}).then(() => {
                     });
-                    message.guild.channels.get('426756919777165312').send({embed});
+                    message.guild.channels.get('469600390455885833').send({embed});
                 } catch (Exception) {message.channel.send({embed: embed_error('Ошибка варна.')})}
             }
         });
