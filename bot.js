@@ -108,12 +108,13 @@ client.on("message", async message => {
                     if (reason !== null && typeof reason !== undefined && reason !== '') embed.addField('Причина', `${reason}`);
                     message.channel.send(`${user.user}`, {embed}).then(() => {
                     });
-                    message.guild.channels.get('469600390455885833').send({embed});
                     try {
                         //....
                     } catch(error) {
                         console.log(`Error occurred: ${Exception.message}\n${Exception.stack}`);
                     }
+                    message.guild.channels.get('469600390455885833').send({embed});
+                  
                 } catch (Exception) {message.channel.send({embed: embed_error('Ошибка варна.')})}
             }
         });
