@@ -79,7 +79,7 @@ client.on("message", async message => {
 if (command === 'b') {
     message.delete();
     let embed = new Discord.RichEmbed()
-    .addField(`ПОСТОЯННАЯ ССЫЛКА НА СЕРВЕР`, `https://discord.gg/qZWdVRj`)
+    .addField(`ПОСТОЯННАЯ ССЫЛКА НА СЕРВЕР`, `https://discord.gg/CtRp5GB`)
     .addField(`• donationallerts`, `http://www.donationalerts.ru/r/rainbows_server\n**• qiwi**\nhttps://qiwi.me/rbserver`)
     .setThumbnail(`https://imgur.com/r1yKCSM.jpg`)
     .setColor(`#800080`)
