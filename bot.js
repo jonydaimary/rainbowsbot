@@ -408,7 +408,7 @@ if (command === 'report') {
             return message.reply("Вы не можете этого сделать");
  
         let reason = args.slice(1).join(' ');
-        if(!reason) reason = "Укажите причину";
+        if(!reason) reason = "Причина  не указана";
  
         await member.kick(reason)
             .catch(error => message.reply(`${message.author} Я не могу кикнуть из-за : ${error}`));
@@ -427,7 +427,7 @@ if (command === 'report') {
             return message.reply("Вы не можете этого сделать");
  
         let reason = args.slice(1).join(' ');
-        if(!reason) reason = "No reason provided";
+        if(!reason) reason = "Причина не указана";
  
         await member.ban(reason)
             .catch(error => message.reply(`${message.author} Я не могу кикнуть из-за : ${error}`));
