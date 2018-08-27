@@ -25,7 +25,7 @@ client.on('guildMemberAdd', (member) => {
     .setAuthor("R𝕒i𝕟b𝕠w#1111", "https://i.imgur.com/vM67SRdh.jpg")
     .setTitle('Добро пожаловать на Rainbow`s Server!')
     .setDescription('Привет! Это сообщение пишу вам я, собственный бот сервера. Для получения информации или основных команд введите **rb!help** ')
-    .addField('Информация о сервере', `Rainbow's Server — это стремительно развивающийся сервер Discord. Основной аудиторией которого являются игроки абсолютно всех жанров игр. На сервере всегда можно поискать напарника по другим игровым дисциплинам.\n Обязательно прочитай <#469599206991200256>. \n **Мы рады, что ты зашел к нам** \n По вопросам обращайся к Главному Администратору, Главному модератору или Модератору\n\nЧеловек на сервере: **${member.guild.memberCount}**\n`)
+    .addField('Информация о сервере', `Rainbow's Server — это стремительно развивающийся сервер Discord. Основной аудиторией которого являются игроки абсолютно всех жанров игр. На сервере всегда можно поискать напарника по другим игровым дисциплинам.\n Обязательно прочитай <#469599206991200256>. \n **Мы рады, что ты зашел к нам** \n По вопросам обращайся к Главному администратору\n\nЧеловек на сервере: **${member.guild.memberCount}**\n`)
     .setColor('00ff00')
     .setFooter('Rainbow`s server 🌈 Welcome!');
     
@@ -79,6 +79,8 @@ client.on("message", async message => {
  
  if (command === `warn`) {
     message.delete();
+    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
+    return message.reply("у вас нет прав для выполнения данной команды");
     let new_args = args;
     new_args.shift();
     let reason = new_args.join(' ').trim();
@@ -396,7 +398,7 @@ if (command === 'report') {
     }
  
     if (command === "kick") {
-        if(!message.member.roles.some(r=>["Главный Администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
+        if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
             return message.reply("у вас нет прав для выполнения данной команды");
  
         let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -406,16 +408,16 @@ if (command === 'report') {
             return message.reply("Вы не можете этого сделать");
  
         let reason = args.slice(1).join(' ');
-        if(!reason) reason = "No reason provided";
+        if(!reason) reason = "Укажите причину";
  
         await member.kick(reason)
-            .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
-        message.reply(`${member.user.tag} has been kicked by ${message.author.tag} for reason: ${reason}`);
+            .catch(error => message.reply(`${message.author} Я не могу кикнуть из-за : ${error}`));
+        message.reply(`${member.user.tag} был кикнут ${message.author.tag} по причине: ${reason}`);
  
     }
  
     if(command === "ban") {
-        if(!message.member.roles.some(r=>["Главный Администратор"].includes(r.name)) )
+        if(!message.member.roles.some(r=>["Главный Администратор", "Администратор"].includes(r.name)) )
             return message.reply("у вас нет прав для выполнения данной команды");
  
         let member = message.mentions.members.first();
@@ -428,8 +430,8 @@ if (command === 'report') {
         if(!reason) reason = "No reason provided";
  
         await member.ban(reason)
-            .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
-        message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
+            .catch(error => message.reply(`${message.author} Я не могу кикнуть из-за : ${error}`));
+        message.reply(`${member.user.tag} был забанен ${message.author.tag} по причине: ${reason}`);
     }
  
     if(command === "purge") {
