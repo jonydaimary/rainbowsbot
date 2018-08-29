@@ -105,7 +105,8 @@ client.on("message", async message => {
                         .addField('Пользователь', `${user.user} (\`${user.user.tag}\`)`, true)
                         .addField('Модератор', `${message.author} (\`${message.author.tag}\`)`, true)
                         .setFooter(footer)
-                        .setColor('#800080');
+                        .setColor('#800080')
+                        .setTimestamp(message.createedAt);
                     if (reason !== null && typeof reason !== undefined && reason !== '') embed.addField('Причина', `${reason}`);
                     message.channel.send(`${user.user}`, {embed}).then(() => {
                     });
