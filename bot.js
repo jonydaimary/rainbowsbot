@@ -66,7 +66,7 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
 
-if (message.content === "сука") {
+if (message.content = "сука") {
     message.delete();
 }
 
