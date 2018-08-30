@@ -14,6 +14,7 @@ client.on("guildCreate", guild => {
     client.user.setActivity(`rb!help`, { type : 'STREAMING', url: 'https://twitch.tv/romanvoyoutube'}).catch(console.error);
 });
  
+
 client.on("guildDelete", guild => {
     
     console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
