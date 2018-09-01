@@ -37,9 +37,11 @@ client.on('guildMemberAdd', (member) => {
 client.on('guildMemberAdd', (member) => {
     let embed = new Discord.RichEmbed()
     .setTitle(`Новый участник сервера`)
+    .addField(``,``)
     .setDescription(`К серверу присоединился ${member.user.tag}, `)
     .setColor('#800080')
     .setFooter(`Rainbow's server 🌈 Welcome!`)
+    .setTimestamp(message.createdAt)
     .setThumbnail(`https://media.giphy.com/media/dIL9AEkMQel0QLIjRR/giphy.gif`);
     
     client.channels.get('469599515561689092').send({embed});
@@ -50,6 +52,7 @@ client.on('guildMemberAdd', (member) => {
 client.on('guildMemberRemove', (member) => {
     let embed = new Discord.RichEmbed()
     .setTitle(`Участник покинул сервер`)
+    .addField(``,``)
     .setDescription(`С сервера ушел ${member.user.tag}`)
     .setColor('#800080')
     .setFooter(`Rainbow's server 🌈 Goodbye!`)
@@ -107,7 +110,7 @@ client.on("message", async message => {
                         .addField('Модератор', `${message.author} (\`${message.author.tag}\`)`, true)
                         .setFooter(footer)
                         .setColor('#800080')
-                        .setTimestamp(message.createedAt);
+                        .setTimestamp(message.createdAt);
                     if (reason !== null && typeof reason !== undefined && reason !== '') embed.addField('Причина', `${reason}`);
                     message.channel.send(`${user.user}`, {embed}).then(() => {
                     });
