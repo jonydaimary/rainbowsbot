@@ -37,7 +37,6 @@ client.on('guildMemberAdd', (member) => {
 client.on('guildMemberAdd', (member) => {
     let embed = new Discord.RichEmbed()
     .setTitle(`Новый участник сервера`)
-    .addField(``,``)
     .setDescription(`К серверу присоединился ${member.user.tag}, `)
     .setColor('#800080')
     .setFooter(`Rainbow's server 🌈 Welcome!`)
@@ -52,7 +51,6 @@ client.on('guildMemberAdd', (member) => {
 client.on('guildMemberRemove', (member) => {
     let embed = new Discord.RichEmbed()
     .setTitle(`Участник покинул сервер`)
-    .addField(``,``)
     .setDescription(`С сервера ушел ${member.user.tag}`)
     .setColor('#800080')
     .setFooter(`Rainbow's server 🌈 Goodbye!`)
