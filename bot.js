@@ -40,7 +40,6 @@ client.on('guildMemberAdd', (member) => {
     .setDescription(`К серверу присоединился ${member.user.tag}, `)
     .setColor('#800080')
     .setFooter(`Rainbow's server 🌈 Welcome!`)
-    .setTimestamp(message.createdAt)
     .setThumbnail(`https://media.giphy.com/media/dIL9AEkMQel0QLIjRR/giphy.gif`);
     
     client.channels.get('469599515561689092').send({embed});
