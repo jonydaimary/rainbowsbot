@@ -401,7 +401,8 @@ if (command === 'report') {
             .setTitle('Пользователь кикнут')
             .addField(`Пользователь:`, member)
             .setColor('#800080')
-            .addField(`Модератор:`, message.author);
+            .addField(`Модератор:`, message.author)
+            .addField(`Причина:`, reason);
     
              message.channel.send({embed});
  
@@ -426,7 +427,8 @@ if (command === 'report') {
             .setTitle('Пользователь забанен')
             .addField(`Пользователь:`, member)
             .setColor('#800080')
-            .addField(`Модератор:`, message.author);
+            .addField(`Модератор:`, message.author)
+            .addField(`Причина:`, reason);
     
              message.channel.send({embed});
     }
