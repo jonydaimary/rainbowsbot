@@ -331,7 +331,7 @@ if (command === 'report') {
         let embed = new Discord.RichEmbed()
             .setTitle("Помощь")
             .setColor('#800080')
-            .setDescription(`Информация о командах\n\n __S__ - команды, доступные только персоналу \n\n**   rb!** - префикс бота\n\n**• help** - команда, которая вызывает перечень команд бота \n**• (un)lock** - команда, которая закрывает комнату\n **• gif** - команда, которая отправляет GIF-изображение сервера\n **• report** - команда, которая отправляет жалобу на игрока \n**• user** - команда, которая показывает основную информацию о пользователе \n **• staff** - команда, которая показывает персонал сервера\n __S__ **•(un)mute** - команда, которая мутит игрока\n __S__ **•warn** - команда, которая выдает предупреждение игроку\n \n **Для просмотра второй страницы введите rb!help2**`)
+            .setDescription(`Информация о командах\n\n __S__ - команды, доступные только персоналу \n\n**   rb!** - префикс бота\n\n**• help** - команда, которая вызывает перечень команд бота \n **• gif** - команда, которая отправляет GIF-изображение сервера\n **• report** - команда, которая отправляет жалобу на игрока \n**• user** - команда, которая показывает основную информацию о пользователе \n **• staff** - команда, которая показывает персонал сервера\n __S__ **•(un)mute** - команда, которая мутит игрока\n __S__ **•warn** - команда, которая выдает предупреждение игроку\n \n **Для просмотра второй страницы введите rb!help2**`)
             .setFooter("Страница 1/2");
 
             message.channel.send({embed});
@@ -341,7 +341,7 @@ if (command === 'report') {
         let embed = new Discord.RichEmbed()
             .setTitle("Помощь")
             .setColor('#800080')
-            .setDescription(`Информация о командах \n \n __S__ **• ban** - команда, которая банит игрока на сервере \n __S__ **•kick** - команда, которая выгоняет игрока с сервера \n __S__ **• purge** - команда, которая очищает определенное кол-во сообщений в чате \n **• ping** - команда, которая отправляет запрос на сервер \n **•info** - команда, которая содержит ключевую информацию о боте \n __S__ **•stats** - команда, которая содержит статистику бота в данный момент \n **• link** - команда, которая отправляет приглашение на сервер\n **• playlist** - команда, которая отправляет ссылки на музыкальные плейлисты (используется совместно с Rythm ботом)`)
+            .setDescription(`Информация о командах \n \n __S__ **• ban** - команда, которая банит игрока на сервере \n __S__ **•kick** - команда, которая выгоняет игрока с сервера \n __S__ **• purge** - команда, которая очищает определенное кол-во сообщений в чате \n **• ping** - команда, которая отправляет запрос на сервер \n **•info** - команда, которая содержит ключевую информацию о боте \n **• link** - команда, которая отправляет приглашение на сервер\n **• playlist** - команда, которая отправляет ссылки на музыкальные плейлисты (используется совместно с Rythm ботом)`)
             .setFooter("Страница 2/2");
     
             message.channel.send({embed});
@@ -374,24 +374,6 @@ if (command === 'report') {
         const m = await message.channel.send("Ping?");
         m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
     }
- 
-    if(command ==="stats") {
-    if(!message.member.roles.some(r=>["Главный Администратор"].includes(r.name)) )
-        return message.reply("у вас нет прав для выполнения данной команды");
-        const embed = new Discord.RichEmbed()
-            .setColor(`#00ff00`)
-            .setTitle('Статистика')
-            .setThumbnail(client.user.avatarURL);
-        embed.addField('Пинг', client.ping, true);
-        embed.addField('ОЗУ', `25`);
-        embed.addField('Сервер', 'Rainbow`s Server');
-        embed.addField('Порт', `58973009457`);
-        let guilds = [];
-        client.guilds.forEach(function (guild) {guilds.push(guild.name)});
-        embed.addField('Гильдии', '```'+guilds.join('\n')+'```');
-        message.author.send(embed);
-        message.delete();
-    }
 
     if (command === "say") {
         const sayMessage = args.join(" ");
@@ -414,7 +396,14 @@ if (command === 'report') {
  
         await member.kick(reason)
             .catch(error => message.reply(`${message.author} Я не могу кикнуть из-за : ${error}`));
-        message.reply(`${member.user.tag} был кикнут ${message.author.tag} по причине: ${reason}`);
+        
+            let embed = new Discord.RichEmbed()
+            .setTitle('Пользователь кикнут')
+            .addField(`Пользователь:`, member)
+            .setColor('#800080')
+            .addField(`Модератор:`, message.author);
+    
+             message.channel.send({embed});
  
     }
  
@@ -433,7 +422,13 @@ if (command === 'report') {
  
         await member.ban(reason)
             .catch(error => message.reply(`${message.author} Я не могу кикнуть из-за : ${error}`));
-        message.reply(`${member.user.tag} был забанен ${message.author.tag} по причине: ${reason}`);
+            let embed = new Discord.RichEmbed()
+            .setTitle('Пользователь забанен')
+            .addField(`Пользователь:`, member)
+            .setColor('#800080')
+            .addField(`Модератор:`, message.author);
+    
+             message.channel.send({embed});
     }
  
     if(command === "purge") {
