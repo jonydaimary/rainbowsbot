@@ -67,6 +67,120 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
 
+ if (command === 'a') {
+    message.delete();
+    let embed = new Discord.RichEmbed()
+    .addField(`ДОБРО ПОЖАЛОВАТЬ`, `Перед тем, как начать общение на нашем севере, ознакомьтесь с основной информацией`)
+    .setFooter(`Администрация | 11.07.2018`)
+    .setColor(`#800080`)
+    .setThumbnail(`https://i.imgur.com/r1yKCSM.jpg`);
+
+    message.channel.send({embed})
+    }
+if (command === 'b') {
+    message.delete();
+    let embed = new Discord.RichEmbed()
+    .addField(`ПОСТОЯННАЯ ССЫЛКА НА СЕРВЕР`, `https://discord.gg/qZWdVRj`)
+    .addField(`• donationallerts`, `http://www.donationalerts.ru/r/rainbows_server\n**• qiwi**\nhttps://qiwi.me/rbserver`)
+    .setThumbnail(`https://imgur.com/r1yKCSM.jpg`)
+    .setColor(`#800080`)
+    .setFooter(`Администрация | 11.07.2018`);
+
+    message.channel.send({embed})
+    }
+
+if (command === 'c') {
+    message.delete();
+    let embed = new Discord.RichEmbed()
+    .addField(`О НОВИЧКАХ`,'У каждого есть роль **Новичок**. Она выдаётся при подключении к серверу. Новичок не имеет никаких особых прав и привилегий на сервере')
+    .setColor(`#800080`)
+    .setFooter(`Администрация | 11.07.2018`);
+    
+    message.channel.send({embed})
+    }
+
+if (command === 'd') {
+    message.delete();
+    let embed = new Discord.RichEmbed()
+    .addField(`РОЛИ СЕРВЕРА`, `**Главный администратор** является главным на сервере. Он следит, чтобы персонал выполнял свои обязанности и отвечает за рекламу сервера\n\nЕсли вы встретили нарушителя вы можете пожаловаться на него персоналу с ролями **Главный модератор** и **Модератор**\n\n**Помощник** - это человек, отвечающий на все вопросы участников **в специальном текстовом канале**\n\n\n\nЕсли вы долгое время на сервере и персонал вам доверяет, Вы можете получить роль **Проверенный участник** Она выдаётся по желанию администрации\n\nРоль **Кодер** выдаётся участникам, умеющих программировать на различных языках`)
+    .setColor(`#800080`)
+    .setFooter(`Администрация | 11.07.2018`);  
+    message.channel.send({embed})
+}
+
+if (command === 'e') {
+    message.delete();
+    let embed = new Discord.RichEmbed()
+    .addField(`ПАРТНЁРСТВО`, `На нашем сервере предусмотрен обмен партнерскими ссылками. Вы должны сообщить **Главному администратору** о том, что вы хотите стать партнёром. Если вашу заявку примут, Вам скажут о дальнейших действиях\n\n**РАЗМЕЩЕНИЕ ПАРТНЁРСКИХ ССЫЛОК БЕЗ СОГЛАСИЯ АДМИНИСТРАЦИИ ЗАПРЕЩЕНО**\n\n**ТРЕБОВАНИЯ ДЛЯ ПАРТНЕРОВ**\n\n• На Вашем сервере должно быть не менее 70 участников (не считая ботов)\n• На Вашем сервере должен присутствовать актив (должно происходить общение)\n• Вы должны разместить наш партнёрский текст на своём сервере`)
+    .setColor(`#800080`)
+    .setFooter(`Администрация | 11.07.2018`);
+    
+    message.channel.send({embed})
+    }
+
+if (command === 'f') {
+    message.delete();
+    let embed = new Discord.RichEmbed()
+    .addField(`ТЕКСТОВЫЕ КАНАЛЫ`, `#информация - канал, в котором представлена **основная информация**\n#правила - канал, в котором написаны **правила**\n#faq - канал, в котором находятся **самые популярные** вопросы и **ответы на них**\n#партнеры - канал для обмена **партнерскими ссылками**\n#события - канал для публикации **новостей** на сервере\n#чат - основной **чат** сервера\n#бот-чат - канал для использования **ботов** \n#цвета - канал для изменения **цвета**\n#ответы-на-вопросы - канал, в котором Вы можете посмотреть задать свои вопросы\n#достижения - канал для информации о **достижениях**\n#java - канал тематики языка Java\n#java-script - канал тематики языка JavaScript\n#python - канал тематики языка Python\n#php - канал тематики языка PHP`)
+    .setColor(`#800080`)
+    .setFooter(`Администрация | 05.09.2018`);
+
+        
+    message.channel.send({embed})
+    }
+    
+if (command === 'g') {
+    message.delete();
+    let embed = new Discord.RichEmbed()
+    .addField(`СИСТЕМА ВАРНОВ`, `**WARN** - предупреждение\nУ каждого участника есть право получить 3 варна. Они выдаются за нарушение правил. Администрация в праве кикать/понижать в должности при накоплении трёх варнов`)
+    .setColor(`#800080`)
+    .setFooter(`Администрация | 11.07.2018`);
+
+    message.channel.send({embed})
+    }
+
+if (command === 'h') {
+    message.delete();
+    let embed = new Discord.RichEmbed()
+    .addField(`СИСТЕМА ОПЫТА`, `По мере получения новых уровней Вы можете получить роли, с более полезными правами\n\nНиже представлены требования для получения ролей\n\n**Новичок** - 0 уровень\n**Поселенец** - 3 уровень\n**Местный** - 6 уровень\n**Старейшина** - 10 уровень\n\nУровень можно повысить проявляя активность в чате. Для того, чтобы избежать спама, бот засчитывает только одно сообщение в минуту. При получении уровня бот отправляет Вам в ват сообщение об этом`)
+    .setColor(`#800080`)
+    .setFooter(`Администрация | 11.07.2018`);
+
+    
+    message.channel.send({embed})
+    }
+
+if (command === 'i') {
+     message.delete();
+    let embed = new Discord.RichEmbed()
+    .addField(`ВИДЫ ФИНАНСОВОЙ ПОДДЕРЖКИ`, `Вы можете поддержать нас. Все деньги пойдут на улучшение и развитие сервере`)
+    .setColor(`#800080`);
+  
+    message.channel.send({embed})
+    }
+
+if (command === 'j') {
+    message.delete();
+    let embed = new Discord.RichEmbed()
+    .addField(`ДОНАТ`, `**DONATE** - пожертвование\nВы можете пожертвовать некоторую сумму нашему серверу. При пожертвовании от **50₽** вы получаете роль @VIP . При пожертвовании от **100₽** вы получаете роль @PREMIUM\nВсе деньги идут на развитие сервера`)
+    .setColor(`#800080`)
+    .setFooter(`Администрация | 11.08.2018`)
+     
+    message.channel.send({embed})
+}
+
+if (command === 'k') {
+    message.delete();
+    let embed = new Discord.RichEmbed()
+    .addField(`РЕКВЕЗИТЫ ОПЛАТЫ`, `**QIWI КОШЕЛЁК**\nhttps://qiwi.me/rbserver\n**ЯНДЕКС.ДЕНЬГИ**\n410013536900031`)
+    .setThumbnail(`https://corp.qiwi.com/dam/jcr:fbce4856-723e-44a2-a54f-e7b164785f01/qiwi_sign_rgb.png`)
+    .setColor(`#800080`);
+     
+    message.channel.send({embed})
+}
+
+
+
  const emojis = {up:'418748638081318912', stop:'418748635820326912', shuffle:'418748638173462528', repeat1:'418748637531865089', repeat:'418748637649174535', play:'418748635765800961', pause:'418748635329855489', ok:'418748637502504972', forward:'418748554899881994', down:'418748613733122058', back:'418748554014752770', ABCD:'418748554518069249', abcd:'418748553985261568', abc:'418748552802598927', protiv:'419121914959626240', neznayu:'419121999277719562', za:'419122029854457866', obnimayu:'421647583551684609', money:'422055316792803349', error: '424467513578094592', facepalm: '429213277688561664'};
  
  function embed_error(text) {
@@ -121,45 +235,6 @@ client.on("message", async message => {
         });
  
     }
-
-
- if (command === 'lock') {
-    let blacklist = [
-        '469601334841311262',
-        '469709697939669022',
-        '469602360071815168',
-        '469602042051035156',
-        '469607537843634176',
-    ];
-
-    let channel = message.member.voiceChannel;
-    if (!channel) return;
-    if (blacklist.includes(channel.id)) return;
-    channel.overwritePermissions(channel.guild.roles.find('name', '\@everyone'), {
-        CONNECT: false
-    })
-    channel.overwritePermissions(message.author.id, {
-        CONNECT: true
-    })
-
-}   
-
-if (command === 'unlock') {
-    let blacklist = [
-        '469601334841311262',
-        '469709697939669022',
-        '469602360071815168',
-        '469602042051035156',
-        '469607537843634176',
-    ];
-
-    let channel = message.member.voiceChannel;
-    if (!channel) return;
-    if (blacklist.includes(channel.id)) return;
-    channel.overwritePermissions(channel.guild.roles.find('name', '\@everyone'), {
-        CONNECT: null
-    })
-}
 
 if(command === `mute`) {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("У вас нет прав");
