@@ -128,7 +128,6 @@ if(command === `mute`) {
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if(!toMute) return message.channel.send("Вы указали несуществующего пользователя");
 
-    
 
     let role = message.guild.roles.find(r => r.name === "RBMute");
     if(!role) {
