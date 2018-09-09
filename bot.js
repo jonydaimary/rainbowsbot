@@ -134,9 +134,10 @@ if(command === `mute`) {
         try {
             role = await message.guild.createRole({
                 name: "RBMute",
-                color: "#00000",
+                color: "#000000",
                 permissions: []
             });
+            
 
             message.guild.channels.forEach(async (channel, id) => {
                 await channel.overwritePermissions(role, {
