@@ -122,6 +122,7 @@ client.on("message", async message => {
  
     }
 
+    
 if(command === `mute`) {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("У вас нет прав");
 
