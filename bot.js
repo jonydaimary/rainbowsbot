@@ -149,6 +149,7 @@ if(command === `mute`) {
         }
     }
 
+    
     if(toMute.roles.has(role.id)) return message.channel.send("Этот пользователь уже замучен");
 
     await toMute.addRole(role);
