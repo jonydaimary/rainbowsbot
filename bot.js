@@ -67,40 +67,6 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
 
- 
-if (command === `rule1`) {
-    let embed = new Discord.RichEmbed()
-
-    .setTitle(`Правила сервера`)
-    .setColor(`#77BBEC`)
-    .addField(`Cсылки на сторонние сервера Discord`, '```Наказание: бан```')
-
-    message.channel.send(embed)
-
-}
-
-if (command === `rule2`) {
-    let embed = new Discord.RichEmbed()
-
-    .setTitle(`Правила сервера`)
-    .setColor(`#77BBEC`)
-    .addField(`Cпам экспресс ссылками
-    любой контент с целью рекламы / пиара (реф.ссылки, рулетки, twitch/youtube каналы и т.п. ) без согласия Администрации сервера`, '```Наказание: бан```')
-
-    message.channel.send(embed)
-
-}
-
-if (command === `rule2`) {
-    let embed = new Discord.RichEmbed()
-
-    .setTitle(`Правила сервера`)
-    .setColor(`#77BBEC`)
-    .addField(`Любой контент 18+ , в том числе и на Аватарке пользователя`, '```Наказание: предупреждение, затем - кик```')
-
-    message.channel.send(embed)
-
-}
 
  const emojis = {up:'418748638081318912', stop:'418748635820326912', shuffle:'418748638173462528', repeat1:'418748637531865089', repeat:'418748637649174535', play:'418748635765800961', pause:'418748635329855489', ok:'418748637502504972', forward:'418748554899881994', down:'418748613733122058', back:'418748554014752770', ABCD:'418748554518069249', abcd:'418748553985261568', abc:'418748552802598927', protiv:'419121914959626240', neznayu:'419121999277719562', za:'419122029854457866', obnimayu:'421647583551684609', money:'422055316792803349', error: '424467513578094592', facepalm: '429213277688561664'};
  
@@ -348,7 +314,7 @@ if (command === 'report') {
             .setTitle('Как вам GIF-ка?')
             .setDescription("Rainbow`s Server's GIF image")
             .setColor('#800080')
-            .setThumbnail("https://media.giphy.com/media/1jl6KT45wrBmlOgd83/giphy.gif")
+            .setThumbnail("https://media.giphy.com/media/23foIXPAuT5EtZ7X67/giphy.gif")
     
              message.channel.send({embed});
     
