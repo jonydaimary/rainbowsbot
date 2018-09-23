@@ -72,8 +72,31 @@ if (command === `rule1`) {
     let embed = new Discord.RichEmbed()
 
     .setTitle(`Правила сервера`)
-    .setColor(`#800080`)
-    .addField(`Cсылки на сторонние сервера Discord`, '```css Наказание: бан```')
+    .setColor(`#77BBEC`)
+    .addField(`Cсылки на сторонние сервера Discord`, '```Наказание: бан```')
+
+    message.channel.send(embed)
+
+}
+
+if (command === `rule2`) {
+    let embed = new Discord.RichEmbed()
+
+    .setTitle(`Правила сервера`)
+    .setColor(`#77BBEC`)
+    .addField(`Cпам экспресс ссылками
+    любой контент с целью рекламы / пиара (реф.ссылки, рулетки, twitch/youtube каналы и т.п. ) без согласия Администрации сервера`, '```Наказание: бан```')
+
+    message.channel.send(embed)
+
+}
+
+if (command === `rule2`) {
+    let embed = new Discord.RichEmbed()
+
+    .setTitle(`Правила сервера`)
+    .setColor(`#77BBEC`)
+    .addField(`Любой контент 18+ , в том числе и на Аватарке пользователя`, '```Наказание: предупреждение, затем - кик```')
 
     message.channel.send(embed)
 
