@@ -73,7 +73,7 @@ if (command === `a`) {
     let embed = new Discord.RichEmbed()
 
     .addField(`Запрещен пиар серверов в форме: ссылки-приглашения в никнейме, спам ссылками в чате, рассылка ссылок-приглашений в ЛС участникам `, `**Наказание: Моментальный бан**`)
-    .setThumbnail(`https://imgur.com/a/OT7cKTe.jpg`);
+    .setThumbnail(`https://i.imgur.com/vS5JEkv.png`);
 
     message.channel.send(embed);
 }
