@@ -68,8 +68,8 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
  
- const matchingRole = '477367979160633344';
- const givenRole = '477367979160633344';
+ const matchingRole = '469612245744091181';
+ const givenRole = '470625504035078154';
  client.on('guildMemberUpdate', async (before, after) => {
     if (!before.roles.has(matchingRole) && after.roles.has(matchingRole))
         await after.addRole(givenRole);
