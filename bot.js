@@ -69,10 +69,10 @@ client.on("message", async message => {
  
  const matchingRole = '477367979160633344';
  const givenRole = '477367979160633344';
- client.on('guildMemberUpdate', (before, after) => {
-     if (!before.roles.has(matchingRole) && after.roles.has(matchingRole))
-         after.addRole(givenRole);
- });
+ client.on('guildMemberUpdate', async (before, after) => {
+    if (!before.roles.has(matchingRole) && after.roles.has(matchingRole))
+        await after.addRole(givenRole);
+});
 
  if (command === `warn`) {
     message.delete();
