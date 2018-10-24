@@ -67,6 +67,13 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
  
+ const matchingRole = '477367979160633344';
+ const givenRole = '477367979160633344';
+ client.on('guildMemberUpdate', (before, after) => {
+     if (!before.roles.has(matchingRole) && after.roles.has(matchingRole))
+         after.addRole(givenRole);
+ });
+
  if (command === `warn`) {
     message.delete();
     if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
