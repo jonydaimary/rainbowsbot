@@ -106,9 +106,9 @@ let xpAdd = Math.floor(Math.random() * 7) + 8; mRND = mRND + 1; mALL = mALL + 1;
  }
 
 
- fs.writeFile(".xp.json", JSON.stringify(xp), (err) => {
-     if(err) console.log(err)
- });
+ fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+    if(err) console.log(err)
+});
 
  if(message.content.startsWith(p + `level`)) {
     message.delete();
