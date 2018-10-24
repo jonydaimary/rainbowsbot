@@ -100,7 +100,7 @@ let mTOL = 0; //TOOLS   |   mTOL = mTOL + 1; mALL = mALL + 1;
  }
 
 
- fs.writeFile("./jsons/xp.json", JSON.stringify(xp), (err) => {
+ fs.writeFile(".xp.json", JSON.stringify(xp), (err) => {
      if(err) console.log(err)
  });
 
