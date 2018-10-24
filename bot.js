@@ -77,6 +77,8 @@ let mRND = 0; //RANDOM  |   mRND = mRND + 1; mALL = mALL + 1;
 let mRNB = 0; //RAINBOW |   mRNB = mRNB + 1; mALL = mALL + 1;
 let mTOL = 0; //TOOLS   |   mTOL = mTOL + 1; mALL = mALL + 1;
 
+let xp = require("xp.json");
+
 let lvl1 = ["text", "text", "text", "text"];
 
 let lvl = (lvl1[Math.floor(Math.random() * lvl1.length)])
