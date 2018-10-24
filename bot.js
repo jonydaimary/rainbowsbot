@@ -106,7 +106,7 @@ client.on("message", async message => {
          if(err) console.log(err)
      });
 
-     if(message.content.startsWith(p + `level`)) {
+     if(command === `level`) {
 
         message.delete();
 
