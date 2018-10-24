@@ -67,75 +67,72 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
 
-//modul's
-let mALL = 0; //ALL     |   mALL = mALL + 1; mALL = mALL + 1;
-let mFUN = 0; //FUN     |   mFUN = mFUN + 1; mALL = mALL + 1;
-let mOWN = 0; //OWNER   |   mOWM = mOWN + 1; mALL = mALL + 1;
-let mADM = 0; //ADMIN   |   mADM = mADM + 1; mALL = mALL + 1;
-let mMDR = 0; //MODER   |   mMDR = mMDR + 1; mALL = mALL + 1;
-let mRND = 0; //RANDOM  |   mRND = mRND + 1; mALL = mALL + 1;
-let mRNB = 0; //RAINBOW |   mRNB = mRNB + 1; mALL = mALL + 1;
-let mTOL = 0; //TOOLS   |   mTOL = mTOL + 1; mALL = mALL + 1;
+ let xp = require("./xp.json");
+ const fs = require('fs');
+ const lvl_xp = [
+     "А ты хорошь, лови ",
+     "Я не ожидал от тебя токого, вот тебе ",
+     "Не плохо, лови ",
+     "Ни чего себе, не жданчик, у тебя ",
+     "Воу воу воу, по легче, у тебя ",
+     "Поздравляю тебя, у тебя уже "
+ ];
+ 
+ let lvl = (lvl_xp[Math.floor(Math.random() * lvl_xp.length)]);
+ let xpAdd = Math.floor(Math.random() * 7) + 8; mRND = mRND + 1; mALL = mALL + 1;
+ 
+     if(!xp[message.author.id]){
+         xp[message.author.id] = {
+         xp: 0,
+         level: 1
+         };
+     }
+ 
+     let curxp = xp[message.author.id].xp;
+     let curlvl = xp[message.author.id].level;
+     let nxtLvl = xp[message.author.id].level * 300;
+     xp[message.author.id].xp = curxp + xpAdd;
+     if(nxtLvl <= xp[message.author.id].xp){
+         xp[message.author.id].level = curlvl + 1;
+         let lvlup = new Discord.RichEmbed()
+         .setColor("ffd500")
+         .setDescription(`**${message.author.username}**,` + ` ${lvl} ` + `**\`\`${curlvl+1}\`\`**` + "-й левел");
+ 
+         message.channel.send(lvlup).then(msg => {msg.delete(15000)});
+     }
+ 
+ 
+     fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+         if(err) console.log(err)
+     });
 
-let xp = require("./xp.json");
+     if(message.content.startsWith(p + `level`)) {
 
-let lvl1 = ["text", "text", "text", "text"];
+        message.delete();
 
-let lvl = (lvl1[Math.floor(Math.random() * lvl1.length)])
-
-let xpAdd = Math.floor(Math.random() * 7) + 8; mRND = mRND + 1; mALL = mALL + 1;
-
- if(!xp[message.author.id]){
-     xp[message.author.id] = {
-     xp: 0,
-     level: 1
-     };
- }
-
- let curxp = xp[message.author.id].xp;
- let curlvl = xp[message.author.id].level;
- let nxtLvl = xp[message.author.id].level * 300;
- xp[message.author.id].xp = curxp + xpAdd;
- if(nxtLvl <= xp[message.author.id].xp){
-     xp[message.author.id].level = curlvl + 1;
-     let lvlup = new Discord.RichEmbed()
-     .setColor("ffd500")
-     .setDescription(`**${message.author.username}**,` + ` ${lvl} ` + `**\`\`${curlvl+1}\`\`**` + "-й левел");
-
-     message.channel.send(lvlup).then(msg => {msg.delete(15000)});
- }
-
-
- fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
-    if(err) console.log(err)
-});
-
- if(message.content.startsWith(p + `level`)) {
-    message.delete();
-
-    if(!xp[message.author.id]){
-     xp[message.author.id] = {
-       xp: 0,
-       level: 1
-        };
+        if(!xp[message.author.id]){
+         xp[message.author.id] = {
+           xp: 0,
+           level: 1
+            };
+        }
+    
+        let curxp = xp[message.author.id].xp;
+        let curlvl = xp[message.author.id].level;
+        let nxtLvlXp = curlvl * 300;
+        let difference = nxtLvlXp - curxp;
+      
+        let lvlEmbed = new Discord.RichEmbed()
+        .setAuthor(message.author.username)
+        .setColor("ffd500")
+        .addField("Уровень", curlvl, true)
+        .addField("XP", curxp, true)
+        .setFooter(`${difference} XP для повышения уровня `, message.author.displayAvatarURL)
+        .setTimestamp();
+      
+        message.channel.send(lvlEmbed).then(msg => {msg.delete(15000)});
+      
     }
-
-    let curxp = xp[message.author.id].xp;
-    let curlvl = xp[message.author.id].level;
-    let nxtLvlXp = curlvl * 300;
-    let difference = nxtLvlXp - curxp;
-  
-    let lvlEmbed = new Discord.RichEmbed()
-    .setAuthor(message.author.username)
-    .setColor("ffd500")
-    .addField("Уровень", curlvl, true)
-    .addField("XP", curxp, true)
-    .setFooter(`${difference} XP для повышения уровня `, message.author.displayAvatarURL)
-    .setTimestamp();
-  
-    message.channel.send(lvlEmbed).then(msg => {msg.delete(15000)});
-  
-}
 
 const emojis = {up:'418748638081318912', stop:'418748635820326912', shuffle:'418748638173462528', repeat1:'418748637531865089', repeat:'418748637649174535', play:'418748635765800961', pause:'418748635329855489', ok:'418748637502504972', forward:'418748554899881994', down:'418748613733122058', back:'418748554014752770', ABCD:'418748554518069249', abcd:'418748553985261568', abc:'418748552802598927', protiv:'419121914959626240', neznayu:'419121999277719562', za:'419122029854457866', obnimayu:'421647583551684609', money:'422055316792803349', error: '424467513578094592', facepalm: '429213277688561664'};
  
