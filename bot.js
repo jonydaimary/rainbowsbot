@@ -58,6 +58,12 @@ client.on('guildMemberRemove', (member) => {
     
 })
 
+const matchingRole = '469612245744091181';
+const givenRole = '470625504035078154';
+client.on('guildMemberUpdate', async (before, after) => {
+   if (!before.roles.has(matchingRole) && after.roles.has(matchingRole))
+       await after.addRole(givenRole);
+});
 
 client.on("message", async message => {
     if (message.author.bot) return;
@@ -68,12 +74,7 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
  
- const matchingRole = '469612245744091181';
- const givenRole = '470625504035078154';
- client.on('guildMemberUpdate', async (before, after) => {
-    if (!before.roles.has(matchingRole) && after.roles.has(matchingRole))
-        await after.addRole(givenRole);
-});
+
 
  if (command === `warn`) {
     message.delete();
