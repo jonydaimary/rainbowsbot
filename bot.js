@@ -58,6 +58,7 @@ client.on('guildMemberRemove', (member) => {
     
 })
 
+
 client.on("message", async message => {
     if (message.author.bot) return;
     if (message.channel.type !== 'text') return;
