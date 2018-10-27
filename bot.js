@@ -58,11 +58,6 @@ client.on('guildMemberRemove', (member) => {
     
 })
 
-function randomStatus() {
-    let status = [`Время ${(new Date(new Date().getTime() + 3*60*60*1000)).toISOString().replace(/(.*?)T/, '').replace(/\..+/, '')+' по МСК'}`, `rb!help | RAINBOWs SERVER`,  `rb!help | RA1NBOW#1111`, `rb!help | https://discord.gg/CtRp5GB`];
-    bot.user.setActivity(status);
-}; setInterval(randomStatus, 30000)
-
 const matchingRole = '469612245744091181';
 const givenRole = '470625504035078154';
 client.on('guildMemberUpdate', async (before, after) => {
