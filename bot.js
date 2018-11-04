@@ -83,11 +83,13 @@ if (command === `seen`) {
     let user = message.mentions.members.first();
 
     let embed = new Discord.RichEmbed()
+
+    let tag = user.tag
     
 
     .setTitle(`Подробная информация о пользователе`)
     .addField(`USER ID`, user.id)
-    .addField(`TAG`, user.tag)
+    .addField(`TAG`, tag)
     .setFooter(`Ranbow's Server | User `)
     .setColor(`#000000`);
 
