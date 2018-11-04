@@ -88,15 +88,13 @@ if (command === `seen`) {
 
     let lastmessage = user.user.lastMessage
 
-    let guild = guild
-
     let embed = new Discord.RichEmbed()    
 
     .setTitle(`Подробная информация о пользователе`)
     .addField(`USER ID`, user.id)
     .addField(`TAG`, tag)
     .addField(`CREATED AT`, createdAt)
-    .addField(`JOINED AT`, guild.joinedAt)
+    .addField(`JOINED AT`, `${guild.joinedAt}`)
     .setFooter(`Ranbow's Server | User `)
     .setColor(`#000000`);
 
