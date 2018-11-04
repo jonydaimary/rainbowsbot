@@ -88,7 +88,6 @@ if (command === `par`) {
     user.addRole(partner);
     user.addRole(achievement);
 
-message.channel.send(embed);
 
 }
 
