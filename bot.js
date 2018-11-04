@@ -84,10 +84,18 @@ if (command === `par`) {
     const partner = '470218094342569984';
     const achievement = '469613173251506187'
 
+    let embed = new Discord.RichEmbed()
+
+    .setTitle(`Роль партнера успешно выдана`)
+    .setColor(`#800080`)
+    .setFooter(`Rainbow's Server 🌈 Partnership`);
+    
+
     let user = message.mentions.members.first();
     user.addRole(partner);
     user.addRole(achievement);
 
+message.channel.send(embed);
 
 }
 
@@ -112,14 +120,14 @@ if (command === `par`) {
     collector.on('collect', msg => {
         if (['да'].includes(msg.content.toLowerCase())) {
                 try {
-                    let footer = 'Rainbow`s Warnings';
+                    let footer1 = 'Rainbow`s Warnings';
                     if (reason === null || typeof reason === 'undefined') reason = 'Причина не указана.';
                     let embed = new Discord.RichEmbed()
                         .setTitle('Предупреждение')
                         // .setDescription(`**Пользователь:** ${user.user}\n**Модератор:** ${message.author}\n**Причина:**\n\n${reason}`)
                         .addField('Пользователь', `${user.user} (\`${user.user.tag}\`)`, true)
                         .addField('Модератор', `${message.author} (\`${message.author.tag}\`)`, true)
-                        .setFooter(footer)
+                        .setFooter(footer1)
                         .setColor('#800080')
                         .setTimestamp(message.createdAt);
                     if (reason !== null && typeof reason !== undefined && reason !== '') embed.addField('Причина', `${reason}`);
