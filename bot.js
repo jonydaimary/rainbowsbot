@@ -83,6 +83,7 @@ if (command === `seen`) {
     let user = message.mentions.members.first();
 
     let embed = new Discord.RichEmbed()
+    let lastMessage = client.user.lastMessage
     
 
     .setTitle(`Подробная информация о пользователе`)
