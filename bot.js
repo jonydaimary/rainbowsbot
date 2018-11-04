@@ -88,6 +88,8 @@ if (command === `seen`) {
 
     let lastmessage = user.user.lastMessage
 
+    let guild = guild
+
     let embed = new Discord.RichEmbed()    
 
     .setTitle(`Подробная информация о пользователе`)
