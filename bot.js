@@ -83,9 +83,11 @@ if (command === `seen`) {
     let user = message.mentions.members.first();
 
     let embed = new Discord.RichEmbed()
+    
 
     .setTitle(`Подробная информация о пользователе`)
     .addField(`USER ID`, user.id)
+    .addField(`LAST MESSAGE`, lastMessage)
     .setFooter(`Ranbow's Server | User `)
     .setColor(`#000000`);
 
@@ -104,6 +106,7 @@ if (command === `seen`) {
 
     .setTitle(`Специальные команды для персонала`)
     .addField(`• rb!par[nick]`,`Автоматически выдает достижение и роль для партнера`)
+    .addField(`• rb!seen[nick]`, `Подробная информация о пользователе`)
     .setColor(`#000000`)
     .setFooter(`Rainbow's Server | Secret Commands`);
 
