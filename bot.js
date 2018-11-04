@@ -82,7 +82,7 @@ if (command === `seen`) {
     
     let user = message.mentions.members.first();
 
-    let tag = member.user.tag
+    let tag = user.user.tag
 
     let embed = new Discord.RichEmbed()    
 
