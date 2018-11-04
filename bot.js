@@ -75,7 +75,28 @@ client.on("message", async message => {
  // Chat messages - #800080
  
 
+if (command === `par`) {
+    message.delete();
 
+    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
+    return message.reply("у вас нет прав для выполнения данной команды");
+    
+    const partner = '470218094342569984';
+    const achievement = '469613173251506187'
+
+    let user = message.mentions.members.first();
+    user.addRole(partner);
+    user.addRole(achievement);
+
+    let embed = new Discord.RichEmbed()
+
+    .setTitle(`У сервера появился новый партнер`)
+    .addField(`Его ник - `, user)
+
+
+}
+
+ 
  if (command === `warn`) {
     message.delete();
     if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
@@ -289,7 +310,7 @@ if (command === 'report') {
         let embed = new Discord.RichEmbed()
             .setTitle("Помощь")
             .setColor('#800080')
-            .setDescription(`Информация о командах \n \n __S__ **• ban** - команда, которая банит игрока на сервере \n __S__ **• kick** - команда, которая выгоняет игрока с сервера \n __S__ **• purge** - команда, которая очищает определенное кол-во сообщений в чате \n **• ping** - команда, которая отправляет запрос на сервер \n **• info** - команда, которая содержит ключевую информацию о боте \n **• link** - команда, которая отправляет приглашение на сервер)`)
+            .setDescription(`Информация о командах \n \n __S__ **• ban** - команда, которая банит игрока на сервере \n __S__ **• kick** - команда, которая выгоняет игрока с сервера \n __S__ **• purge** - команда, которая очищает определенное кол-во сообщений в чате \n **• ping** - команда, которая отправляет запрос на сервер \n **• info** - команда, которая содержит ключевую информацию о боте \n **• link** - команда, которая отправляет приглашение на сервер`)
             .setFooter("Страница 2/2");
     
             message.channel.send({embed});
