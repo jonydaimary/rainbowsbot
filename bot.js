@@ -85,7 +85,7 @@ if (command === `seen`) {
     let embed = new Discord.RichEmbed()
 
     .setTitle(`Подробная информация о пользователе`)
-    .addField(`CLIENT ID`, client.id)
+    .addField(`USER ID`, user.id)
     .setFooter(`Ranbow's Server | User `)
     .setColor(`#000000`);
 
