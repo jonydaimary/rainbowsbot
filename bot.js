@@ -94,7 +94,8 @@ if (command === `par`) {
     .addField(`Его ник - `, user)
     .setColor(`#800080`)
     .setFooter(`Rainbow's server 🌈 Partnership`)
-
+    
+message.channel.send(embed);
 
 }
 
