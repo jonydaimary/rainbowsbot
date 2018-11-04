@@ -39,7 +39,6 @@ client.on('guildMemberAdd', (member) => {
     .setTitle(`:rb_hi: К серверу **присоединился** **${member.user.tag}**`)
     .setColor('#7BD500')
     .setFooter(`Rainbow's Server 🌈 Welcome!`)
-    .setTimestamp(message.createdAt);
     
     client.channels.get('469599515561689092').send({embed});
     client.channels.get('469600390455885833').send({embed});
