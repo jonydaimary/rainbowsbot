@@ -83,7 +83,7 @@ client.on("message", async message => {
     let embed = new Discord.RichEmbed()
 
     .setTitle(`Специальные команды для персонала`)
-    .addField(`rb!par[nick]`,`Автоматически выдает достижени и роль для партнера`)
+    .addField(`• rb!par[nick]`,`Автоматически выдает достижение и роль для партнера`)
     .setColor(`#000000`)
     .setFooter(`Rainbow's Server | Secret Commands`);
 
