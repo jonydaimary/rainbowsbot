@@ -38,7 +38,8 @@ client.on('guildMemberAdd', (member) => {
     let embed = new Discord.RichEmbed()
     .setTitle(`:rb_hi: К серверу **присоединился** **${member.user.tag}**`)
     .setColor('#7BD500')
-    .setFooter(`Welcome! 🌈  На сервере ${guild.memberCount} человек`)
+    .addField(`Человек на сервере:`, guild.memberCount)
+    .setFooter(`Rainbow's Server 🌈 Welcome!`)
     .setTimestamp(message.createdAt);
     
     client.channels.get('469599515561689092').send({embed});
