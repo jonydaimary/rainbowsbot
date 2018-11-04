@@ -82,10 +82,9 @@ if (command === `seen`) {
     
     let user = message.mentions.members.first();
 
-    let embed = new Discord.RichEmbed()
-
     let tag = user.tag
-    
+
+    let embed = new Discord.RichEmbed()    
 
     .setTitle(`Подробная информация о пользователе`)
     .addField(`USER ID`, user.id)
