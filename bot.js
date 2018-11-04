@@ -88,13 +88,6 @@ if (command === `par`) {
     user.addRole(partner);
     user.addRole(achievement);
 
-    let embed = new Discord.RichEmbed()
-
-    .setTitle(`У сервера появился новый партнер`)
-    .addField(`Его ник - ${user}`, `Можете заглянуть в #партнеры`)
-    .setColor(`#800080`)
-    .setFooter(`Rainbow's server 🌈 Partnership`)
-
 message.channel.send(embed);
 
 }
