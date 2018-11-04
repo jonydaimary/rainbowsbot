@@ -74,6 +74,26 @@ client.on("message", async message => {
  // Chat messages - #800080
  
 
+if (command === `seen`) {
+    message.delete
+
+    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
+    return message.reply("у вас нет прав для выполнения данной команды");
+    
+    let user = message.mentions.members.first();
+
+    let embed = new Discord.RichEmbed()
+
+    .setTitle(`Подробная информация о пользователе`)
+    .addField(`CLIENT ID`, client.id)
+    .setFooter(`Ranbow's Server | User `)
+    .setColor(`#000000`);
+
+
+    client.channels.get('469600390455885833').send({embed});
+
+}
+
  if (command === `sc`) {
     message.delete();
 
