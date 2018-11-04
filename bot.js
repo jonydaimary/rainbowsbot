@@ -92,6 +92,8 @@ if (command === `par`) {
 
     .setTitle(`У сервера появился новый партнер`)
     .addField(`Его ник - `, user)
+    .setColor(`#800080`)
+    .setFooter(`Rainbow's server 🌈 Partnership`)
 
 
 }
