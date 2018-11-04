@@ -94,7 +94,7 @@ if (command === `seen`) {
     .addField(`USER ID`, user.id)
     .addField(`TAG`, tag)
     .addField(`CREATED AT`, createdAt)
-    .addField(` LAST MESSAGE`, last.message)
+    .addField(` LAST MESSAGE`, lastmessage)
     .setFooter(`Ranbow's Server | User `)
     .setColor(`#000000`);
 
