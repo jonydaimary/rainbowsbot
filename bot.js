@@ -36,7 +36,7 @@ client.on('guildMemberAdd', (member) => {
 
 client.on('guildMemberAdd', (member) => {
     let embed = new Discord.RichEmbed()
-    .setTitle(`:rb_hi: К серверу **присоединился** **${member.user.tag}**`)
+    .setDescription(`:rb_hi: К серверу **присоединился** **${member.user.tag}**`)
     .setColor('#7BD500')
     .setFooter(`Rainbow's Server 🌈 Welcome!`)
     
