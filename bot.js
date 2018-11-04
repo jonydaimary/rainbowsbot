@@ -94,7 +94,7 @@ if (command === `seen`) {
     .addField(`USER ID`, user.id)
     .addField(`TAG`, tag)
     .addField(`CREATED AT`, createdAt)
-    .addField(` LAST MESSAGE`, lastmessage)
+    .addField(`JOINED AT`, guild.member.joinedAt)
     .setFooter(`Ranbow's Server | User `)
     .setColor(`#000000`);
 
