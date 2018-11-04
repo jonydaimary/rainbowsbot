@@ -95,7 +95,6 @@ if (command === `seen`) {
     .addField(`TAG`, tag)
     .addField(`CREATED AT`, createdAt)
     .setFooter(`Ranbow's Server | User `)
-    .setTimestamp(user.joinedTimestamp)
     .setColor(`#000000`);
 
 
