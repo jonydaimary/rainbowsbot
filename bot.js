@@ -74,6 +74,24 @@ client.on("message", async message => {
  // Chat messages - #800080
  
 
+ if (command === `sc`) {
+    message.delete();
+
+    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
+    return message.reply("у вас нет прав для выполнения данной команды");
+
+    let embed = new Discord.RichEmbed()
+
+    .setTitle(`Специальные команды для персонала`)
+    .addField(`rb!par[nick]`,`Автоматически выдает достижени и роль для партнера`)
+    .setColor(`#000000`)
+    .setFooter(`Rainbow's Server | Secret Commands`);
+
+    client.channels.get('469600390455885833').send({embed});
+
+}
+
+
 if (command === `par`) {
     message.delete();
 
