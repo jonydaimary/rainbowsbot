@@ -86,7 +86,10 @@ if (command === `seen`) {
     
     let createdAt = user.user.createdAt
 
-    let lastmessage = user.user.lastMessage
+    if (!user ) return message.channel.send('Ошибка');
+        let arr = {'online': 'Онлайн', 'dnd': 'Не беспокоить', 'idle': 'Нет на месте', 'offline': 'Оффлайн'};
+        message.channel.send(arr[user.presence.status]);
+
 
     let embed = new Discord.RichEmbed()    
 
@@ -94,6 +97,7 @@ if (command === `seen`) {
     .addField(`USER ID`, user.id)
     .addField(`TAG`, tag)
     .addField(`CREATED AT`, createdAt)
+    .addField(`STATUS`, arr[user.presence.status])
     .setFooter(`Ranbow's Server | User `)
     .setColor(`#000000`);
 
