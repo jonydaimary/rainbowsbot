@@ -76,6 +76,10 @@ client.on("message", async message => {
 if (command === `guildinfo`) {
     message.delete
 
+    let user = message.mentions.members.first()
+
+    let member = message.mentions.members.first()
+
     if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
     return message.reply("у вас нет прав для выполнения данной команды");
 
