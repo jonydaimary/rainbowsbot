@@ -92,7 +92,7 @@ let embed = new Discord.RichEmbed()
 .addField(`MEMBERS`, `${message.guild.memberCount}`)
 .addField(`OWNER`, `${message.guild.owner} ID: ${message.guild.ownerID}`)
 .addField(`REGION`, `${message.guild.region}`)
-.addField(`ROLES`, `${message.guild.role.id}`)
+.addField(`DYDTEM CHANNEL`, `${message.guild.systemChannel} ID: ${message.guild.systemChannelID}`)
 .setThumbnail(message.guild.iconURL)
 .setFooter(`Rainbow's Server | Guild`)
 .setColor(`#000000`);
