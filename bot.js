@@ -85,7 +85,7 @@ let embed = new Discord.RichEmbed()
 
 .setTitle(`Подробная информация о сервере`)
 .addField(`INFORMATION REQUIRED TO`, `${message.author}, ID: ${message.author.id}`)
-.addField(`AFK CHANNEL`, `${guild.afkChannelID}`)
+.addField(`MEMBERS`, `${member.guild.memberCount}`)
 .setFooter(`Rainbow's Server | Guild`)
 .setColor(`#000000`);
 
