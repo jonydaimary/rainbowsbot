@@ -3,6 +3,8 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const token = process.env.TOKEN
 const ms = require("ms");
+const hook = new Discord.WebhookClient('webhook id', 'webhook token');
+
 
 client.on("ready", () => {
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
@@ -72,6 +74,24 @@ client.on("message", async message => {
     const command =  args.shift().toLowerCase();
  // Direct Messages - #00ff00
  // Chat messages - #800080
+
+ if (command === `guildinfo`) {
+    message.delete
+
+    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
+    return message.reply("у вас нет прав для выполнения данной команды");
+
+let embed = new Discord.RichEmbed()
+
+.setTitle(`Подробная информация о сервере`)
+.addField(`INFORMATION REQUIRED TO`, `${message.author}, ID: ${message.author.id}`)
+.addField(`AFK CHANNEL`, `${message.guild.afkChannelID}`)
+.setFooter(`Rainbow's Server | Guild`)
+.setColor(`#000000`);
+
+client.channels.get('469600390455885833').send({embed});
+ 
+}
 
  if (command === `seen`) {
     message.delete
