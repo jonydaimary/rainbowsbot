@@ -91,6 +91,7 @@ let embed = new Discord.RichEmbed()
 .addField(`AFK TIMEOUT`, `${message.guild.afkTimeout} seconds`)
 .addField(`MEMBERS`, `${message.guild.memberCount}`)
 .addField(`OWNER`, `${message.guild.owner} ID: ${message.guild.ownerID}`)
+.addField(`REGION`, `${message.guild.region}`)
 .setThumbnail(message.guild.iconURL)
 .setFooter(`Rainbow's Server | Guild`)
 .setColor(`#000000`);
