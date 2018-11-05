@@ -86,7 +86,7 @@ if (command === `seen`) {
     
     let createdAt = user.user.createdAt
 
-    let joinedAt = member.joinedAt
+    let joinedAt = member.user.joinedAt
 
     if (!user ) return message.channel.send('Ошибка');
         let arr = {'online': 'Online', 'dnd': 'Do not distrub', 'idle': 'Idle', 'offline': 'Offline'};
