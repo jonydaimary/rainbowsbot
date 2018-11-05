@@ -72,28 +72,6 @@ client.on("message", async message => {
     const command =  args.shift().toLowerCase();
  // Direct Messages - #00ff00
  // Chat messages - #800080
- 
-if (command === `guildinfo`) {
-    message.delete
-
-    let user = message.mentions.members.first()
-
-    let member = message.mentions.members.first()
-
-    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
-    return message.reply("у вас нет прав для выполнения данной команды");
-
-let embed = new Discord.RichEmbed()
-
-.setTitle(`Подробная информация о сервере`)
-.addField(`INFORMATION REQUIRED TO`, `${message.author}, ID: ${message.author.id}`)
-.addField(`MEMBERS`, `${member.guild.memberCount}`)
-.setFooter(`Rainbow's Server | Guild`)
-.setColor(`#000000`);
-
-    client.channels.get('469600390455885833').send({embed});
-
-}
 
  if (command === `seen`) {
     message.delete
