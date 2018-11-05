@@ -66,7 +66,8 @@ client.on('message', message => {
       }
     }
   });
-    
+
+  
   dispatcher.on('end', () => {
     // The song has finished
   });

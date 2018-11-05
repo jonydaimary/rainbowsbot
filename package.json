@@ -5,8 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "discord.js": "^11.4.2",
+    "ffmpeg-binaries": "^4.0.0",
     "fs": "0.0.1-security",
-    "ms": "^2.1.1"
+    "ms": "^2.1.1",
+    "opusscript": "0.0.6"
   },
   "devDependencies": {},
   "scripts": {
