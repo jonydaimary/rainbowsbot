@@ -79,6 +79,8 @@ if (command === `guildinfo`) {
     if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
     return message.reply("у вас нет прав для выполнения данной команды");
 
+let guild = guilds
+
 let embed = new Discord.RichEmbed()
 
 .setTitle(`Подробная информация о сервере`)
