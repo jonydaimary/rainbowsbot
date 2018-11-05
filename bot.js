@@ -90,6 +90,7 @@ let embed = new Discord.RichEmbed()
 .addField(`AFK CHANNEL`, `${message.guild.afkChannel} ID: ${message.guild.afkChannelID}`)
 .addField(`AFK TIMEOUT`, `${message.guild.afkTimeout} seconds`)
 .addField(`MEMBERS`, `${message.guild.memberCount}`)
+.addField(`OWNER`, `${message.guild.owner} ID: ${message.guild.ownerID}`)
 .setThumbnail(message.guild.iconURL)
 .setFooter(`Rainbow's Server | Guild`)
 .setColor(`#000000`);
@@ -149,6 +150,7 @@ client.channels.get('469600390455885833').send({embed});
     .setTitle(`Специальные команды для персонала`)
     .addField(`• rb!par[nick]`,`Автоматически выдает достижение и роль для партнера`)
     .addField(`• rb!seen[nick]`, `Подробная информация о пользователе`)
+    .addField(`• rb!guildinfo`, `Подробная информация о сервере`)
     .setColor(`#000000`)
     .setFooter(`Rainbow's Server | Secret Commands`);
 
