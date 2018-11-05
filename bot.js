@@ -93,7 +93,7 @@ if (command === `seen`) {
     let embed = new Discord.RichEmbed()    
 
     .setTitle(`Подробная информация о пользователе`)
-    .addField(`INFORMATION REQUIRED TO`, mesage.author)
+    .addField(`INFORMATION REQUIRED TO`, `${message.author}, ID: ${message.author.id}`)
     .addField(`USER ID`, user.id)
     .addField(`TAG`, tag)
     .addField(`CREATED AT`, createdAt)
