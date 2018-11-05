@@ -89,6 +89,8 @@ if (command === `seen`) {
     if (!user ) return message.channel.send('Ошибка');
         let arr = {'online': 'Online', 'dnd': 'Do not distrub', 'idle': 'Idle', 'offline': 'Offline'};
 
+    const roles = user.guild.roles.get(this.guild.id);
+
 
     let embed = new Discord.RichEmbed()    
 
@@ -98,6 +100,7 @@ if (command === `seen`) {
     .addField(`TAG`, tag)
     .addField(`CREATED AT`, createdAt)
     .addField(`STATUS`, arr[user.presence.status])
+    .addField(`ROLES`, roles)
     .setFooter(`Ranbow's Server | User `)
     .setColor(`#000000`);
 
