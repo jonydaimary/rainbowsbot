@@ -87,8 +87,7 @@ if (command === `seen`) {
     let createdAt = user.user.createdAt
 
     if (!user ) return message.channel.send('Ошибка');
-        let arr = {'online': 'Онлайн', 'dnd': 'Не беспокоить', 'idle': 'Нет на месте', 'offline': 'Оффлайн'};
-        message.channel.send(arr[user.presence.status]);
+        let arr = {'online': 'Online', 'dnd': 'Do not distrub', 'idle': 'Idle', 'offline': 'Offline'};
 
 
     let embed = new Discord.RichEmbed()    
