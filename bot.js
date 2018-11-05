@@ -90,7 +90,7 @@ if (command === `seen`) {
 
     let joinedAt = member.user.joinedAt
 
-    let lastmessage = member.user.lastMessageID
+    let highestrole = member.highestRole
 
     if (!user ) return message.channel.send('Ошибка');
         let arr = {'online': 'Online', 'dnd': 'Do not distrub', 'idle': 'Idle', 'offline': 'Offline'};
@@ -104,7 +104,7 @@ if (command === `seen`) {
     .addField(`CREATED AT`, createdAt)
     .addField(`STATUS`, arr[user.presence.status])
     .addField(`JOINED AT`, `${member.joinedAt}`)
-    .addField(`LAST MESSAGE ID`, `${member.lastMessageID}`)
+    .addField(`HIGHEST ROLE`, highestrole)
     .setThumbnail(member.user.avatarURL)
     .setFooter(`Ranbow's Server | User `)
     .setColor(`#000000`);
