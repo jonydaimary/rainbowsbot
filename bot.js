@@ -101,7 +101,7 @@ if (command === `seen`) {
     .addField(`TAG`, tag)
     .addField(`CREATED AT`, createdAt)
     .addField(`STATUS`, arr[user.presence.status])
-    .addField(`JOINED AT`, joinedAt)
+    .addField(`JOINED AT`, `${joinedAt}`)
     .setThumbnail(member.user.avatarURL)
     .setFooter(`Ranbow's Server | User `)
     .setColor(`#000000`);
