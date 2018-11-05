@@ -88,9 +88,10 @@ if (command === `seen`) {
     
     let createdAt = user.user.createdAt
 
+    let joinedAt = member.user.joinedAt
+
     if (!user ) return message.channel.send('Ошибка');
         let arr = {'online': 'Online', 'dnd': 'Do not distrub', 'idle': 'Idle', 'offline': 'Offline'};
-
 
     let embed = new Discord.RichEmbed()    
 
@@ -100,6 +101,7 @@ if (command === `seen`) {
     .addField(`TAG`, tag)
     .addField(`CREATED AT`, createdAt)
     .addField(`STATUS`, arr[user.presence.status])
+    .addField(`JOINED AT`, joinedAt)
     .setThumbnail(member.user.avatarURL)
     .setFooter(`Ranbow's Server | User `)
     .setColor(`#000000`);
