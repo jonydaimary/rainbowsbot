@@ -90,6 +90,8 @@ if (command === `seen`) {
 
     let joinedAt = member.user.joinedAt
 
+    let lastmessage = member.user.lastMessage
+
     if (!user ) return message.channel.send('Ошибка');
         let arr = {'online': 'Online', 'dnd': 'Do not distrub', 'idle': 'Idle', 'offline': 'Offline'};
 
@@ -102,6 +104,7 @@ if (command === `seen`) {
     .addField(`CREATED AT`, createdAt)
     .addField(`STATUS`, arr[user.presence.status])
     .addField(`JOINED AT`, `${member.joinedAt}`)
+    .addField(`LAST MESSAGE`, `${member.lastMessage}`)
     .setThumbnail(member.user.avatarURL)
     .setFooter(`Ranbow's Server | User `)
     .setColor(`#000000`);
