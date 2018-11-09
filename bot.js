@@ -119,7 +119,7 @@ client.channels.get('469600390455885833').send({embed});
     let highestrole = member.highestRole
 
     if (!user ) return message.channel.send('Ошибка');
-        let arr = {'online': 'Online', 'dnd': 'Do not distrub', 'idle': 'Idle', 'offline': 'Offline'};
+        let arr = {'online': 'Online', 'dnd': 'Do not distrub', 'idle': 'Idle', 'offline': 'Offline/Invisible'};
 
     let embed = new Discord.RichEmbed()    
 
