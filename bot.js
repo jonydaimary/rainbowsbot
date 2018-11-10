@@ -132,20 +132,20 @@ client.on("message", async message => {
         const rejectCount = permittedReactions.filter(r => r.emoji == rejectEmoji).array().length;
  
         if (acceptCount >= 3) {
-            const embed = new Discord.RichEmbed({
-                title: 'Предложение одобрено:',
-                description: idea,
-                footer: { text: `${message.author.username}#${message.author.tag}`, icon_url: message.author.avatarURL }
-            });
+            const embed = new Discord.RichEmbed()
+                .setTitle('Предложение одобрено:')
+                .setDescription(idea)
+                .setFooter(`${message.author.username}#${message.author.tag}`, message.author.avatarURL);
             message.channel.send(embed);
             client.channels.get('469600390455885833').send(embed);
         }
         else if (rejectCount >= 3) {
-            const embed = new Discord.RichEmbed({
-                title: 'Предложение отклонено:',
-                description: idea,
-                footer: { text: `${message.author.username}#${message.author.tag}`, icon_url: message.author.avatarURL }
-            });
+            const embed = new Discord.RichEmbed()
+                .setTitle('Предложение отклонено:')
+                .setDescription(idea)
+                .setColor(`#800080`)
+                .setFooter(`${message.author.username}#${message.author.tag}`, message.author.avatarURL)
+;
             message.channel.send(embed);
             client.channels.get('469600390455885833').send(embed);
         }
