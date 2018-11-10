@@ -56,11 +56,34 @@ client.on('guildMemberRemove', (member) => {
     client.channels.get('469600390455885833').send({embed});
     
 })
-
+// Бывалый
 const matchingRole = '469612245744091181';
 const givenRole = '470625504035078154';
 client.on('guildMemberUpdate', async (before, after) => {
    if (!before.roles.has(matchingRole) && after.roles.has(matchingRole))
+       await after.addRole(givenRole);
+});
+// Единорог
+
+const matchingRoleBlood = '470625212111650817'; // Blood
+const matchingRoleCoral = '470625105521934357'; // Coral
+const matchingRoleOrange = '470625422141292554'; // Orange
+const matchingRolePink = '470625297885298709'; // Pink
+const matchingRoleGold = '470625938485542933'; // Gold
+const matchingRoleHakki = '470626317747093524'; // Hakki
+const matchingRoleViolet = '470626430687117322'; // Violet
+const matchingRoleIndigo = '470626794521886721'; // Indigo
+const matchingRoleLime = '470626943168151553'; // Lime
+const matchingRoleGreen = '470627037384540183'; // Green
+const matchingRoleSky = '470627142464569355'; // Sky
+const matchingRoleBlue = '470627245464223745'; // Blue
+const matchingRoleSilver = '470627342323023894'; // Silver
+const matchingRoleOlive = '470627475416809472'; // Olive
+const matchingRoleMint = '470627587622830092'; //Mint
+
+const givenRole = '477367979160633344';
+client.on('guildMemberUpdate', async (before, after) => {
+   if (!before.roles.has(mmatchingRoleBlood, matchingRoleCoral, matchingRoleOrange, matchingRolePink, matchingRoleGold, matchingRoleHakki, matchingRoleViolet, matchingRoleIndigo, matchingRoleLime, matchingRoleGreen, matchingRoleSky, matchingRoleBlue, matchingRoleSilver, matchingRoleOlive, matchingRoleMint) && after.roles.has(matchingRoleBlood, matchingRoleCoral, matchingRoleOrange, matchingRolePink, matchingRoleGold, matchingRoleHakki, matchingRoleViolet, matchingRoleIndigo, matchingRoleLime, matchingRoleGreen, matchingRoleSky, matchingRoleBlue, matchingRoleSilver, matchingRoleOlive, matchingRoleMint))
        await after.addRole(givenRole);
 });
 
