@@ -109,7 +109,7 @@ client.on("message", async message => {
  
     const idea = args.join(' ').trim();
  
-    const ideaMessage = await lient.channels.get('469599925403910145').send(
+    const ideaMessage = await client.channels.get('469599925403910145').send(
         new Discord.RichEmbed({
             title: 'Голосование за предложение:',
             description: idea,
