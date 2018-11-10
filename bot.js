@@ -116,7 +116,7 @@ client.on("message", async message => {
             .setTitle('Голосование за предложение:')
             .setDescription(idea)
             .setColor(`#800080`)
-            .setFooter(`${message.author.username}#${message.author.tag}`, message.author.avatarURL)
+            .setFooter(`${message.author.tag}`, message.author.avatarURL)
     );
     idea_message.react(message.guild.emojis.get(acceptEmoji))
     idea_message.react(message.guild.emojis.get(rejectEmoji))
@@ -125,7 +125,7 @@ client.on("message", async message => {
     collector.on('collect', reactions => {
         const permittedReactions = reactions.filter(r => r.users.filter(u => {
             const member = message.guild.member(u);
-            return roles.map(r => !member.roles.find(_r => _r.name, r)).reduce((a, b) => a || b);
+            return roles.map(  r => !member.roles.find(_r => _r.name, r)).reduce((a, b) => a || b);
         }).array().length > 0);
  
         const acceptCount = permittedReactions.filter(r => r.emoji == acceptEmoji).array().length;
@@ -135,7 +135,7 @@ client.on("message", async message => {
             const embed = new Discord.RichEmbed()
                 .setTitle('Предложение одобрено:')
                 .setDescription(idea)
-                .setFooter(`${message.author.username}#${message.author.tag}`, message.author.avatarURL);
+                .setFooter(`${message.author.tag}`, message.author.avatarURL);
             message.channel.send(embed);
             client.channels.get('469600390455885833').send(embed);
         }
@@ -144,7 +144,7 @@ client.on("message", async message => {
                 .setTitle('Предложение отклонено:')
                 .setDescription(idea)
                 .setColor(`#800080`)
-                .setFooter(`${message.author.username}#${message.author.tag}`, message.author.avatarURL)
+                .setFooter(`${message.author.tag}`, message.author.avatarURL)
 ;
             message.channel.send(embed);
             client.channels.get('469600390455885833').send(embed);
