@@ -106,8 +106,8 @@ client.on("message", async message => {
  if (command === `idea`) {
     // Configuration
     const roles = ['Модератор', 'Администратор', 'Главный Администратор'];
-    const acceptEmoji = message.guild.emojis.find(e => e.name, 'rb_checkedMark');
-    const rejectEmoji = message.guild.emojis.find(e => e.name, 'rb_rightMark');
+    const acceptEmoji = '510834901826797594'
+    const rejectEmoji = '510835654377340954'
  
     const idea = args.join().trim();
  
@@ -118,8 +118,8 @@ client.on("message", async message => {
             .setColor(`#800080`)
             .setFooter(`${message.author.username}#${message.author.tag}`, message.author.avatarURL)
     );
-    idea_message.react(acceptEmoji.identifier);
-    idea_message.react(acceptEmoji.identifier);
+    idea_message.react(acceptEmoji);
+    idea_message.react(rejectEmoji);
    
     const collector = idea_message.createReactionCollector(r => r.emoji == acceptEmoji || r.emoji == rejectEmoji);
     collector.on('collect', reactions => {
