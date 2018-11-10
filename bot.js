@@ -136,7 +136,7 @@ client.on("message", async message => {
             message.channel.send(embed);
             client.channels.get('469600390455885833').send(embed);
             client.off('messageReactionAdd', reactionListener);
-        } else if (reaction.emoji.id === acceptEmoji && count >= 3) {
+        } else if (reaction.emoji.id === rejectEmoji && count >= 3) {
             const embed = new Discord.RichEmbed({
                 title: 'Предложение отклонено:',
                 description: idea,
