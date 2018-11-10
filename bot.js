@@ -104,6 +104,7 @@ client.on("message", async message => {
  // Chat messages - #800080
  
  if (command === 'idea') {
+    message.delete
     const roles = ['Модератор', 'Главный Модератор', 'Главный Администратор', 'Администратор'];
     const acceptEmoji = '480080157965811732'
     const rejectEmoji = '480080159232491542'
