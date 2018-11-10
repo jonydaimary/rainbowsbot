@@ -114,7 +114,8 @@ client.on("message", async message => {
         new Discord.RichEmbed({
             title: 'Голосование за предложение:',
             description: idea,
-            footer: { text: `${message.author.username}#${message.author.tag}`, icon_url: message.author.avatarURL }
+            color: `#800080`,
+            footer: { text: `${message.author.tag}`, icon_url: message.author.avatarURL }
         })
     );
     await ideaMessage.react(acceptEmoji);
@@ -128,11 +129,11 @@ client.on("message", async message => {
                 .map(r => roles.map(_r => r.name === _r).reduce((a, b) => a || b))
             ).array().length;
             if (reaction.emoji.id === acceptEmoji && count >= 4) {
-            const embed = new Discord.RichEmbed({
-                title: 'Предложение одобрено:',
-                description: idea,
-                footer: { text: message.author.tag, icon_url: message.author.avatarURL }
-            });
+            const embed = new Discord.RichEmbed()
+                .setTitle('Предложение одобрено:')
+                .setDescription(idea)
+                .setColor(`#800080`)
+                .setFooter(message.author.tag, message.author.avatarURL);
             message.channel.send(embed);
             client.channels.get('469600390455885833').send(embed);
             client.off('messageReactionAdd', reactionListener);
