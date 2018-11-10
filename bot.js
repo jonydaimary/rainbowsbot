@@ -103,53 +103,51 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
  
- if (command === `idea`) {
-    // Configuration
-    const roles = ['Модератор', 'Администратор', 'Главный Администратор'];
-    const acceptEmoji = '480080157965811732'
-    const rejectEmoji = '480080159232491542'
+ if (command === 'idea') {
+    const roles = ['Модератор', 'Главный Модератор', 'Главный Администратор', 'Администратор'];
+    const acceptEmoji = client.emojis.find(e => e.name, 'rb_rightMark');
+    const rejectEmoji = client.emojis.find(e => e.name, 'rb_WrongMark');
  
     const idea = args.join().trim();
  
-    const idea_message = await message.channel.send(
-        new Discord.RichEmbed()
-            .setTitle('Голосование за предложение:')
-            .setDescription(idea)
-            .setColor(`#800080`)
-            .setFooter(`${message.author.tag}`, message.author.avatarURL)
+    const ideaMessage = await message.channel.send(
+        new Discord.RichEmbed({
+            title: 'Голосование за предложение:',
+            description: idea,
+            footer: { text: `${message.author.username}#${message.author.tag}`, icon_url: message.author.avatarURL }
+        })
     );
-    idea_message.react(message.guild.emojis.get(acceptEmoji))
-    idea_message.react(message.guild.emojis.get(rejectEmoji))
-   
-    const collector = idea_message.createReactionCollector(r => r.emoji == acceptEmoji || r.emoji == rejectEmoji);
-    collector.on('collect', reactions => {
-        const permittedReactions = reactions.filter(r => r.users.filter(u => {
-            const member = message.guild.member(u);
-            return roles.map(  r => !member.roles.find(_r => _r.name, r)).reduce((a, b) => a || b);
-        }).array().length > 0);
+    await ideaMessage.react(acceptEmoji);
+    await ideaMessage.react(rejectEmoji);
  
-        const acceptCount = permittedReactions.filter(r => r.emoji == acceptEmoji).array().length;
-        const rejectCount = permittedReactions.filter(r => r.emoji == rejectEmoji).array().length;
- 
-        if (acceptCount >= 3) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('Предложение одобрено:')
-                .setDescription(idea)
-                .setFooter(`${message.author.tag}`, message.author.avatarURL);
+    function reactionListener(reaction, user) {
+        if (reaction.message.id !== ideaMessage.id || user.bot)
+            return;
+        const count = reaction.users
+            .filter(u => message.guild.member(u).roles
+                .map(r => roles.map(_r => r.name === _r).reduce((a, b) => a || b))
+            ).array().length;
+        if (reaction.emoji.name === acceptEmoji && count >= 1) {
+            const embed = new Discord.RichEmbed({
+                title: 'Предложение одобрено:',
+                description: idea,
+                footer: { text: message.author.tag, icon_url: message.author.avatarURL }
+            });
             message.channel.send(embed);
             client.channels.get('469600390455885833').send(embed);
-        }
-        else if (rejectCount >= 3) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('Предложение отклонено:')
-                .setDescription(idea)
-                .setColor(`#800080`)
-                .setFooter(`${message.author.tag}`, message.author.avatarURL)
-;
+            client.off('messageReactionAdd', reactionListener);
+        } else if (reaction.emoji.name === rejectEmoji && count >= 1) {
+            const embed = new Discord.RichEmbed({
+                title: 'Предложение отклонено:',
+                description: idea,
+                footer: { text: message.author.tag, icon_url: message.author.avatarURL }
+            });
             message.channel.send(embed);
             client.channels.get('469600390455885833').send(embed);
+            client.off('messageReactionAdd', reactionListener);
         }
-    });
+    }
+    client.on('messageReactionAdd', reactionListener);
 }
  
 
