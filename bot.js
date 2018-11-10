@@ -124,9 +124,10 @@ client.on("message", async message => {
     function reactionListener(reaction, user) {
         if (reaction.message.id !== ideaMessage.id || user.bot)
             return;
-        const count = reaction.users
+            const count = reaction.users
             .filter(u => message.guild.member(u).roles
                 .map(r => roles.map(_r => r.name === _r).reduce((a, b) => a || b))
+                .reduce((a, b) => a || b)
             ).array().length;
             if (reaction.emoji.id === acceptEmoji && count >= 4) {
             const embed = new Discord.RichEmbed({
