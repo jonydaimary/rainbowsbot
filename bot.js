@@ -81,7 +81,7 @@ const matchingRoleSilver = '470627342323023894'; // Silver
 const matchingRoleOlive = '470627475416809472'; // Olive
 const matchingRoleMint = '470627587622830092'; //Mint
 
-const givenRole2 = '477367979160633344';
+const givenRole2 = '510493493936914449';
 client.on('guildMemberUpdate', async (before, after) => {
    if (!before.roles.has(matchingRoleBlood, matchingRoleCoral, matchingRoleOrange, matchingRolePink, matchingRoleGold, matchingRoleHakki, matchingRoleViolet, matchingRoleIndigo, matchingRoleLime, matchingRoleGreen, matchingRoleSky, matchingRoleBlue, matchingRoleSilver, matchingRoleOlive, matchingRoleMint) && after.roles.has(matchingRoleBlood, matchingRoleCoral, matchingRoleOrange, matchingRolePink, matchingRoleGold, matchingRoleHakki, matchingRoleViolet, matchingRoleIndigo, matchingRoleLime, matchingRoleGreen, matchingRoleSky, matchingRoleBlue, matchingRoleSilver, matchingRoleOlive, matchingRoleMint))
        await after.addRole(givenRole2);
