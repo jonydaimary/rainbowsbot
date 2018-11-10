@@ -112,11 +112,11 @@ client.on("message", async message => {
     const idea = args.join().trim();
  
     const idea_message = await message.channel.send(
-        new Discord.RichEmbed({
-            title: 'Голосование за предложение:',
-            description: idea,
-            footer: { text: `${message.author.username}#${message.author.tag}`, icon_url: message.author.avatarURL }
-        })
+        new Discord.RichEmbed()
+            .setTitle('Голосование за предложение:')
+            .setDescription(idea)
+            .setColor(`#800080`)
+            .setFooter(`${message.author.username}#${message.author.tag}`, message.author.avatarURL)
     );
     idea_message.react(acceptEmoji);
     idea_message.react(rejectEmoji);
