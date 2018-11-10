@@ -127,7 +127,7 @@ client.on("message", async message => {
             .filter(u => message.guild.member(u).roles
                 .map(r => roles.map(_r => r.name === _r).reduce((a, b) => a || b))
             ).array().length;
-        if (reaction.emoji.name === acceptEmoji && count >= 3) {
+            if (reaction.emoji.id === acceptEmoji && count >= 3) {
             const embed = new Discord.RichEmbed({
                 title: 'Предложение одобрено:',
                 description: idea,
@@ -136,7 +136,7 @@ client.on("message", async message => {
             message.channel.send(embed);
             client.channels.get('469600390455885833').send(embed);
             client.off('messageReactionAdd', reactionListener);
-        } else if (reaction.emoji.name === rejectEmoji && count >= 3) {
+        } else if (reaction.emoji.id === acceptEmoji && count >= 3) {
             const embed = new Discord.RichEmbed({
                 title: 'Предложение отклонено:',
                 description: idea,
