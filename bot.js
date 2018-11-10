@@ -107,7 +107,7 @@ client.on("message", async message => {
     // Configuration
     const roles = ['Модератор', 'Администратор', 'Главный Администратор'];
     const acceptEmoji = message.guild.emojis.find(e => e.name, 'rb_checkedMark');
-    const rejectEmoji = client.emojis.find(e => e.name, 'rb_WrongMark');
+    const rejectEmoji = message.guild.emojis.find(e => e.name, 'rb_wrongMark');
  
     const idea = args.join().trim();
  
