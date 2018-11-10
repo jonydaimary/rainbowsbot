@@ -105,7 +105,7 @@ client.on("message", async message => {
     const acceptEmoji = '480080157965811732'
     const rejectEmoji = '480080159232491542'
  
-    const idea = args.join().trim();
+    const idea = args.join(' ').trim();
  
     const ideaMessage = await message.channel.send(
         new Discord.RichEmbed({
