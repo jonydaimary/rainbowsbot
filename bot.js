@@ -118,8 +118,8 @@ client.on("message", async message => {
             .setColor(`#800080`)
             .setFooter(`${message.author.username}#${message.author.tag}`, message.author.avatarURL)
     );
-    message.react(message.guild.emojis.get(acceptEmoji))
-    message.react(message.guild.emojis.get(rejectEmoji))
+    idea_message.react(message.guild.emojis.get(acceptEmoji))
+    idea_message.react(message.guild.emojis.get(rejectEmoji))
    
     const collector = idea_message.createReactionCollector(r => r.emoji == acceptEmoji || r.emoji == rejectEmoji);
     collector.on('collect', reactions => {
