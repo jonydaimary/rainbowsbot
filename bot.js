@@ -56,14 +56,21 @@ client.on('guildMemberRemove', (member) => {
     client.channels.get('469600390455885833').send({embed});
     
 })
+
 // Бывалый
 const matchingRole = '469612245744091181';
 const givenRole = '470625504035078154';
+
+
 client.on('guildMemberUpdate', async (before, after) => {
    if (!before.roles.has(matchingRole) && after.roles.has(matchingRole))
        await after.addRole(givenRole);
 });
 // Единорог
+
+
+
+
 
 const matchingRoleBlood = '470625212111650817'; // Blood
 const matchingRoleCoral = '470625105521934357'; // Coral
@@ -96,6 +103,26 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
  
+if (command === `idea`) {
+
+    const reaction_emoji = client.emojis.find(e => e.name, 'rb_CheckMark');
+    const sended_message = await recieved_message.channel.sendMessage('sample message');
+    sended_message.react(reaction_emoji);
+    const collector = sended_message.createReactionCollector(r => r.emoji.name === reaction_emoji);
+    collector.on('collect', r => {
+        const roles = ['Главный Администратор', 'Администратор', 'Главный Модератор', 'Модератор'];
+        const count = r.users.filter(u => {
+            const member = recieved_message.guild.member(u);
+            return roles.map(r => !member.roles.find(_r => _r.name, r)).reduce((a, b) => a || b);
+        }).array().length;
+        if (count === 2) {
+            message.channel.send(Test)
+        }
+    });
+
+}
+ 
+
  if (command === `guildinfo`) {
     message.delete
 
@@ -126,7 +153,7 @@ client.channels.get('469600390455885833').send({embed});
  if (command === `seen`) {
     message.delete
 
-    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
     return message.reply("у вас нет прав для выполнения данной команды");
     
     let user = message.mentions.members.first();
@@ -166,7 +193,7 @@ client.channels.get('469600390455885833').send({embed});
  if (command === `sc`) {
     message.delete();
 
-    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
     return message.reply("у вас нет прав для выполнения данной команды");
 
     let embed = new Discord.RichEmbed()
@@ -186,7 +213,7 @@ client.channels.get('469600390455885833').send({embed});
 if (command === `par`) {
     message.delete();
 
-    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
     return message.reply("у вас нет прав для выполнения данной команды");
     
     const partner = '470218094342569984';
@@ -210,7 +237,7 @@ message.channel.send(embed);
  
  if (command === `warn`) {
     message.delete();
-    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
     return message.reply("у вас нет прав для выполнения данной команды");
     let new_args = args;
     new_args.shift();
@@ -462,7 +489,7 @@ if (command === 'report') {
     }
  
     if (command === "kick") {
-        if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
+        if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
             return message.reply("у вас нет прав для выполнения данной команды");
  
         let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -489,7 +516,7 @@ if (command === 'report') {
     }
  
     if(command === "ban") {
-        if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
+        if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный Модератор", "Модератор"].includes(r.name)) )
             return message.reply("у вас нет прав для выполнения данной команды");
  
         let member = message.mentions.members.first();
