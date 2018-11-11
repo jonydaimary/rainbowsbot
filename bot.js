@@ -46,6 +46,28 @@ client.on('guildMemberAdd', (member) => {
     
 })
 
+client.on('guildMemberAdd', async member => {
+    member.addRole(unauthorizedRole);
+    const dm = await member.createDM();
+    let problem = generateMathProblem();
+    dm.send(`Для авторизации на сервере пожалуйста решите математическе выражениe:\n\`${problem.expression} = ?\`\n**Форма отправки ответа:** !ответ\n **Пример:**\n\`2 + 2 = ?\`\n!4\nЕсли вы хотите получить новое выражение просто отправьте неправильный ответ.`);
+    const collector = dm.createMessageCollector(m => true);
+    collector.on('collect', message => {
+        if (!message.content.startsWith('!'))
+            return;
+        const answer = message.content.substring(1);
+        if (answer == problem.answer) {
+            dm.send('Вы были успешно авторизованы!');
+            member.removeRole(unauthorizedRole);
+            collector.stop();
+            client.emit('guildMemberAuthorized');
+        } else {
+            problem = generateMathProblem();
+            dm.send(`Неверный ответ.\nНовое выражение: \`${problem.expression} = ?\``);
+        }
+    });
+});
+
 client.on('guildMemberRemove', (member) => {
     let embed = new Discord.RichEmbed()
     .setTitle(`Участник покинул сервер`)
