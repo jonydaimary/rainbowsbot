@@ -47,6 +47,7 @@ client.on('guildMemberAdd', (member) => {
 })
 
 client.on('guildMemberAdd', async member => {
+
     member.addRole(unauthorizedRole);
     const dm = await member.createDM();
     let problem = generateMathProblem();
@@ -636,4 +637,19 @@ if (command === 'report') {
     
  });
  
+ function generateMathProblem() {
+    const termsc = random(2, 3);
+    const terms = new Array(termsc).fill(0).map(() => random(1, 9));
+    const operations = new Array(termsc - 1).fill(0)
+        .map(() => random(0, 2))
+        .map(v => ['+', '-', '*'][v]);
+    let expression = '';
+    terms.forEach((v, i, a) => expression += `${v}${i == a.length - 1 ? '' : ` ${operations[i]} `}`);
+    return { expression, answer: eval(expression) };
+}
+
+function random(min, max = 10) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 client.login(process.env.TOKEN).catch(console.error);
