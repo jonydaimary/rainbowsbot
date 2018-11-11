@@ -103,7 +103,9 @@ client.on("message", async message => {
  
 if (command === `roleinfo`) {
 
-    const role = message.guild.roles.find(r => r.name, message.content.substring(`${config.prefix}roleinfo`.length).trim());
+    let roleName = message.content.substring(`${config.prefix}roleinfo`.length).trim();
+    console.log(roleName);
+    const role = message.guild.roles.find(r => r.name, roleName);
     name = role.name
 
     position = role.position
