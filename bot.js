@@ -431,8 +431,7 @@ if (command === 'report') {
         let embed = new Discord.RichEmbed()
         .setTitle('Персонал сервера')
         .addField('Главный администратор:', '<@340171098874183680>')
-        .addField('Администратор','<@470221892779900929>')
-        .addField('Главные модераторы:', '\n<@291277208431886356>')
+        .addField('Главные модераторы:', '\n<@291277208431886356>, <@470221892779900929>')
         .addField(`Модераторы`, `<@323053088346865665>, <@477577112899944475>`)
         .setThumbnail(`https://media.giphy.com/media/1Q9CsjzWyt2qVzM0GH/giphy.gif`)
         .setColor('#800080');
