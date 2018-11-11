@@ -113,7 +113,7 @@ if (command === `roleinfo`) {
 
     color = role.color
     
-    let embed = new Discord.RichEmbed()    
+    let embed = new Discord.RichEmbed() 
 
     .setTitle(`Подробная информация о пользователе`)
     .addField(`INFORMATION REQUIRED TO`, `${message.author}, ID: ${message.author.id}`)
@@ -124,9 +124,9 @@ if (command === `roleinfo`) {
     .addField(`POSITION`, position)
     .setColor(color)
     .setFooter(`Ranbow's Server | Role `)
-}
 
 client.channels.get('469600390455885833').send({embed});
+}
 
  if (command === 'idea') {
     message.delete()
