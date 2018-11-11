@@ -123,7 +123,7 @@ if (command === `roleinfo`) {
     .addField(`ID`, role.id)
     .addField(`NAME`, name)
     .addField(`MENTION`, `<@&${role.id}>`)
-    .addField(`MEMBERS`, members)
+    .addField(`MEMBERS`, members.array().map(m => m.tag).join('\n'))
     .addField(`POSITION`, position)
     .setColor(color)
     .setFooter(`Ranbow's Server | Role `)
