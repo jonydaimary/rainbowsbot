@@ -143,7 +143,7 @@ if (command === `roleinfo`) {
     
     let embed = new Discord.RichEmbed() 
 
-    .setTitle(`Подробная информация о пользователе`)
+    .setTitle(`Подробная информация о роли`)
     .addField(`INFORMATION REQUIRED TO`, `${message.author}, ID: ${message.author.id}`)
     .addField(`ID`, role.id)
     .addField(`NAME`, name)
