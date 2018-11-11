@@ -48,7 +48,7 @@ client.on('guildMemberAdd', (member) => {
 
 client.on('guildMemberAdd', async member => {
 
-    const unauthorizedRole = '169187770877739008';
+    const unauthorizedRole = '511216926215897089';
 
     member.addRole(unauthorizedRole);
     const dm = await member.createDM();
