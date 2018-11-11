@@ -106,6 +106,10 @@ if (command === `roleinfo`) {
     let roleName = message.content.substring(`${config.prefix}roleinfo`.length).trim();
     console.log(roleName);
     const role = message.guild.roles.find('name', roleName);
+    if (!role) {
+        message.channel.send('Ошибка! Такой роли не существует.');
+        return;
+    }
     name = role.name
 
     position = role.position
