@@ -110,7 +110,7 @@ if (command === `roleinfo`) {
 
     name = role.name
 
-    members = role.members.array().map(m => m.tag).join('\n')
+    let members = role.members.array().map(m => m.tag).join('\n')
 
     position = role.position
 
