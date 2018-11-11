@@ -110,7 +110,7 @@ if (command === `roleinfo`) {
 
     name = role.name
 
-    members = role.members
+    members = role.members.array().map(m => m.tag).join('\n')
 
     position = role.position
 
@@ -123,7 +123,7 @@ if (command === `roleinfo`) {
     .addField(`ID`, role.id)
     .addField(`NAME`, name)
     .addField(`MENTION`, `<@&${role.id}>`)
-    .addField(`MEMBERS`, members.array().map(m => m.tag).join('\n'))
+    .addField(`MEMBERS`, members)
     .addField(`POSITION`, position)
     .setColor(color)
     .setFooter(`Ranbow's Server | Role `)
