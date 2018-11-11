@@ -105,7 +105,7 @@ if (command === `roleinfo`) {
 
     let roleName = message.content.substring(`${config.prefix}roleinfo`.length).trim();
     console.log(roleName);
-    const role = message.guild.roles.find(r => r.name, roleName);
+    const role = message.guild.roles.find('name', roleName);
     name = role.name
 
     position = role.position
