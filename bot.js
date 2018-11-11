@@ -103,6 +103,9 @@ client.on("message", async message => {
  
 if (command === `roleinfo`) {
 
+    if(!message.member.roles.some(r=>["Главный Администратор", "Администратор", "Главный модератор", "Модератор"].includes(r.name)) )
+    return message.reply("у вас нет прав для выполнения данной команды");
+
     let role = message.mentions.roles.first();
 
     name = role.name
