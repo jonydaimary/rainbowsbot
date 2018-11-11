@@ -101,6 +101,33 @@ client.on("message", async message => {
  // Direct Messages - #00ff00
  // Chat messages - #800080
  
+if (command === `roleinfo`) {
+
+    let role = message.mentions.roles.first();
+
+    name = role.name
+
+    members = role.members
+
+    position = role.position
+
+    color = role.color
+    
+    let embed = new Discord.RichEmbed()    
+
+    .setTitle(`Подробная информация о пользователе`)
+    .addField(`INFORMATION REQUIRED TO`, `${message.author}, ID: ${message.author.id}`)
+    .addField(`ID`, role.id)
+    .addField(`NAME`, name)
+    .addField(`MENTION`, `<@&${role.id}>`)
+    .addField(`MEMBERS`, members)
+    .addField(`POSITION`, position)
+    .setColor(color)
+    .setFooter(`Ranbow's Server | Role `)
+}
+
+client.channels.get('469600390455885833').send({embed});
+
  if (command === 'idea') {
     message.delete()
     const roles = ['Модератор', 'Главный Модератор', 'Главный Администратор', 'Администратор'];
