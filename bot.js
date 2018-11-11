@@ -49,6 +49,7 @@ client.on('guildMemberAdd', (member) => {
 client.on('guildMemberAdd', async member => {
 
     const unauthorizedRole = '511216926215897089';
+    const unauthorizedRole1 = '469613109422587924';
 
     member.addRole(unauthorizedRole);
     const dm = await member.createDM();
@@ -62,6 +63,7 @@ client.on('guildMemberAdd', async member => {
         if (answer == problem.answer) {
             dm.send('Вы были успешно авторизованы!');
             member.removeRole(unauthorizedRole);
+            member.addRole(unauthorizedRole1);
             collector.stop();
             client.emit('guildMemberAuthorized');
         } else {
