@@ -10,9 +10,9 @@ Copyright 2018 © [Rainbow's Server](https://discord.gg/CtRp5GB) (кликнит
 
 # Благодарность
 
-Огромное спасибо zziger`у, который помог в кодировании бота
+Огромное спасибо 4erem6`е, который помог в кодировании бота
 
-Discord - zziger#8040
+Discord - 4erem6a#5791
 
 # Жалобы
 
