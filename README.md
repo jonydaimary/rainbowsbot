@@ -5,14 +5,14 @@ Discord - Rainbow#1111
 
 [Вконтакте](https://vk.com/romanovyoutube)
 
-Copyright 2018 © [Rainbow's Server](https://discord.gg/qZWdVRj) (кликните на Rainbow`s Server, чтобы попасть на Discord сервер). Все права защищены.
+Copyright 2018 © [Rainbow's Server](https://discord.gg/CtRp5GB) (кликните на Rainbow`s Server, чтобы попасть на Discord сервер). Все права защищены.
 Нарушение авторских прав наказуемо.
 
 # Благодарность
 
-Огромное спасибо zziger`у, который помог в кодировании бота
+Огромное спасибо 4erem6`е, который помог в кодировании бота
 
-Discord - zziger#8040
+Discord - 4erem6a#5791
 
 # Жалобы
 
