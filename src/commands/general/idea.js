@@ -7,6 +7,8 @@ const config = require('./../../../config');
 
 const STAFF_ROLES = ['Модератор', 'Главный Модератор', 'Главный Администратор', 'Администратор'];
 
+const SUGGESTIONS_CHANNEL = '469599925403910145';
+
 const ACCEPT_EMOJI = '480080157965811732';
 const REJECT_EMOJI = '480080159232491542';
 
@@ -38,7 +40,7 @@ module.exports = class IdeaCommand extends Command {
     }
 
     async run(message, idea) {
-        const ideaMessage = await message.channel.send(
+        const ideaMessage = await this.client.channels.get(SUGGESTIONS_CHANNEL).send(
             new RichEmbed()
                 .setTitle('Голосование за предложение:')
                 .setDescription(idea)
