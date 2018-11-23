@@ -489,7 +489,6 @@ if (command === 'report') {
         .addField('Главный администратор:', '<@340171098874183680>')
         .addField('Главные модераторы:', '\n<@291277208431886356>, <@470221892779900929>')
         .addField(`Модераторы`, `<@477577112899944475>, <@169187770877739008>`)
-        .setThumbnail(`https://media.giphy.com/media/1Q9CsjzWyt2qVzM0GH/giphy.gif`)
         .setColor('#800080');
     
             message.channel.send({embed})
