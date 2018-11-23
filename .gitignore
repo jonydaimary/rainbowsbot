@@ -1,3 +1,8 @@
-# Created by .ignore support plugin (hsz.mobi)
-.idea/
-node_modules/
+# node modules dir
+/node_modules
+
+# dotenv file
+.env
+
+# TODO
+TODO

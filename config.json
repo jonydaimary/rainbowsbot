@@ -1,3 +1,21 @@
 {
-  "prefix": "rb!"
-  }
+  "prefix": "rb!",
+  "owner": "340171098874183680",
+  "embed": {
+    "color": {
+      "direct": "#00ff00",
+      "guild": "#800080"
+    }
+  },
+  "channels": {
+    "staffchat": "469600390455885833",
+    "rules": "469599206991200256",
+    "general": "469599515561689092"
+  },
+  "roles": {
+    "muted": "488380492136054795",
+    "unauthorized": "511216926215897089",
+    "novice": "469613109422587924"
+  },
+  "invite": "https://discord.gg/CtRp5GB"
+}
