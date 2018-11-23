@@ -14,6 +14,17 @@ module.exports = class CommandRegistry {
         return this;
     }
 
+    unregister(command, group) {
+        if (this.has(command)) {
+            if (group && this._groups.has(group)) {
+                this._groups.get(group).commands.delete(command);
+            } else {
+                for (const group of this.groups())
+                    group.commands.delete(command);
+            }
+        }
+    }
+
     get(groupOrName, maybeName) {
         const group = maybeName ? groupOrName : undefined;
         const name = maybeName ? maybeName : groupOrName;
