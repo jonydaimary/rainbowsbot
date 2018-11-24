@@ -1,6 +1,6 @@
 const Command = require('./../../command-processing/command');
 
-module.exports = new Command.Builder('say', 'util')
+module.exports = new Command.Builder('say', 'Util')
     .format('[сообщение]')
     .description('Отправляет сообщение от имени бота')
     .parseArgs(rest => rest)

@@ -9,7 +9,7 @@ module.exports = class HelpCommand extends Command {
     constructor() {
         super({
             name: 'help',
-            group: 'info',
+            group: 'Info',
             format: '[команда]',
             description: 'Отображает список доступных команд или информацию о конкретной команде'
         });

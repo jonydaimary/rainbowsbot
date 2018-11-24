@@ -10,7 +10,7 @@ module.exports = class StaffCommand extends Command {
     constructor() {
         super({
             name: 'staff',
-            group: 'info',
+            group: 'Info',
             description: 'Отображает список персонала сервера',
             guildOnly: true
         });

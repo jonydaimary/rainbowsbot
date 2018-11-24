@@ -4,7 +4,7 @@ const Command = require('./../../command-processing/command');
 
 const PERMITTED_ROLES = ['Модератор', 'Главный Модератор', 'Администратор', 'Главный Администратор'];
 
-module.exports = new Command.Builder('auth', 'util')
+module.exports = new Command.Builder('auth', 'Util')
     .guildOnly()
     .format('[on/off]')
     .description('Позволяет включить/выключить авторизацию на сервере или проверить её состояние')

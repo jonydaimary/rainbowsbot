@@ -4,7 +4,7 @@ const Command = require('./../../command-processing/command');
 
 const config = require('./../../../config');
 
-module.exports = new Command.Builder('link', 'info')
+module.exports = new Command.Builder('link', 'Info')
     .description('Позволяет получить неистекающее приглашение')
     .run(message => message.channel.send(new RichEmbed()
         .setTitle('Ссылка-приглашение для Rainbow`s Server')

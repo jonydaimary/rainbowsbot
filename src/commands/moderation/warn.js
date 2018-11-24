@@ -9,7 +9,7 @@ module.exports = class WarnCommand extends Command {
     constructor() {
         super({
             name: 'warn',
-            group: 'moderation',
+            group: 'Moderation',
             format: '<пользователь> [причина]',
             description: 'Выдаёт пользователю предупреждение',
             guildOnly: true

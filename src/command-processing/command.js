@@ -2,7 +2,7 @@ const CommanParser = require('./command-parser');
 
 class Command {
     constructor(options) {
-        this.group = 'general';
+        this.group = 'General';
         this.guildOnly = false;
         Object.assign(this, options);
     }

@@ -10,7 +10,7 @@ module.exports = class EvalCommand extends Command {
     constructor() {
         super({
             name: 'eval',
-            group: 'util',
+            group: 'Util',
             format: '[silent] <выражение или блок js>',
             description: 'Выполняет javascript',
             details: stripIndents`

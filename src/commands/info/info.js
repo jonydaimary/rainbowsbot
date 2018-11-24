@@ -9,7 +9,7 @@ module.exports = class InfoCommand extends Command {
     constructor() {
         super({
             name: 'info',
-            group: 'info',
+            group: 'Info',
             description: 'Отбражает информацию о боте'
         });
     }
