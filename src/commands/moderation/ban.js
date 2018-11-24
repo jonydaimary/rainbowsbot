@@ -9,7 +9,7 @@ module.exports = class BanCommand extends Command {
     constructor() {
         super({
             name: 'ban',
-            group: 'moderation',
+            group: 'Moderation',
             format: '<пользователь> [причина]',
             description: 'Банит пользователя',
             guildOnly: true

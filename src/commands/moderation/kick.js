@@ -9,7 +9,7 @@ module.exports = class KickCommand extends Command {
     constructor() {
         super({
             name: 'kick',
-            group: 'moderation',
+            group: 'Moderation',
             format: '<пользователь> [причина]',
             description: 'Выгоняет пользователя',
             guildOnly: true

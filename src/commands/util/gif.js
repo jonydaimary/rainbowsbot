@@ -4,7 +4,7 @@ const Command = require('./../../command-processing/command');
 
 const config = require('./../../../config');
 
-module.exports = new Command.Builder('gif', 'util')
+module.exports = new Command.Builder('gif', 'Util')
     .description('Отправляет гифку сервера')
     .run(message => message.channel.send(new RichEmbed()
         .setTitle('Как вам GIF-ка?')

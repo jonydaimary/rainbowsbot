@@ -3,7 +3,7 @@ const parseMember = require('./../../utils/parse-member');
 
 const config = require('./../../../config');
 
-module.exports = new Command.Builder('unmute', 'moderation')
+module.exports = new Command.Builder('unmute', 'Moderation')
     .guildOnly()
     .format('<пользователь>')
     .description('Размутить пользователя')

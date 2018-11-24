@@ -5,7 +5,7 @@ const parseMember = require('./../../utils/parse-member');
 
 const config = require('./../../../config');
 
-module.exports = new Command.Builder('report', 'moderation')
+module.exports = new Command.Builder('report', 'Moderation')
     .guildOnly()
     .format('<пользователь> <причина>')
     .description('Пожаловаться на пользователя')

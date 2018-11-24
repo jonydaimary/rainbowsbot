@@ -10,7 +10,7 @@ const PERMITTED_ROLES = ['Модератор', 'Главный Модерато�
 const PARTNER_ROLE = '470218094342569984';
 const PARTNER_ACHIEVMENT = '469613173251506187';
 
-module.exports = new Command.Builder('par', 'util')
+module.exports = new Command.Builder('par', 'Util')
     .guildOnly()
     .format('<пользователь>')
     .description('Выдать пользвателю достижение и роль партнёра')  
