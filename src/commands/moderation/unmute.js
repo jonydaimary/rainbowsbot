@@ -1,5 +1,5 @@
 const Command = require('./../../command-processing/command');
-const parseMember = require('./../../utils/parse-member');
+const parse = require('./../../utils/parse');
 
 const config = require('./../../../config');
 
@@ -9,7 +9,7 @@ module.exports = new Command.Builder('unmute', 'Moderation')
     .description('Размутить пользователя')
     .checkPermissions(member => member.hasPermission('MANAGE_MESSAGES'))
     .validate((message, [member]) => {
-        member = parseMember(message.guild, member);
+        member = parse.member(message.guild, member);
         if (!member)
             return 'Пользователь не найден';
         if (!member.roles.has(config.roles.muted))
@@ -17,7 +17,7 @@ module.exports = new Command.Builder('unmute', 'Moderation')
         return true;
     })
     .run((message, [member]) => {
-        member = parseMember(message.guild, member);
+        member = parse.member(message.guild, member);
         member.removeRole(config.roles.muted);
         return `Пользователь ${member.user.tag} успешно размучен.`;
     })

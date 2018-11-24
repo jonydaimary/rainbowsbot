@@ -1,7 +1,7 @@
 const { RichEmbed } = require('discord.js');
 
 const Command = require('./../../command-processing/command');
-const parseMember = require('./../../utils/parse-member');
+const parse = require('./../../utils/parse');
 
 const config = require('./../../../config');
 
@@ -26,7 +26,7 @@ module.exports = class KickCommand extends Command {
     validate(message, [member]) {
         if (!member)
             return 'Пользователь не указан';
-        member = parseMember(message.guild, member);
+        member = parse.member(message.guild, member);
         if (!member)
             return 'Пользователь не найден';
         if (!member.kickable)
@@ -36,8 +36,9 @@ module.exports = class KickCommand extends Command {
 
     async run(message, [member, reason]) {
         reason = reason ? reason : 'Причина не указана';
+        member = parse.member(message.guild, member);
 
-        await parseMember(message.guild, member).kick(reason);
+        await member.kick(reason);
 
         const embed = new RichEmbed()
             .setTitle('Пользователь кикнут')

@@ -1,7 +1,7 @@
 const { RichEmbed } = require('discord.js');
 
 const Command = require('./../../command-processing/command');
-const parseMember = require('./../../utils/parse-member');
+const parse = require('./../../utils/parse');
 
 const config = require('./../../../config');
 
@@ -14,13 +14,13 @@ module.exports = new Command.Builder('report', 'Moderation')
             return 'Пользователь не указан';
         if (!reason)
             return 'Причина не указана';
-        member = parseMember(message.guild, member);
+        member = parse.member(message.guild, member);
         if (!member)
             return 'Пользователь не найден';
         return true;
     })
     .run((message, [member, reason]) => {
-        member = parseMember(message.guild, member);
+        member = parse.member(message.guild, member);
         message.guild.channels.get(config.channels.staffchat).send(new RichEmbed()
             .setDescription('Жалобы')
             .setColor(config.embed.color.guild)

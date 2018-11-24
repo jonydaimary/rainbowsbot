@@ -1,7 +1,7 @@
 const { RichEmbed } = require('discord.js');
 
 const Command = require('./../../command-processing/command');
-const parseMember = require('./../../utils/parse-member');
+const parse = require('./../../utils/parse');
 
 const config = require('./../../../config');
 
@@ -26,13 +26,13 @@ module.exports = class WarnCommand extends Command {
     validate(message, [member]) {
         if (!member)
             return 'Пользователь не указан';
-        if (!parseMember(message.guild, member))
+        if (!parse.member(message.guild, member))
             return 'Пользователь не найден';
         return true;
     }
 
     run(message, [member, reason]) {
-        member = parseMember(message.guild, member);
+        member = parse.member(message.guild, member);
         const embed = new RichEmbed()
             .setTitle('Предупреждение')
             .addField('Пользователь', `${member.user} (\`${member.user.tag}\`)`, true)

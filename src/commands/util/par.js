@@ -1,7 +1,7 @@
 const { RichEmbed } = require('discord.js');
 
 const Command = require('./../../command-processing/command');
-const parseMember = require('./../../utils/parse-member');
+const parse = require('./../../utils/parse');
 
 const config = require('./../../../config');
 
@@ -13,15 +13,15 @@ const PARTNER_ACHIEVMENT = '469613173251506187';
 module.exports = new Command.Builder('par', 'Util')
     .guildOnly()
     .format('<пользователь>')
-    .description('Выдать пользвателю достижение и роль партнёра')  
+    .description('Выдать пользвателю достижение и роль партнёра')
     .checkPermissions(member => member.roles.some(role => PERMITTED_ROLES.includes(role.name)))
     .validate((message, [member]) => {
-        if (!parseMember(message.guild, member))
+        if (!parse.member(message.guild, member))
             return 'Пользователь не найден';
         return true;
     })
     .run((message, [member]) => {
-        member = parseMember(message.guild, member);
+        member = parse.member(message.guild, member);
         member.addRoles([PARTNER_ACHIEVMENT, PARTNER_ROLE]);
         message.guild.channels.get(config.channels.staffchat).send(new RichEmbed()
             .setTitle('Роль партнера успешно выдана')
