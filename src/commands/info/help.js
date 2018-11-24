@@ -29,7 +29,7 @@ module.exports = class HelpCommand extends Command {
             let commands = '';
             for (const command of group)
                 commands += `**${command.name}**: ${command.description ? command.description : '-'}\n`;
-            embed.addField(`__**${group.name}**__`, commands);
+            embed.addField(`**${group.name}**`, commands);
         }
         message.channel.send(embed);
     }
