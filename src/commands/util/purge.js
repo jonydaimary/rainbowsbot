@@ -6,7 +6,7 @@ module.exports = new Command.Builder('purge', 'Util')
     .guildOnly()
     .description('Удаляет указанное кол-во сообщений в канале')
     .format('<число между 2 и 100>')
-    .checkPermissions(member => member.roles.some(role => PERMITTED_ROLES.includes(role.name)))
+    .hasPermissions(member => member.roles.some(role => PERMITTED_ROLES.includes(role.name)))
     .validate((message, [count]) => {
         count = parseInt(count);
         if (isNaN(count))

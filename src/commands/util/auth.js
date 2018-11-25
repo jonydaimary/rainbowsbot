@@ -12,7 +12,7 @@ module.exports = new Command.Builder('auth', 'Util')
         Использование без аргументов отобразит текущее состояние авторизации.
         Чтобы изменить его следует использовать команду с аргументом on или off.
     `)
-    .checkPermissions(member => member.roles.some(role => PERMITTED_ROLES.includes(role.name)))
+    .hasPermissions(member => member.roles.some(role => PERMITTED_ROLES.includes(role.name)))
     .run((message, [state]) => {
         state = state == 'on' ? true : state == 'off' ? false : undefined;
         if (state === undefined)

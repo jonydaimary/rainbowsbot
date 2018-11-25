@@ -53,7 +53,7 @@ module.exports = class HelpCommand extends Command {
             .addField('Формат:', format)
             .addField('Описание:', desctiption)
             .addField('Могу использовать:',
-                command.checkPermissions(command.guildOnly ? message.member : message.author) === true
+                command.hasPermissions(command.guildOnly ? message.member : message.author) === true
                     ? 'Да'
                     : 'Нет'
             )
@@ -66,7 +66,7 @@ module.exports = class HelpCommand extends Command {
         for (const command of this.client.commands) {
             if (command.guildOnly && !isGuild)
                 continue;
-            if (command.checkPermissions(caller) === true)
+            if (command.hasPermissions(caller) === true)
                 commands.register(command);
         }
         return commands;

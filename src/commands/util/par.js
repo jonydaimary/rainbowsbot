@@ -14,7 +14,7 @@ module.exports = new Command.Builder('par', 'Util')
     .guildOnly()
     .format('<пользователь>')
     .description('Выдать пользвателю достижение и роль партнёра')
-    .checkPermissions(member => member.roles.some(role => PERMITTED_ROLES.includes(role.name)))
+    .hasPermissions(member => member.roles.some(role => PERMITTED_ROLES.includes(role.name)))
     .validate((message, [member]) => {
         if (!parse.member(message.guild, member))
             return 'Пользователь не найден';

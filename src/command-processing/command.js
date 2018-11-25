@@ -15,9 +15,11 @@ class Command {
         this.guild = message.guild;
         this.member = message.member;
 
-        const args = this.parseArgs(rawArgs);
+        let args = this.parseArgs(rawArgs);
+        if (this.transformArgs)
+            args = this.transformArgs(args);
 
-        const hasPermissions = this.checkPermissions(this.guildOnly ? this.member : message.author);
+        const hasPermissions = this.hasPermissions(this.guildOnly ? this.member : message.author);
         if (hasPermissions !== true) {
             if (typeof hasPermissions == 'string')
                 message.reply(hasPermissions);
@@ -42,7 +44,7 @@ class Command {
         return new CommanParser(raw).parts();
     }
 
-    checkPermissions() { return true; }
+    hasPermissions() { return true; }
 
     validate() { return true; }
 }
@@ -71,8 +73,8 @@ class CommandBuilder {
         return this;
     }
 
-    checkPermissions(checkPermissions) {
-        this.command.checkPermissions = checkPermissions;
+    hasPermissions(hasPermissions) {
+        this.command.hasPermissions = hasPermissions;
         return this;
     }
 

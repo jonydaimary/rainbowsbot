@@ -16,7 +16,7 @@ module.exports = class KickCommand extends Command {
         });
     }
 
-    checkPermissions(member) {
+    hasPermissions(member) {
         const roles = ['Главный Администратор', 'Администратор', 'Главный Модератор', 'Модератор'];
         return member.roles.some(role => roles.includes(role.name))
             ? true

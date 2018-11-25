@@ -7,7 +7,7 @@ module.exports = new Command.Builder('unmute', 'Moderation')
     .guildOnly()
     .format('<пользователь>')
     .description('Размутить пользователя')
-    .checkPermissions(member => member.hasPermission('MANAGE_MESSAGES'))
+    .hasPermissions(member => member.hasPermission('MANAGE_MESSAGES'))
     .validate((message, [member]) => {
         member = parse.member(message.guild, member);
         if (!member)
