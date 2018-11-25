@@ -45,7 +45,7 @@ module.exports = class EvalCommand extends Command {
         return [silent, rest];
     }
 
-    run(msg, [silent, expression]) {
+    async run(msg, [silent, expression]) {
         const Discord = require('discord.js');
         const client = msg.client;
         const message = msg;
