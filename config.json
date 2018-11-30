@@ -17,5 +17,9 @@
     "unauthorized": "511216926215897089",
     "novice": "469613109422587924"
   },
+  "authorization": {
+    "from": "0 21 * * *",
+    "to": "0 8 * * *"
+  },
   "invite": "https://discord.gg/CtRp5GB"
 }

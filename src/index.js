@@ -1,10 +1,13 @@
 const { Client, RichEmbed } = require('discord.js');
 const { stripIndents } = require('common-tags');
+const schedule = require('node-schedule');
 
 const handleCommand = require('./command-processing/handle-command');
 const loadCommands = require('./command-processing/load-commands');
 
 const config = require('./../config');
+
+require('dotenv').load();
 
 const client = new Client();
 client.authState = true;
@@ -134,6 +137,14 @@ client.on('guildMemberUpdate', async (before, after) => {
 
     if (!colorRoles.every(id => before.roles.has(id)) && colorRoles.every(id => after.roles.has(id)))
         await after.addRole(achievment);
+});
+
+schedule.scheduleJob(config.authorization.from, () => {
+    client.authState = true;
+});
+
+schedule.scheduleJob(config.authorization.to, () => {
+    client.authState = false;
 });
 
 client.login(process.env.TOKEN);
