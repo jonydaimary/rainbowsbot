@@ -139,10 +139,14 @@ client.on('guildMemberUpdate', async (before, after) => {
 
 schedule.scheduleJob(config.authorization.from, () => {
     client.authState = true;
+    client.channels.get(config.channels.staffchat)
+        .send('Авторизация включена по расписанию.');
 });
 
 schedule.scheduleJob(config.authorization.to, () => {
     client.authState = false;
+    client.channels.get(config.channels.staffchat)
+        .send('Авторизация отключена по расписанию.');
 });
 
 client.login(process.env.TOKEN);
