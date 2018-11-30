@@ -21,6 +21,7 @@ module.exports = new Command.Builder('par', 'Util')
         return true;
     })
     .run((message, [member]) => {
+        message.delete();
         member = parse.member(message.guild, member);
         member.addRoles([PARTNER_ACHIEVMENT, PARTNER_ROLE]);
         message.guild.channels.get(config.channels.staffchat).send(new RichEmbed()
