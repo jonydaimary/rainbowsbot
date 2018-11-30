@@ -7,8 +7,6 @@ const loadCommands = require('./command-processing/load-commands');
 
 const config = require('./../config');
 
-require('dotenv').load();
-
 const client = new Client();
 client.authState = true;
 
