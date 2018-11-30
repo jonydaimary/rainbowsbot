@@ -15,18 +15,18 @@ class Command {
         this.guild = message.guild;
         this.member = message.member;
 
-        let args = this.parseArgs(rawArgs);
+        let args = await this.parseArgs(rawArgs);
         if (this.transformArgs)
-            args = this.transformArgs(args);
+            args = await this.transformArgs(args);
 
-        const hasPermissions = this.hasPermissions(this.guildOnly ? this.member : message.author);
+        const hasPermissions = await this.hasPermissions(this.guildOnly ? this.member : message.author);
         if (hasPermissions !== true) {
             if (typeof hasPermissions == 'string')
                 message.reply(hasPermissions);
             return;
         }
 
-        const isVlaid = this.validate(message, args);
+        const isVlaid = await this.validate(message, args);
         if (isVlaid !== true) {
             if (typeof isVlaid == 'string')
                 message.reply(isVlaid);
