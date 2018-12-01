@@ -18,8 +18,8 @@
     "novice": "469613109422587924"
   },
   "authorization": {
-    "from": "0 21 * * *",
-    "to": "0 8 * * *"
+    "from": "0 18 * * *",
+    "to": "0 5 * * *"
   },
   "invite": "https://discord.gg/CtRp5GB"
 }
