@@ -7,6 +7,7 @@ module.exports = class LevelCommand extends Command {
             name: 'level',
             group: 'Experience',
             format: '[пользователь]',
+            description: 'Отображает уровень пользователя.'
         });
     }
 
