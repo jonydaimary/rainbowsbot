@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         let nextLevel = nextLevelXp(user.level);
         if (!value)
             return { level: user.level, xp: user.xp, nextLevelXp: nextLevel };
+        const prevLevel = user.level;
         user.xp = value + (add ? user.xp : 0);
         while (user.xp >= nextLevel) {
             user.level++;
@@ -31,7 +32,12 @@ module.exports = (sequelize, DataTypes) => {
             nextLevel = nextLevelXp(user.level);
         }
         await user.save();
-        return { level: user.level, xp: user.xp, nextLevelXp: nextLevel };
+        return {
+            level: user.level,
+            xp: user.xp,
+            nextLevelXp: nextLevel,
+            levelUp: prevLevel != user.level 
+        };
     };
 
     return Users;

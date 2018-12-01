@@ -17,12 +17,14 @@ client.once('ready', async () => {
     client.sequelize = await require('./dbinit')();
 });
 
-client.on('message', message => {
+client.on('message', async message => {
     if (message.channel.type == 'dm' || !config.xpChannels.includes(message.channel.id))
         return;
     const random = require('./utils/random');
     const Users = client.sequelize.model('users');
-    Users.xp(message.author.id, random(1, 5), true);
+    const data = await Users.xp(message.author.id, random(1, 5), true);
+    if (data.levelUp)
+        message.reply(`Твой уровень повышен! Текущий уровень: ${data.level}`);
 });
 
 client.on('ready', () => {
