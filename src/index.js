@@ -18,7 +18,9 @@ client.once('ready', async () => {
 });
 
 client.on('message', async message => {
-    if (message.channel.type == 'dm' || !config.xpChannels.includes(message.channel.id))
+    if (message.author.bot
+        || message.channel.type == 'dm'
+        || !config.xpChannels.includes(message.channel.id))
         return;
     const random = require('./utils/random');
     const Users = client.sequelize.model('users');
