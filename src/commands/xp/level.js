@@ -7,7 +7,7 @@ module.exports = class LevelCommand extends Command {
             name: 'level',
             group: 'Experience',
             format: '[пользователь]',
-            description: 'Отображает уровень пользователя.'
+            description: 'Отображает уровень пользователя'
         });
     }
 
@@ -23,7 +23,7 @@ module.exports = class LevelCommand extends Command {
         const data = await (this.client.sequelize.model('users')).xp(user.id);
         return (user.id == message.author.id
             ? 'Ваш текущий уровень: '
-            : `Текущий уровень пользователя ${user}: `)
+            : `Текущий уровень пользователя ${user.tag}: `)
             + `**${data.level}** ${data.xp}/${data.nextLevelXp}`;
     }
 };
