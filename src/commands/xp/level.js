@@ -14,16 +14,15 @@ module.exports = class LevelCommand extends Command {
         user = user ? parse.user(this.client, user) : message.author;
         if (!user)
             return 'Пользователь не найден';
+        return true;
     }
 
     async run(message, [user]) {
         user = user ? parse.user(this.client, user) : message.author;
         const data = await (this.client.sequelize.model('users')).xp(user.id);
-        const response = (user.id == message.author.id
+        return (user.id == message.author.id
             ? 'Ваш текущий уровень: '
             : `Текущий уровень пользователя ${user}: `)
-            + `**${data.level}** *${data.xp}/${data.nextLevelXp}*`;
-        console.log(response);
-        return response;
+            + `**${data.level}** ${data.xp}/${data.nextLevelXp}`;
     }
 };
