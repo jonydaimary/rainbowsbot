@@ -19,9 +19,10 @@ module.exports = class LevelCommand extends Command {
     async run(message, [user]) {
         user = user ? parse.user(this.client, user) : message.author;
         const data = await this.client.sequelize.model('users').xp(user.id);
-        return (user.id == message.author.id
+        await message.reply((user.id == message.author.id
             ? 'Ваш текущий уровень: '
             : `Текущий уровень пользователя ${user}: `)
-            + `**${data.level}** *${data.xp}/${data.nextLevelXp}*`;
+            + `**${data.level}** *${data.xp}/${data.nextLevelXp}*`
+        );
     }
 };
