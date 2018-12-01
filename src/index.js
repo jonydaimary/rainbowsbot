@@ -13,6 +13,10 @@ client.authState = true;
 client.commands = loadCommands(__dirname + '/commands');
 client.on('message', handleCommand);
 
+client.once('ready', async () => {
+    client.sequelize = await require('./dbinit')();
+});
+
 client.on('ready', () => {
     console.log('Client ready.');
     client.user.setActivity('rb!help', {

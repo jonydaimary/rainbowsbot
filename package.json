@@ -8,7 +8,10 @@
     "discord.js": "^11.4.2",
     "ms": "^2.1.1",
     "node-schedule": "^1.3.1",
-    "require-all": "^3.0.0"
+    "pg": "^7.7.1",
+    "pg-hstore": "^2.3.2",
+    "require-all": "^3.0.0",
+    "sequelize": "^4.41.2"
   },
   "devDependencies": {
     "dotenv": "^6.1.0"
