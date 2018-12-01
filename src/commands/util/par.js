@@ -13,7 +13,7 @@ const PARTNER_ACHIEVMENT = '469613173251506187';
 module.exports = new Command.Builder('par', 'Util')
     .guildOnly()
     .format('<пользователь>')
-    .description('Выдать пользвателю достижение и роль партнёра')
+    .description('Выдаёт пользвателю достижение и роль партнёра')
     .hasPermissions(member => member.roles.some(role => PERMITTED_ROLES.includes(role.name)))
     .validate((message, [member]) => {
         if (!parse.member(message.guild, member))
