@@ -13,9 +13,9 @@ module.exports.member = (guild, raw) => {
 
 module.exports.user = (client, raw) => {
     if (USER_MENTION_PATTERN.test(raw))
-        return client.fetchUser(raw.match(USER_MENTION_PATTERN)[1]);
+        return client.users.get(raw.match(USER_MENTION_PATTERN)[1]);
     if (ID_PATTERN.test(raw))
-        return client.fetchUser(raw);
+        return client.users.get(raw);
     return client.users.find(user => user.username == raw);
 };
 
