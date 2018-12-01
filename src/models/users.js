@@ -21,10 +21,10 @@ module.exports = (sequelize, DataTypes) => {
 
     Users.xp = async (id, value, add) => {
         const [user] = await Users.findOrCreate({ where: { id }, defaults: { id } });
-        if (!value)
-            return user.xp;
-        user.xp = value + (add ? user.xp : 0);
         let nextLevel = nextLevelXp(user.level);
+        if (!value)
+            return { level: user.level, xp: user.xp, nextLevelXp: nextLevel };
+        user.xp = value + (add ? user.xp : 0);
         while (user.xp >= nextLevel) {
             user.level++;
             user.xp -= nextLevel;
