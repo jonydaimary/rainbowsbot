@@ -1,5 +1,9 @@
+const { RichEmbed } = require('discord.js');
+
 const Command = require('../../command-processing/command');
 const parse = require('./../../utils/parse');
+
+const config = require('./../../../config');
 
 module.exports = class LevelCommand extends Command {
     constructor() {
@@ -21,9 +25,13 @@ module.exports = class LevelCommand extends Command {
     async run(message, [user]) {
         user = user ? parse.user(this.client, user) : message.author;
         const data = await (this.client.sequelize.model('users')).xp(user.id);
-        return (user.id == message.author.id
-            ? 'Ваш текущий уровень: '
-            : `Текущий уровень пользователя ${user.tag}: `)
-            + `**${data.level}** ${data.xp}/${data.nextLevelXp}`;
+        message.channel.send(new RichEmbed()
+            .setTitle('Статистика пользователя')
+            .setColor(config.embed.color.guild)
+            .addField('Пользователь', user, true)
+            .addField('Уровень', data.level, true)
+            .addField('Опыт', `${data.xp}/${data.nextLevelXp}`, true)
+            .setFooter(message.author.tag, message.author.avatarURL)
+        );
     }
 };
