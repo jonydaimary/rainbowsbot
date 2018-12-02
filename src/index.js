@@ -40,18 +40,22 @@ client.on('memberLevelUp', (message, { level }) => {
 
 client.on('ready', () => {
     console.log('Client ready.');
-    let status = 0;
-    const getStatus = () => {
-        const index = status;
-        status = status == 2 ? 0 : status + 1;
-        return [`${config.prefix}help`, 'Rainbow`s Server', `${client.users.array().length} users`][index];
+    const setActivity = status => client.user.setActivity(status, {
+        type: 'STREAMING',
+        url: 'https://twitch.tv/romanvoyoutube'
+    }).catch(console.error);
+    let index = 0;
+    const setStatus = () => {
+        const status = [
+            `${config.prefix}help`,
+            'Rainbow`s Server',
+            `${client.users.array().length} users`
+        ][index];
+        index = index == 2 ? 0 : index + 1;
+        setActivity(status);
     };
-    setTimeout(() => {
-        client.user.setActivity(getStatus(), {
-            type: 'STREAMING',
-            url: 'https://twitch.tv/romanvoyoutube'
-        }).catch(console.error);
-    }, 180000);
+    setStatus();
+    setInterval(() => setStatus(), 180000);
 });
 
 client.on('guildCreate', guild => console.log(`Guild joind: ${guild.name}(${guild.id})[${guild.memberCount}]`));
