@@ -9,7 +9,7 @@ const config = require('./../../../config');
 module.exports = new Command.Builder('mute', 'Moderation')
     .guildOnly()
     .format('<пользователь> [время]')
-    .description('Замутить пользователя')
+    .description('Мутит пользователя')
     .hasPermissions(member => member.hasPermission('MANAGE_MESSAGES'))
     .validate((message, [member, time]) => {
         member = parse.member(message.guild, member);
