@@ -25,13 +25,12 @@ client.on('message', async message => {
     const random = require('./utils/random');
     const Users = client.sequelize.model('users');
     const data = await Users.xp(message.author.id, random(1, 5), true);
-    if (data.levelUp) {
+    if (data.levelUp)
         client.emit('memberLevelUp', message, data);
-    }
 });
 
 client.on('memberLevelUp', (message, { level }) => {
-    message.reply(`Твой уровень повышен! Текущий уровень: **${level}**`);
+    message.channel.send(`Поздравляю ${message.author}, ты получил **${level}** уровень!`);
 });
 
 client.on('memberLevelUp', (message, { level }) => {
