@@ -31,7 +31,7 @@ module.exports = class TopCommand extends Command {
         const response = new MessageFormatter();
         result.forEach((r, i) => {
             response.line(stripIndent`
-                [${i + 1}]\t> #${this.client.users.get(r.id).tag}
+                [${i + 1}]   ${i == 9 ? '' : ' '}> #${this.client.users.get(r.id).tag}
                 \t\tУровень: ${r.level} [${r.xp}/${nextLevelXp(r.level)}]
             `);
         });
