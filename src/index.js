@@ -40,10 +40,18 @@ client.on('memberLevelUp', (message, { level }) => {
 
 client.on('ready', () => {
     console.log('Client ready.');
-    client.user.setActivity('rb!help', {
-        type: 'STREAMING',
-        url: 'https://twitch.tv/romanvoyoutube'
-    }).catch(console.error);
+    let status = 0;
+    const getStatus = () => {
+        const index = status;
+        status = status == 2 ? 0 : status + 1;
+        return [`${config.prefix}help`, 'Rainbow`s Server', `${client.users.array().length} users`][index];
+    };
+    setTimeout(() => {
+        client.user.setActivity(getStatus(), {
+            type: 'STREAMING',
+            url: 'https://twitch.tv/romanvoyoutube'
+        }).catch(console.error);
+    }, 180000);
 });
 
 client.on('guildCreate', guild => console.log(`Guild joind: ${guild.name}(${guild.id})[${guild.memberCount}]`));
