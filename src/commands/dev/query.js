@@ -2,6 +2,8 @@ const { RichEmbed } = require('discord.js');
 
 const Command = require('../../command-processing/command');
 
+const config = require('./../../../config');
+
 module.exports = class QueryCommand extends Command {
     constructor() {
         super({
@@ -22,10 +24,11 @@ module.exports = class QueryCommand extends Command {
 
     async run(message, query) {
         const [result, data] = await this.client.sequelize.query(query);
-        message.reply(new RichEmbed()
+        await message.reply(new RichEmbed()
             .setTitle('Запрос к базе данных')
             .addField('Запрос', data.command)
             .addField('Кол-во записей', data.rowCount)
+            .setColor(config.embed.color.guild)
         );
         if (data.command == 'SELECT') {
             result.forEach(r => message.channel.send(`\`\`\`json\n${JSON.stringify(r, '', 4)}\`\`\``));
