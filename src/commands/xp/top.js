@@ -27,7 +27,7 @@ module.exports = class TopCommand extends Command {
     async run(message, [count]) {
         count = count ? parseInt(count) : 10;
         const Users = this.client.sequelize.model('users');
-        const [result] = Users.findAll({ limit: count, order: 'level desc, xp desc' });
+        const result = Users.findAll({ limit: count, order: 'level desc, xp desc' });
         const response = new MessageFormatter();
         result.forEach((r, i) => {
             response.line(stripIndents`
