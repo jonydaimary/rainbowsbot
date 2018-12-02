@@ -1,4 +1,4 @@
-const { stripIndents } = require('common-tags');
+const { stripIndent } = require('common-tags');
 
 const MessageFormatter = require('./../../utils/message-formatter');
 const nextLevelXp = require('./../../utils/next-level-xp');
@@ -30,8 +30,8 @@ module.exports = class TopCommand extends Command {
         const result = await Users.findAll({ limit: count, order: [['level', 'desc'], ['xp', 'desc']] });
         const response = new MessageFormatter();
         result.forEach((r, i) => {
-            response.line(stripIndents`
-                [${i + 1}]\t> ${this.client.users.get(r.id).tag}
+            response.line(stripIndent`
+                [${i + 1}]\t> #${this.client.users.get(r.id).tag}
                 \t\tУровень: ${r.level} [${r.xp}/${nextLevelXp(r.level)}]
             `);
         });
