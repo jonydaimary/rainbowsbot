@@ -34,6 +34,11 @@ client.on('memberLevelUp', (message, { level }) => {
     message.reply(`Твой уровень повышен! Текущий уровень: **${level}**`);
 });
 
+client.on('memberLevelUp', (message, { level }) => {
+    const roles = config.levelRoles.filter(([l]) => l == level).map(([, role]) => role);
+    roles.forEach(role => message.member.addRole(role));
+});
+
 client.on('ready', () => {
     console.log('Client ready.');
     client.user.setActivity('rb!help', {
