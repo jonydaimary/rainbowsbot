@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const Warns = sequelize.define('warns', {
-        id: {
+        user: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -14,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
         }
     }, { timestamps: false });
 	
-    Warns.warn = (id, moderator, reason) => Warns.build({ id, moderator, reason }).save();
+    Warns.warn = (user, moderator, reason) => Warns.build({ user, moderator, reason }).save();
 
     Warns.clear = () => Warns.destroy();
 
-    Warns.get = id => Warns.findAll({ where: { id } });
+    Warns.get = user => Warns.findAll({ where: { user } });
 
     return Warns;
 };
