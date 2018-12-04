@@ -13,21 +13,21 @@ client.authState = true;
 client.commands = loadCommands(__dirname + '/commands');
 client.on('message', handleCommand);
 
-client.once('ready', async () => {
-    client.sequelize = await require('./dbinit')();
-});
+// client.once('ready', async () => {
+//     client.sequelize = await require('./dbinit')();
+// });
 
-client.on('message', async message => {
-    if (message.author.bot
-        || message.channel.type == 'dm'
-        || !config.xpChannels.includes(message.channel.id))
-        return;
-    const random = require('./utils/random');
-    const Users = client.sequelize.model('users');
-    const data = await Users.xp(message.author.id, random(1, 5), true);
-    if (data.levelUp)
-        client.emit('memberLevelUp', message, data);
-});
+// client.on('message', async message => {
+//     if (message.author.bot
+//         || message.channel.type == 'dm'
+//         || !config.xpChannels.includes(message.channel.id))
+//         return;
+//     const random = require('./utils/random');
+//     const Users = client.sequelize.model('users');
+//     const data = await Users.xp(message.author.id, random(1, 5), true);
+//     if (data.levelUp)
+//         client.emit('memberLevelUp', message, data);
+// });
 
 client.on('memberLevelUp', (message, { level }) => {
     message.channel.send(`Поздравляю ${message.author}, ты получил **${level}** уровень!`);
