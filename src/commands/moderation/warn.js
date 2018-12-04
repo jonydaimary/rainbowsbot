@@ -23,26 +23,31 @@ module.exports = class WarnCommand extends Command {
             : 'У вас нет прав для выполнения этой команды';
     }
 
-    validate(message, [member]) {
+    validate(message, [member, reason]) {
         if (!member)
             return 'Пользователь не указан';
         if (!parse.member(message.guild, member))
             return 'Пользователь не найден';
+        if (!reason)
+            return 'Причина не указана';
         return true;
     }
 
-    run(message, [member, reason]) {
+    async run(message, [member, reason]) {
         member = parse.member(message.guild, member);
+
+        await this.client.sequelize.model('warns').warn(member.id, message.author.id, reason);
+
         const embed = new RichEmbed()
             .setTitle('Предупреждение')
             .addField('Пользователь', `${member.user} (\`${member.user.tag}\`)`, true)
             .addField('Модератор', `${message.author} (\`${message.author.tag}\`)`, true)
-            .addField('Причина', reason ? reason : 'Причина не указана')
+            .addField('Причина', reason)
             .setFooter('Rainbow`s Warnings')
             .setColor(config.embed.color.guild)
             .setTimestamp(message.createdAt);
 
-        message.guild.channels
+        await message.guild.channels
             .get(config.channels.staffchat)
             .send(embed);
     }
