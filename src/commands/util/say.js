@@ -8,8 +8,8 @@ module.exports = new Command.Builder('say', 'Util')
     .description('Отправляет сообщение от имени бота')
     .parseArgs(rest => rest)
     .hasPermissions(member => member.roles.some(role => PERMITTED_ROLES.includes(role.name)))
-    .run(async (message, content) => {
-        await message.delete();
+    .run((message, content) => {
+        message.delete();
         return content ? message.channel.send(content) : undefined;
     })
     .build();
