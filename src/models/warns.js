@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 	
     Warns.warn = (user, moderator, reason) => Warns.build({ user, moderator, reason }).save();
 
-    Warns.clear = () => Warns.destroy();
+    Warns.clear = () => Warns.destroy({ where: {}, truncate: true });
 
     Warns.get = user => Warns.findAll({ where: { user } });
 
