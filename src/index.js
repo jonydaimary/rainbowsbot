@@ -186,4 +186,8 @@ schedule.scheduleJob(config.authorization.to, () => {
         .send('Авторизация отключена по расписанию.');
 });
 
+schedule.scheduleJob(config.warnExpirationDate, () => {
+    client.sequelize.model('warns').clear();
+});
+
 client.login(process.env.TOKEN);
