@@ -11,10 +11,13 @@ module.exports = (sequelize, DataTypes) => {
         reason: {
             type: DataTypes.TEXT,
             allowNull: false
-        }
+        },
+        timestamp: DataTypes.DATE
     }, { timestamps: false });
 	
-    Warns.warn = (user, moderator, reason) => Warns.build({ user, moderator, reason }).save();
+    Warns.warn = (user, moderator, reason, timestamp) => Warns.build(
+        { user, moderator, reason, timestamp }
+    ).save();
 
     Warns.clear = () => Warns.destroy({ where: {}, truncate: true });
 

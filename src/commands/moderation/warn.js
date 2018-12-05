@@ -36,7 +36,12 @@ module.exports = class WarnCommand extends Command {
     async run(message, [member, reason]) {
         member = parse.member(message.guild, member);
 
-        await this.client.sequelize.model('warns').warn(member.id, message.author.id, reason);
+        await this.client.sequelize.model('warns').warn(
+            member.id,
+            message.author.id,
+            reason,
+            message.createdAt
+        );
 
         const embed = new RichEmbed()
             .setTitle('Предупреждение')
