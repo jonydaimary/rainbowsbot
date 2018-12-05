@@ -5,7 +5,7 @@ const parse = require('./../../utils/parse');
 
 const config = require('./../../../config');
 
-module.exports = class WarnCommand extends Command {
+module.exports = class WarnsCommand extends Command {
     constructor() {
         super({
             name: 'warns',
@@ -20,19 +20,31 @@ module.exports = class WarnCommand extends Command {
         member = parse.member(message.guild, member);
         member = member ? member : message.member;
 
-        await this.client.sequelize.model('warns').warn(member.id, message.author.id, reason);
+        const warns = await this.client.sequelize.model('warns').findAll({ where: { user: member.user.id } });
 
-        const embed = new RichEmbed()
+        if (warns.length == 0)
+            return (message.author.id == member.user.id
+                ? 'У вас'
+                : `У пользователя ${member.user.tag}`)
+                + ' нет предупреждений';
+        
+        await message.reply(message.author.id == member.user.id
+            ? `Ваши предупреждения: **${warns.length}**`
+            : `Предупреждения пользователя ${member.user.tag}: **${warns.length}**`
+        );
+
+        warns.forEach(warn => message.channel.send(this.warnEmbed(warn)));
+    }
+
+    warnEmbed(warn) {
+        const user = parse.user(this.client, warn.user);
+        const moderator = parse.user(this.client, warn.moderator);
+        return new RichEmbed()
             .setTitle('Предупреждение')
-            .addField('Пользователь', `${member.user} (\`${member.user.tag}\`)`, true)
-            .addField('Модератор', `${message.author} (\`${message.author.tag}\`)`, true)
-            .addField('Причина', reason)
+            .addField('Пользователь', `${user} (\`${user.tag}\`)`, true)
+            .addField('Модератор', `${moderator} (\`${moderator.tag}\`)`, true)
+            .addField('Причина', warn.reason)
             .setFooter('Rainbow`s Warnings')
-            .setColor(config.embed.color.guild)
-            .setTimestamp(message.createdAt);
-
-        await message.guild.channels
-            .get(config.channels.staffchat)
-            .send(embed);
+            .setColor(config.embed.color.guild);
     }
 };
