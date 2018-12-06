@@ -55,7 +55,8 @@ module.exports = class IdeaCommand extends Command {
         const reactionListener = (reaction, user) => {
             if (reaction.message.id !== ideaMessage.id || user.bot)
                 return;
-            if (reaction.emoji.name === DELETE_EMOJI && user.id == message.author.id) {
+            if (reaction.emoji.name === DELETE_EMOJI
+                && (user.id == message.author.id || user.id == message.guild.ownerID)) {
                 this.client.removeListener('messageReactionAdd', reactionListener);
                 ideaMessage.delete();
                 return;
