@@ -1,7 +1,7 @@
 const { RichEmbed } = require('discord.js');
 
-const Command = require('./../../command-processing/command');
-const CommandRegistry = require('./../../command-processing/command-registry');
+const Command = require('../../processing/commands/command');
+const CommandRegistry = require('../../processing/commands/command-registry');
 
 const config = require('./../../../config');
 
@@ -9,7 +9,6 @@ module.exports = class HelpCommand extends Command {
     constructor() {
         super({
             name: 'help',
-            group: 'Info',
             format: '[команда]',
             description: 'Отображает список доступных команд или информацию о конкретной команде'
         });
