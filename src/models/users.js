@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             defaultValue: 0,
             allowNull: false
+        },
+        reputation: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
+            allowNull: false
         }
     }, { timestamps: false });
 
@@ -38,6 +43,15 @@ module.exports = (sequelize, DataTypes) => {
             nextLevelXp: nextLevel,
             levelUp: prevLevel != user.level 
         };
+    };
+
+    Users.rep = async (id, value, add) => {
+        const [user] = await Users.findOrCreate({ where: { id }, defaults: { id } });
+        if (value) {
+            user.reputation = value + (add ? user.reputation : 0);
+            await user.save();
+        }
+        return user.reputation;
     };
 
     return Users;
