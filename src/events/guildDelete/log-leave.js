@@ -1,0 +1,1 @@
+module.exports = (client, guild) => console.log(`Guild left: ${guild.name}(${guild.id})`);

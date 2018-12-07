@@ -1,0 +1,1 @@
+module.exports = client => console.log(`Client ready. Logged in as: ${client.user.tag}`);
