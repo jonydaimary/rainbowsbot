@@ -36,4 +36,8 @@ schedule.scheduleJob(config.warnExpirationDate, () => {
     client.sequelize.model('warns').clear();
 });
 
-client.login(process.env.TOKEN);
+schedule.scheduleJob(config.experienceResetDate, () => {
+    client.sequelize.model('users').update({ xp: 0, level: 0 }, { where: {} });
+});
+
+client.login(process.env.TOKEN).catch(console.error);

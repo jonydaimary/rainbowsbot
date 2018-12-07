@@ -40,5 +40,6 @@
     [10, "469612245744091181"]
   ],
   "warnExpirationDate": "59 20 28 * *",
+  "experienceResetDate": "59 20 28 * *",
   "invite": "https://discord.gg/CtRp5GB"
 }
