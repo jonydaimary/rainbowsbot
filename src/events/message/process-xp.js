@@ -7,8 +7,8 @@ module.exports = async (client, message) => {
         || message.channel.type == 'dm'
         || !config.xpChannels.includes(message.channel.id))
         return;
-    const Xp = client.sequelize.model('xp');
-    const data = await Xp.xp(message.author.id, random(1, 5), true);
+    const Users = client.sequelize.model('users');
+    const data = await Users.xp(message.author.id, random(1, 5), true);
     if (data.levelUp)
         client.emit('memberLevelUp', message, data);
 };
