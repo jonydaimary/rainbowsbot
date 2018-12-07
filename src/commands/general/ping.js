@@ -1,4 +1,4 @@
-const Command = require('../../command-processing/command');
+const Command = require('../../processing/commands/command');
 
 // Short (using builder)
 module.exports = new Command.Builder('ping').run(() => 'pong!');

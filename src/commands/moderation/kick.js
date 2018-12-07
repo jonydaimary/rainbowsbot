@@ -1,6 +1,6 @@
 const { RichEmbed } = require('discord.js');
 
-const Command = require('./../../command-processing/command');
+const Command = require('./../../processing/commands/command');
 const parse = require('./../../utils/parse');
 
 const config = require('./../../../config');
@@ -18,9 +18,7 @@ module.exports = class KickCommand extends Command {
 
     hasPermissions(member) {
         const roles = ['Главный Администратор', 'Администратор', 'Главный Модератор', 'Модератор'];
-        return member.roles.some(role => roles.includes(role.name))
-            ? true
-            : 'У вас нет прав для выполнения этой команды';
+        return member.roles.some(role => roles.includes(role.name));
     }
 
     validate(message, [member]) {

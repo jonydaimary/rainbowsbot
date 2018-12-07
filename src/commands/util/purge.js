@@ -1,4 +1,4 @@
-const Command = require('./../../command-processing/command');
+const Command = require('./../../processing/commands/command');
 
 const PERMITTED_ROLES = ['Модератор', 'Главный Модератор', 'Администратор', 'Главный Администратор'];
 

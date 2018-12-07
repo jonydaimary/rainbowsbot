@@ -1,7 +1,7 @@
 const { RichEmbed } = require('discord.js');
 const { stripIndents } = require('common-tags');
 
-const Command = require('../../command-processing/command');
+const Command = require('../../processing/commands/command');
 
 const config = require('./../../../config');
 

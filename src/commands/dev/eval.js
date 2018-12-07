@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-const Command = require('../../command-processing/command');
-const CommandParser = require('../../command-processing/command-parser');
+const Command = require('../../processing/commands/command');
+const CommandParser = require('../../processing/commands/command-parser');
 const { stripIndents } = require('common-tags');
 
 const SILENT_PATTERN = /\s*silent\s+/;
