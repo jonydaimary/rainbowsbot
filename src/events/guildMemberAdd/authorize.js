@@ -1,5 +1,7 @@
 const { stripIndents } = require('common-tags');
 
+const generateMathProblem = require('./../../utils/generate-math-problem');
+
 const config = require('./../../../config');
 
 module.exports = async (client, member) => {
@@ -7,8 +9,6 @@ module.exports = async (client, member) => {
         client.emit('guildMemberAuthorized', member);
         return;
     }
-
-    const generateMathProblem = require('./utils/generate-math-problem');
 
     member.addRole(config.roles.unauthorized);
 
