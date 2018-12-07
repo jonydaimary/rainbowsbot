@@ -1,17 +1,17 @@
 const { RichEmbed } = require('discord.js');
 
-const Command = require('../../command-processing/command');
-const parse = require('./../../utils/parse');
+const Command = require('../../processing/commands/command');
+const parse = require('../../utils/parse');
 
 const config = require('./../../../config');
 
-module.exports = class LevelCommand extends Command {
+module.exports = class ProfileCommand extends Command {
     constructor() {
         super({
-            name: 'level',
-            group: 'Experience',
+            name: 'profile',
+            group: 'Social',
             format: '[пользователь]',
-            description: 'Отображает уровень пользователя'
+            description: 'Отображает профиль пользователя'
         });
     }
 
@@ -24,13 +24,19 @@ module.exports = class LevelCommand extends Command {
 
     async run(message, [user]) {
         user = user ? parse.user(this.client, user) : message.author;
-        const data = await (this.client.sequelize.model('users')).xp(user.id);
+
+        const Users = this.client.sequelize.model('users');
+
+        const data = await Users.xp(user.id);
+        data.rep = await Users.rep(user.id);
+
         message.channel.send(new RichEmbed()
             .setTitle('Статистика пользователя')
             .setColor(config.embed.color.guild)
             .addField('Пользователь', user, true)
             .addField('Уровень', data.level, true)
             .addField('Опыт', `${data.xp}/${data.nextLevelXp}`, true)
+            .addField('Репутация', data.rep, true)
             .setFooter(message.author.tag, message.author.avatarURL)
         );
     }
