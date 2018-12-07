@@ -6,7 +6,7 @@ const PERMITTED_ROLES = ['Главный Администратор', 'Адми�
 module.exports = class RepCommand extends Command {
     constructor() {
         super({
-            name: 'profile',
+            name: 'rep',
             group: 'Social',
             format: '[пользователь] [значение]',
             description: 'Изменяет репутацию пользователя',
