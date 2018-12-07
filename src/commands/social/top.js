@@ -23,17 +23,18 @@ module.exports = class TopCommand extends Command {
 
     validate(message, [rep, count]) {
         rep = rep == 'rep';
-        if (!rep)
-            count = rep;
+        count = rep ? count : rep;
         count = count ? parseInt(count) : 10;
         if (isNaN(count))
             return 'Неверный формат чила';
         if (count < 1 || count > 10)
             return 'Кол-во пользователей должно быть числом между 1 и 10';
-        return [rep, count];
+        return true;
     }
 
     async run(message, [rep, count]) {
+        rep = rep == 'rep';
+        count = rep ? count : rep;
         count = count ? parseInt(count) : 10;
         const Users = this.client.sequelize.model('users');
         const result = await Users.findAll({ limit: count, order: rep
