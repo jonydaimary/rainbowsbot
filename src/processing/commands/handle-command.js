@@ -1,6 +1,6 @@
 const CommandParser = require('./command-parser');
 
-const config = require('./../../config');
+const config = require('./../../../config');
 
 module.exports = function handleCommand(message) {
     if (message.author.bot)
