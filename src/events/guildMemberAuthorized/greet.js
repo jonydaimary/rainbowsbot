@@ -1,7 +1,7 @@
 const { RichEmbed } = require('discord.js');
 const { stripIndents, oneLine } = require('common-tags');
 
-const config = require('./../../../config');
+const config = require('./../../../json/config');
 
 module.exports = async (client, member) => {
     const owner = await client.fetchUser(config.owner);

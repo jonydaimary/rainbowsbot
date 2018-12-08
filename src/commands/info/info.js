@@ -3,7 +3,7 @@ const { stripIndents } = require('common-tags');
 
 const Command = require('../../processing/commands/command');
 
-const config = require('./../../../config');
+const config = require('./../../../json/config');
 
 module.exports = class InfoCommand extends Command {
     constructor() {

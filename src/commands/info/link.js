@@ -2,7 +2,7 @@ const { RichEmbed } = require('discord.js');
 
 const Command = require('./../../processing/commands/command');
 
-const config = require('./../../../config');
+const config = require('./../../../json/config');
 
 module.exports = new Command.Builder('link', 'Info')
     .description('Позволяет получить неистекающее приглашение')

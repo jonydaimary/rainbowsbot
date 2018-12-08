@@ -2,7 +2,7 @@ const { stripIndents } = require('common-tags');
 
 const generateMathProblem = require('./../../utils/generate-math-problem');
 
-const config = require('./../../../config');
+const config = require('./../../../json/config');
 
 module.exports = async (client, member) => {
     if (!client.authState) {

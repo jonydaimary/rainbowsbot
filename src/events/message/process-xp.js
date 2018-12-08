@@ -1,6 +1,6 @@
 const random = require('./../../utils/random');
 
-const config = require('./../../../config');
+const config = require('./../../../json/config');
 
 module.exports = async (client, message) => {
     if (message.author.bot

@@ -2,7 +2,7 @@ const { RichEmbed } = require('discord.js');
 
 const Command = require('../../processing/commands/command');
 
-const config = require('./../../../config');
+const config = require('./../../../json/config');
 
 module.exports = class QueryCommand extends Command {
     constructor() {

@@ -6,7 +6,7 @@ const loadCommands = require('./processing/commands/load-commands');
 
 const loadEvents = require('./processing/events/load-events');
 
-const config = require('./../config');
+const config = require('./../json/config');
 
 const client = new Client();
 client.authState = true;
@@ -36,8 +36,11 @@ schedule.scheduleJob(config.warnExpirationDate, () => {
     client.sequelize.model('warns').clear();
 });
 
-schedule.scheduleJob(config.experienceResetDate, () => {
-    client.sequelize.model('users').update({ xp: 0, level: 0 }, { where: {} });
+schedule.scheduleJob(config.experienceResetDate, async () => {
+    const Users = client.sequelize.model('users');
+    const users = await Users.findAll({ order: [['level', 'desc'], ['xp', 'desc']] });
+    users.forEach((user, index) => user.update({ activity: index + 1 }));
+    Users.update({ xp: 0, level: 0 }, { where: {} });
 });
 
 client.login(process.env.TOKEN).catch(console.error);

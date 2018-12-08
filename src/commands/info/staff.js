@@ -2,7 +2,7 @@ const { RichEmbed } = require('discord.js');
 
 const Command = require('../../processing/commands/command');
 
-const config = require('./../../../config');
+const config = require('./../../../json/config');
 
 const STAFF_ROLES = ['Модератор', 'Главный Модератор', 'Администратор', 'Главный Администратор'];
 

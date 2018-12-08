@@ -1,4 +1,4 @@
-const config = require('./../../../config');
+const config = require('./../../../json/config');
 
 module.exports = client => {
     const setActivity = status => client.user.setActivity(status, {

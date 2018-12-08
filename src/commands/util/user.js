@@ -3,7 +3,7 @@ const { RichEmbed } = require('discord.js');
 const Command = require('./../../processing/commands/command');
 const parse = require('../../utils/parse');
 
-const config = require('./../../../config');
+const config = require('./../../../json/config');
 
 const STATUSES = {
     online: 'Онлайн',
