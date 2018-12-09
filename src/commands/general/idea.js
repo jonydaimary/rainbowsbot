@@ -55,12 +55,13 @@ module.exports = class IdeaCommand extends Command {
         const reactionListener = (reaction, user) => {
             if (reaction.message.id !== ideaMessage.id || user.bot)
                 return;
-            if (reaction.emoji.name === DELETE_EMOJI
-                && (user.id == message.author.id || user.id == message.guild.ownerID)) {
-                this.client.removeListener('messageReactionAdd', reactionListener);
-                ideaMessage.delete();
+            if (reaction.emoji.name === DELETE_EMOJI) {
+                if (user.id == message.author.id || user.id == message.guild.ownerID) {
+                    this.client.removeListener('messageReactionAdd', reactionListener);
+                    ideaMessage.delete();
+                } else reaction.remove(user);
                 return;
-            } else reaction.remove(user);
+            }
             const count = reaction.users
                 .filter(u => message.guild.member(u).roles
                     .map(r => STAFF_ROLES.map(_r => r.name === _r).reduce((a, b) => a || b))
