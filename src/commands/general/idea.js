@@ -25,6 +25,7 @@ module.exports = class IdeaCommand extends Command {
             details: stripIndents`
                 Позволяет предложить идею для развития сервера.
                 Решение по вашей идее будет вынесено после 3х голосов от членов персонала (за или против).
+                Автор идеи и создатель сервера могут удалить её используя ${DELETE_EMOJI}.
             `,
             guildOnly: true
         });
