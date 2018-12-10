@@ -43,8 +43,8 @@ module.exports = class WarnsCommand extends Command {
             .setTitle('Предупреждение')
             .addField('Пользователь', `${user} (\`${user.tag}\`)`, true)
             .addField('Модератор', `${moderator} (\`${moderator.tag}\`)`, true)
-            .addField('Причина', warn.reason)
-            .addField('Идентификатор', warn.id)
+            .addField('Причина', warn.reason, true)
+            .addField('Идентификатор', warn.id, true)
             .setFooter('Rainbow`s Warnings')
             .setTimestamp(warn.timestamp)
             .setColor(config.embed.color.guild);
