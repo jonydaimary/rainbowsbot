@@ -40,11 +40,10 @@ module.exports = class WarnsCommand extends Command {
         const user = parse.user(this.client, warn.user);
         const moderator = parse.user(this.client, warn.moderator);
         return new RichEmbed()
-            .setTitle('Предупреждение')
+            .setTitle(`Предупреждение [${warn.id}]`)
             .addField('Пользователь', `${user} (\`${user.tag}\`)`, true)
             .addField('Модератор', `${moderator} (\`${moderator.tag}\`)`, true)
-            .addField('Причина', warn.reason, true)
-            .addField('Идентификатор', warn.id, true)
+            .addField('Причина', warn.reason)
             .setFooter('Rainbow`s Warnings')
             .setTimestamp(warn.timestamp)
             .setColor(config.embed.color.guild);
