@@ -16,6 +16,7 @@ module.exports = client => {
         index = index == 2 ? 0 : index + 1;
         setActivity(status);
     };
+
     setStatus();
     setInterval(() => setStatus(), 180000);
 };
