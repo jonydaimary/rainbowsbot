@@ -11,6 +11,7 @@ module.exports = client => {
             `${config.prefix}help`,
             'Rainbow`s Server',
             `${client.users.array().length} users`
+            `Site development`
         ][index];
         index = index == 2 ? 0 : index + 1;
         setActivity(status);
