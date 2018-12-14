@@ -1,9 +1,8 @@
 const { roles: { muted } } = require('../../json/config.json');
 
 module.exports = async (client, member, time = null) => {
-    if (!time)
-        member.addRole(muted);
-    else {
+    member.addRole(muted);
+    if (time) {
         const TempMutes = client.sequelize.model('tempmutes');
         await TempMutes.build({
             id: member.user.id,
