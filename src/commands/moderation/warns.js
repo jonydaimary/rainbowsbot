@@ -20,7 +20,7 @@ module.exports = class WarnsCommand extends Command {
         member = parse.member(message.guild, member);
         member = member ? member : message.member;
 
-        const warns = await this.client.sequelize.model('warns').findAll({ where: { user: member.user.id } });
+        const warns = await this.client.sequelize.model('warns').findAll({ where: { member: member.user.id } });
 
         if (warns.length == 0)
             return (message.author.id == member.user.id

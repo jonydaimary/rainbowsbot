@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const Warns = sequelize.define('warns', {
-        user: {
+        member: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
         timestamp: DataTypes.DATE
     }, { timestamps: false });
 	
-    Warns.warn = (user, moderator, reason, timestamp) => Warns.build(
-        { user, moderator, reason, timestamp }
+    Warns.warn = (member, moderator, reason, timestamp) => Warns.build(
+        { member, moderator, reason, timestamp }
     ).save();
 
     Warns.clear = () => Warns.destroy({ where: {}, truncate: true });
