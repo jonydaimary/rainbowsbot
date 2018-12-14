@@ -3,7 +3,7 @@ const { roles: { muted } } = require('../../json/config.json');
 module.exports = (member, timestamp, time) => {
     const unmute = async () => {
         await member.removeRole(muted);
-        await member.sequelize.model('tempmutes').remove(member.user.id);
+        await member.client.sequelize.model('tempmutes').remove(member.user.id);
         member.client.emit('memberUnmuted', member, time);
     };
     const now = Date.now();
