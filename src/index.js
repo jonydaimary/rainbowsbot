@@ -6,18 +6,22 @@ const loadCommands = require('./processing/commands/load-commands');
 
 const loadEvents = require('./processing/events/load-events');
 
+const loadFunction = require('./processing/functions/load-functions');
+
 const config = require('./../json/config');
 
 const client = new Client();
 client.authState = true;
 
 loadEvents(client, `${__dirname}/events`);
+loadFunction(client, `${__dirname}/functions`);
 
 client.commands = loadCommands(`${__dirname}/commands`);
 client.on('message', handleCommand);
 
 client.once('ready', async () => {
     client.sequelize = await require('./dbinit')();
+    client.emit('sync');
 });
 
 schedule.scheduleJob(config.authorization.from, () => {
