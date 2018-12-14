@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
             unique: true,
             primaryKey: true
         },
-        timestamp: DataTypes.Date,
+        timestamp: DataTypes.INTEGER,
         time: DataTypes.INTEGER
     }, { timestamps: false });
 	
