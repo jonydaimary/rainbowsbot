@@ -37,7 +37,7 @@ module.exports = class WarnsCommand extends Command {
     }
 
     warnEmbed(warn) {
-        const user = parse.user(this.client, warn.user);
+        const user = parse.user(this.client, warn.member);
         const moderator = parse.user(this.client, warn.moderator);
         return new RichEmbed()
             .setTitle(`Предупреждение [${warn.id}]`)
