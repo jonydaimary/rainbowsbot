@@ -10,5 +10,5 @@ module.exports = async (client, member, time = null) => {
             time
         }).save();
     }
-    client.emit('memberMuted', { member, time });
+    client.emit('memberMuted', member, time);
 };
