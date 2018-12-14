@@ -27,16 +27,7 @@ module.exports = new Command.Builder('mute', 'Moderation')
     .run((message, [member, time]) => {
         member = parse.member(message.guild, member);
         time = time ? ms(time) : time;
-        member.addRole(config.roles.muted);
-        if (time) {
-            setTimeout(() => {
-                if (member.roles.has(config.roles.muted)) {
-                    member.removeRole(config.roles.muted);
-                    message.guild.channels.get(config.channels.staffchat)
-                        .send(`Пользователь ${member.user.tag} автоматически размучен по истечении ${ms(time, { long: true })}.`);
-                }
-            }, time);
-        }
+        message.client.mute(member, time);
         const embed = new RichEmbed()
             .setTitle('Пользователь замучен')
             .setColor(config.embed.color.guild)
