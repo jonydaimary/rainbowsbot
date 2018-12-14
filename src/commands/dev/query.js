@@ -4,12 +4,14 @@ const Command = require('../../processing/commands/command');
 
 const config = require('./../../../json/config');
 
+const CODE_BLOCK_PATTERN = /```sql\n((?:.|\s)*)```/;
+
 module.exports = class QueryCommand extends Command {
     constructor() {
         super({
             name: 'query',
             group: 'Dev',
-            format: '<запрос>',
+            format: '<запрос или блок sql>',
             description: 'Выполняет запрос к базе данных'
         });
     }
@@ -19,6 +21,8 @@ module.exports = class QueryCommand extends Command {
     }
 
     parseArgs(rest) {
+        if (CODE_BLOCK_PATTERN.test(rest))
+            rest = rest.match(CODE_BLOCK_PATTERN)[1];
         return rest;
     }
 
