@@ -34,9 +34,9 @@ module.exports = class WarnCommand extends Command {
     async run(message, [member, reason]) {
         member = parse.member(message.guild, member);
 
-        await this.client.sequelize.model('warns').warn(
-            member.id,
-            message.author.id,
+        await this.client.warn(
+            member,
+            message.member,
             reason,
             message.createdAt
         );
