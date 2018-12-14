@@ -7,6 +7,7 @@ module.exports = async () => {
 
     await sequelize.import('./models/users');
     await sequelize.import('./models/warns');
+    await sequelize.import('./models/tempmutes');
 
     console.log('Models loaded.');
 
