@@ -3,7 +3,7 @@ const INVITE_LINK_PATTERN = /(?:https?:\/\/)?(?:www\.)?(?:discord\.(?:gg|io|me|l
 module.exports = (client, message) => {
     if (message.channel.type != 'text')
         return;
-    if (!INVITE_LINK_PATTERN.test(INVITE_LINK_PATTERN))
+    if (!INVITE_LINK_PATTERN.test(message.content))
         return;
     message.delete();
     const moderator = client.guild().member(client.user.id);
