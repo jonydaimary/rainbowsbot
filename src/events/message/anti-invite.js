@@ -12,7 +12,8 @@ module.exports = (client, message) => {
     message.delete();
     const moderator = client.guild().member(client.user.id);
     client.warn(message.member, moderator, 'Рассылка приглашений', message.createdAt);
-    message.reply('Вы получили предупреждение за рассылку приглашений.');
+    client.mute(message.member, 3600000);
+    message.reply('Вы получили предупреждение и мут на 1 час за рассылку приглашений.');
     client.users.get(owner).send(stripIndents`
         Пользователь ${message.member} получил предупреждение за рассылку приглашений:
         **Сообщение:**
