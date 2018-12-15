@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     TempMutes.register = (id, timestamp, time) => TempMutes
         .build({ id, timestamp, time }).save();
     
-    TempMutes.remove = id => TempMutes.destroy({ where: { id }, truncate: true });
+    TempMutes.remove = id => TempMutes.destroy({ where: { id } });
 
     return TempMutes;
 };

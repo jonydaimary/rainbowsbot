@@ -7,7 +7,7 @@ module.exports = (member, timestamp, time) => {
         member.client.emit('memberUnmuted', member, time);
     };
     const now = Date.now();
-    const expiration = timestamp.getDate() + time;
+    const expiration = timestamp.getTime() + time;
     if (expiration <= now)
         unmute(member);
     else setTimeout(() => unmute(member), expiration - now);

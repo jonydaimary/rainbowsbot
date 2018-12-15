@@ -14,7 +14,8 @@
     "sequelize": "^4.41.2"
   },
   "devDependencies": {
-    "dotenv": "^6.1.0"
+    "dotenv": "^6.1.0",
+    "sqlite3": "^4.0.4"
   },
   "scripts": {
     "start": "node src/index.js",
