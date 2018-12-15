@@ -1,8 +1,14 @@
+const { RichEmbed } = require('discord.js');
 const ms = require('ms');
 
-const { channels: { staffchat } } = require('../../../json/config.json');
+const { channels: { staffchat }, embed: { color } } = require('../../../json/config.json');
 
 module.exports = (client, member, time) => {
-    client.guild().channels.get(staffchat)
-        .send(`Пользователь ${member.user.tag} был размучен${time ? ` по истечении ${ms(time, { long: true })}.` : '.'}`);
+    const embed = new RichEmbed()
+        .setTitle('Пользователь размучен')
+        .addField('Пользователь', `${member} (\`${member.user.tag}\`)`, true)
+        .setColor(color.green);
+    if (time)
+        embed.addField('Время', ms(time, { long: true }));
+    client.guild().channels.get(staffchat).send(embed);
 };

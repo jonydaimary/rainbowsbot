@@ -5,7 +5,9 @@
   "embed": {
     "color": {
       "direct": "#00ff00",
-      "guild": "#800080"
+      "guild": "#800080",
+      "red": "#bb0000",
+      "green": "#007700"
     }
   },
   "channels": {

@@ -20,6 +20,6 @@ module.exports = new Command.Builder('unmute', 'Moderation')
         member = parse.member(message.guild, member);
         member.removeRole(config.roles.muted);
         message.client.sequelize.model('tempmutes').remove(member.user.id);
-        return `Пользователь ${member.user.tag} успешно размучен.`;
+        message.client.emit('memberUnmuted', member);
     })
     .build();
