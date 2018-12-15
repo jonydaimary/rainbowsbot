@@ -1,4 +1,3 @@
-const { RichEmbed } = require('discord.js');
 const ms = require('ms');
 
 const Command = require('./../../processing/commands/command');
@@ -28,13 +27,5 @@ module.exports = new Command.Builder('mute', 'Moderation')
         member = parse.member(message.guild, member);
         time = time ? ms(time) : time;
         message.client.mute(member, time);
-        const embed = new RichEmbed()
-            .setTitle('Пользователь замучен')
-            .setColor(config.embed.color.guild)
-            .addField('Модератор', message.author)
-            .addField('Нарушитель', member);
-        if (time)
-            embed.addField('Время', ms(time, { long: true }));
-        message.channel.send(embed);
     })
     .build();
