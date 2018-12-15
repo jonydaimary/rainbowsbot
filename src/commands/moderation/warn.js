@@ -1,9 +1,5 @@
-const { RichEmbed } = require('discord.js');
-
 const Command = require('./../../processing/commands/command');
 const parse = require('./../../utils/parse');
-
-const config = require('./../../../json/config');
 
 module.exports = class WarnCommand extends Command {
     constructor() {
@@ -33,25 +29,11 @@ module.exports = class WarnCommand extends Command {
 
     async run(message, [member, reason]) {
         member = parse.member(message.guild, member);
-
         await this.client.warn(
             member,
             message.member,
             reason,
             message.createdAt
         );
-
-        const embed = new RichEmbed()
-            .setTitle('Предупреждение')
-            .addField('Пользователь', `${member.user} (\`${member.user.tag}\`)`, true)
-            .addField('Модератор', `${message.author} (\`${message.author.tag}\`)`, true)
-            .addField('Причина', reason)
-            .setFooter('Rainbow`s Warnings')
-            .setColor(config.embed.color.guild)
-            .setTimestamp(message.createdAt);
-
-        await message.guild.channels
-            .get(config.channels.staffchat)
-            .send(embed);
     }
 };
