@@ -46,6 +46,6 @@ module.exports = class WarnsCommand extends Command {
             .addField('Причина', warn.reason)
             .setFooter('Rainbow`s Warnings')
             .setTimestamp(warn.timestamp)
-            .setColor(config.embed.color.guild);
+            .setColor(config.embed.color.red);
     }
 };

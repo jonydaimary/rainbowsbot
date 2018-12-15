@@ -14,7 +14,7 @@ module.exports = (client, { member, moderator, reason, id, timestamp }) => {
         .addField('Модератор', `${moderator} (\`${moderator.user.tag}\`)`, true)
         .addField('Причина', reason)
         .setFooter('Rainbow`s Warnings')
-        .setColor(color.guild)
+        .setColor(color.red)
         .setTimestamp(timestamp || new Date())
     );
 };
