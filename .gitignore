@@ -9,3 +9,6 @@ TODO
 
 # misc
 /out
+
+# vscode files
+.vscode/settings.json
