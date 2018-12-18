@@ -17,5 +17,5 @@ module.exports = (client, { member, moderator, reason, id, timestamp }) => {
         .setColor(color.red)
         .setTimestamp(timestamp || new Date());
     client.guild().channels.get(staffchat).send(embed);
-    client.guild().owner.send(embed);
+    client.guild().owner.send(`**Варн** ${member} - ${moderator}: ${reason}`);
 };
