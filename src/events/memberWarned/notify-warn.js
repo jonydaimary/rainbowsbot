@@ -1,3 +1,4 @@
+const { stripIndents } = require('common-tags');
 const { RichEmbed } = require('discord.js');
 
 const {
@@ -17,5 +18,11 @@ module.exports = (client, { member, moderator, reason, id, timestamp }) => {
         .setColor(color.red)
         .setTimestamp(timestamp || new Date());
     client.guild().channels.get(staffchat).send(embed);
-    client.guild().owner.send(`**Варн** ${member} - ${moderator}: ${reason}`);
+    client.guild().owner.send(stripIndents`
+        __**Предупреждение:**__
+        **Модератор:** ${moderator}
+        **Нарушитель:** ${member}
+        **Причина:**
+        ${reason}
+    `);
 };
