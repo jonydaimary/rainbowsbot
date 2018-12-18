@@ -13,7 +13,7 @@ module.exports = async (client, member, time) => {
         embed.addField('Время', ms(time, { long: true }));
     client.guild().channels.get(staffchat).send(embed);
     client.guild().owner.send(stripIndents`
-        __**Пользователь размучен:**__
+        __**Пользователь замучен:**__
         **Пользователь:** ${member}
         ${time ? `**Время:** ${ms(time, { long: true })}` : ''}
     `);
