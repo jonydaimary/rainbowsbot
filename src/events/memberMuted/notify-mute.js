@@ -1,3 +1,4 @@
+const { stripIndents } = require('common-tags');
 const { RichEmbed } = require('discord.js');
 const ms = require('ms');
 
@@ -11,5 +12,9 @@ module.exports = async (client, member, time) => {
     if (time)
         embed.addField('Время', ms(time, { long: true }));
     client.guild().channels.get(staffchat).send(embed);
-    client.guild().owner.send(embed);
+    client.guild().owner.send(stripIndents`
+        __**Пользователь размучен:**__
+        **Пользователь:** ${member}
+        ${time ? `**Время:** ${ms(time, { long: true })}` : ''}
+    `);
 };
