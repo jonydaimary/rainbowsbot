@@ -11,4 +11,5 @@ module.exports = (client, member, time) => {
     if (time)
         embed.addField('Время', ms(time, { long: true }));
     client.guild().channels.get(staffchat).send(embed);
+    client.guild().owner.send(embed);
 };
