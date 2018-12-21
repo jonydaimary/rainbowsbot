@@ -5,16 +5,14 @@ const Command = require('./../../processing/commands/command');
 
 const config = require('./../../../json/config');
 
-const STAFF_ROLES = ['Модератор', 'Главный Модератор', 'Главный Администратор', 'Администратор'];
-
 const SUGGESTIONS_CHANNEL = '469599925403910145';
 
 const ACCEPT_EMOJI = '480080157965811732';
 const REJECT_EMOJI = '480080159232491542';
 const DELETE_EMOJI = '❎';
 
-const REACTIONS_TO_ACCEPT = 3;
-const REACTIONS_TO_REJECT = 3;
+const REACTIONS_TO_ACCEPT = 8;
+const REACTIONS_TO_REJECT = 8;
 
 module.exports = class IdeaCommand extends Command {
     constructor() {
@@ -63,11 +61,7 @@ module.exports = class IdeaCommand extends Command {
                 } else reaction.remove(user);
                 return;
             }
-            const count = reaction.users
-                .filter(u => message.guild.member(u).roles
-                    .map(r => STAFF_ROLES.map(_r => r.name === _r).reduce((a, b) => a || b))
-                    .reduce((a, b) => a || b)
-                ).array().length;
+            const count = reaction.count - 1;
             if (reaction.emoji.id === ACCEPT_EMOJI && count >= REACTIONS_TO_ACCEPT) {
                 const embed = new RichEmbed()
                     .setTitle('Предложение одобрено:')
