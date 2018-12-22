@@ -21,6 +21,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             defaultValue: 0,
             allowNull: false
+        },
+        activity: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
+            allowNull: false
         }
     }, { timestamps: false });
 
