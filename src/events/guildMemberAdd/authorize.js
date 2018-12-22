@@ -31,7 +31,6 @@ module.exports = async (client, member) => {
         if (answer == problem.answer) {
             dm.send('Вы были успешно авторизованы!');
             member.removeRole(config.roles.unauthorized);
-            member.addRole(config.roles.novice);
             collector.stop();
             client.emit('guildMemberAuthorized', member);
         } else {

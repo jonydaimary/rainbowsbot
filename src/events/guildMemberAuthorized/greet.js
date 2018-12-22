@@ -4,6 +4,7 @@ const { stripIndents, oneLine } = require('common-tags');
 const config = require('./../../../json/config');
 
 module.exports = async (client, member) => {
+    member.addRole(config.roles.novice);
     const owner = await client.fetchUser(config.owner);
     const embed = new RichEmbed()
         .setAuthor(owner.tag, owner.avatarURL)
