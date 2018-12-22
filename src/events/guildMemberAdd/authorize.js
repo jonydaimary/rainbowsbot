@@ -16,7 +16,7 @@ module.exports = async (client, member) => {
 
     let problem = generateMathProblem();
     dm.send(stripIndents`
-        Для авторизации на сервере пожалуйста решите математическе выражениe:
+        Для авторизации на сервере пожалуйста решите математическое выражениe:
         \`${problem.expression} = ?\`
         **Форма отправки ответа:** !ответ
         **Пример:**
