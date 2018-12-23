@@ -1,8 +1,7 @@
-const { stripIndents } = require('common-tags');
 const { RichEmbed } = require('discord.js');
 
 const {
-    channels: { staffchat },
+    channels: { staff },
     embed: { color }
 } = require('../../../json/config.json');
 
@@ -17,12 +16,5 @@ module.exports = (client, { member, moderator, reason, id, timestamp }) => {
         .setFooter('Rainbow`s Warnings')
         .setColor(color.red)
         .setTimestamp(timestamp || new Date());
-    client.guild().channels.get(staffchat).send(embed);
-    client.guild().owner.send(stripIndents`
-        __**Предупреждение:**__
-        **Модератор:** ${moderator}
-        **Нарушитель:** ${member}
-        **Причина:**
-        ${reason}
-    `);
+    client.guild().channels.get(staff).send(embed);
 };

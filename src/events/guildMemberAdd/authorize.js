@@ -2,7 +2,7 @@ const { stripIndents } = require('common-tags');
 
 const generateMathProblem = require('./../../utils/generate-math-problem');
 
-const config = require('./../../../json/config');
+const { roles: { unauthorized } } = require('./../../../json/config');
 
 module.exports = async (client, member) => {
     if (!client.authState) {
@@ -10,7 +10,7 @@ module.exports = async (client, member) => {
         return;
     }
 
-    member.addRole(config.roles.unauthorized);
+    member.addRole(unauthorized);
 
     const dm = await member.createDM();
 
@@ -30,7 +30,7 @@ module.exports = async (client, member) => {
         const answer = message.content.substring(1);
         if (answer == problem.answer) {
             dm.send('Вы были успешно авторизованы!');
-            member.removeRole(config.roles.unauthorized);
+            member.removeRole(unauthorized);
             collector.stop();
             client.emit('guildMemberAuthorized', member);
         } else {

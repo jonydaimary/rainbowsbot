@@ -1,1 +1,1 @@
-module.exports = (client, guild) => console.log(`Guild joind: ${guild.name}(${guild.id})[${guild.memberCount}]`);
+module.exports = (client, guild) => console.log(`Guild joined: ${guild.name}(${guild.id})[${guild.memberCount}]`);

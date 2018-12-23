@@ -1,4 +1,4 @@
-const CommanParser = require('./command-parser');
+const CommandParser = require('./command-parser');
 
 class Command {
     constructor(options) {
@@ -26,10 +26,10 @@ class Command {
             return;
         }
 
-        const isVlaid = await this.validate(message, args);
-        if (isVlaid !== true) {
-            if (typeof isVlaid == 'string')
-                message.reply(isVlaid);
+        const isValid = await this.validate(message, args);
+        if (isValid !== true) {
+            if (typeof isValid == 'string')
+                message.reply(isValid);
             return;
         }
 
@@ -41,7 +41,7 @@ class Command {
     run() { return; }
 
     parseArgs(raw) {
-        return new CommanParser(raw).parts();
+        return CommandParser.parts(raw);
     }
 
     hasPermissions() { return true; }
@@ -55,7 +55,11 @@ class CommandBuilder {
         this.command.name = name;
         if (typeof groupOrOptions == 'string')
             this.command.group = groupOrOptions;
-        this.command.options = this.command.group ? maybeOptions ? maybeOptions : undefined : groupOrOptions;
+        this.command.options = this.command.group
+            ? maybeOptions
+                ? maybeOptions
+                : undefined
+            : groupOrOptions;
     }
 
     group(group) {

@@ -1,8 +1,7 @@
-const { stripIndents } = require('common-tags');
 const { RichEmbed } = require('discord.js');
 const ms = require('ms');
 
-const { channels: { staffchat }, embed: { color } } = require('../../../json/config.json');
+const { channels: { staff }, embed: { color } } = require('../../../json/config.json');
 
 module.exports = (client, member, time) => {
     const embed = new RichEmbed()
@@ -11,10 +10,5 @@ module.exports = (client, member, time) => {
         .setColor(color.green);
     if (time)
         embed.addField('Время', ms(time, { long: true }));
-    client.guild().channels.get(staffchat).send(embed);
-    client.guild().owner.send(stripIndents`
-        __**Пользователь размучен:**__
-        **Пользователь:** ${member}
-        ${time ? `**Время:** ${ms(time, { long: true })}` : ''}
-    `);
+    client.guild().channels.get(staff).send(embed);
 };

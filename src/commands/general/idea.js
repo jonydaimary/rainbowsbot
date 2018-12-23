@@ -69,7 +69,7 @@ module.exports = class IdeaCommand extends Command {
                     .setColor(config.embed.color.guild)
                     .setFooter(message.author.tag, message.author.avatarURL);
                 message.channel.send(embed);
-                this.client.channels.get(config.channels.staffchat).send(embed);
+                this.client.channels.get(config.channels.staff).send(embed);
                 this.client.removeListener('messageReactionAdd', reactionListener);
             } else if (reaction.emoji.id === REJECT_EMOJI && count >= REACTIONS_TO_REJECT) {
                 const embed = new RichEmbed()
@@ -78,7 +78,7 @@ module.exports = class IdeaCommand extends Command {
                     .setColor(config.embed.color.guild)
                     .setFooter(message.author.tag, message.author.avatarURL);
                 message.channel.send(embed);
-                this.client.channels.get(config.channels.staffchat).send(embed);
+                this.client.channels.get(config.channels.staff).send(embed);
                 this.client.removeListener('messageReactionAdd', reactionListener);
             }
         };

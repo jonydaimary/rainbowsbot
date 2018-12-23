@@ -1,7 +1,7 @@
-module.exports = async (client, before, after) => {
-    const matchingRole = '469612245744091181';
-    const achievment = '470625504035078154';
+const ELDER = '469612245744091181';
+const EXPERIENCED = '470625504035078154';
 
-    if (!before.roles.has(matchingRole) && after.roles.has(matchingRole))
-        await after.addRole(achievment);
+module.exports = async (client, before, after) => {
+    if (!before.roles.has(ELDER) && after.roles.has(ELDER))
+        await after.addRole(EXPERIENCED);
 };

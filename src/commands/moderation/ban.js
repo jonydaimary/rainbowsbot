@@ -46,7 +46,7 @@ module.exports = class BanCommand extends Command {
             .addField('Причина:', reason);
 
         message.guild.channels
-            .get(config.channels.staffchat)
+            .get(config.channels.staff)
             .send(embed);
     }
 };

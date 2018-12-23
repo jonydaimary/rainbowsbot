@@ -21,7 +21,7 @@ module.exports = new Command.Builder('report', 'Moderation')
     })
     .run((message, [member, reason]) => {
         member = parse.member(message.guild, member);
-        message.guild.channels.get(config.channels.staffchat).send(new RichEmbed()
+        message.guild.channels.get(config.channels.staff).send(new RichEmbed()
             .setDescription('Жалобы')
             .setColor(config.embed.color.guild)
             .addField('Нарушитель', `${member}, ID: ${member.id}`)

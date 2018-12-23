@@ -5,6 +5,14 @@ module.exports = class CommandParser {
         this.position = 0;
     }
 
+    static part(raw, options = {}) {
+        return new CommandParser(raw, options).part();
+    }
+    
+    static parts(raw, options = {}) {
+        return new CommandParser(raw, options).parts();
+    }
+
     rest() {
         return this.raw.substring(this.position);
     }

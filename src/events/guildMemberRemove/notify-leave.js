@@ -8,5 +8,5 @@ module.exports = (client, member) => {
         .setDescription(`С сервера ушел ${member.user.tag}`)
         .setColor(config.embed.color.guild)
         .setFooter('Rainbow\'s server 🌈 Goodbye!');
-    client.channels.get(config.channels.staffchat).send(embed);
+    client.channels.get(config.channels.staff).send(embed);
 };

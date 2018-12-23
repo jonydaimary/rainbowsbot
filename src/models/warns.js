@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Warns.clear = () => Warns.destroy({ where: {}, truncate: true });
 
-    Warns.get = user => Warns.findAll({ where: { user } });
+    Warns.get = member => Warns.findAll({ where: { member } });
 
     return Warns;
 };

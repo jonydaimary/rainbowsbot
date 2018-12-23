@@ -9,5 +9,5 @@ module.exports = (client, member) => {
         .setColor(config.embed.color.guild)
         .setFooter('Rainbow\'s server 🌈 Welcome!');
     client.channels.get(config.channels.general).send(embed);
-    client.channels.get(config.channels.staffchat).send({ embed });
+    client.channels.get(config.channels.staff).send({ embed });
 };

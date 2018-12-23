@@ -1,21 +1,17 @@
 const requireAll = require('require-all');
 const CommandRegistry = require('./command-registry');
-const Command = require('./command');
 
-module.exports = (commandDirectory) => {
+module.exports = (dirname) => {
     const registry = new CommandRegistry();
-    const groups = requireAll({
-        dirname: commandDirectory,
-        resolve: command => {
-            if (typeof command == 'function')
-                return new command();
-            if (command instanceof Command)
-                return command;
-        }
+    const dirs = requireAll({
+        dirname,
+        resolve: command => typeof command == 'function'
+            ? new command()
+            : command
     });
-    for (const group in groups) {
-        for (const name in groups[group]) {
-            const command = groups[group][name];
+    for (const dir in dirs) {
+        for (const filename in dirs[dir]) {
+            const command = dirs[dir][filename];
             registry.register(command);
             console.log(`Command loaded: ${command.group}::${command.name}`);
         }
