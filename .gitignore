@@ -12,3 +12,4 @@ TODO
 
 # vscode files
 .vscode/settings.json
+.vscode/launch.json
