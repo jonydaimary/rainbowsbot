@@ -20,10 +20,13 @@ module.exports = class WarnCommand extends Command {
     validate(message, [member, reason]) {
         if (!member)
             return 'Пользователь не указан';
-        if (!parse.member(message.guild, member))
+        member = parse.member(message.guild, member);
+        if (!member)
             return 'Пользователь не найден';
         if (!reason)
             return 'Причина не указана';
+        if (member.user.id == message.guild.owner.id)
+            return 'Вы не можете выдать предупреждение создателю сервера.';
         return true;
     }
 
