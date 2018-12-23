@@ -1,5 +1,8 @@
 module.exports = (client, message) => {
-    if (message.author.bot || !message.channel.guild || message.content.length < 10)
+    if (message.author.bot || !message.guild || message.content.length < 10)
+        return;
+    
+    if (message.author.id == message.guild.owner.id)
         return;
     
     const capsPercentage = Math.floor(message.content.split('')

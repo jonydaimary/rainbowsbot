@@ -5,7 +5,10 @@ const { owner } = require('../../../json/config.json');
 const INVITE_LINK_PATTERN = /(?:https?:\/\/)?(?:www\.)?(?:discord\.(?:gg|io|me|li)|discordapp\.com\/invite)\/(.+[a-z])/g;
 
 module.exports = (client, message) => {
-    if (!message.channel.guild || !INVITE_LINK_PATTERN.test(message.content))
+    if (!message.guild || !INVITE_LINK_PATTERN.test(message.content))
+        return;
+    
+    if (message.author.id == message.guild.owner.id)
         return;
     
     message.delete();

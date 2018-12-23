@@ -3,14 +3,17 @@ const { oneLine } = require('common-tags');
 const authors = [];
 const messageLog = [];
 
-const ANTI_SPAM_INTERVAL = 3000;
+const ANTI_SPAM_INTERVAL = 1000;
 
 module.exports = (client, message) => {
-    if (message.author.bot || !message.channel.guild)
+    if (message.author.bot || !message.guild)
         return;
-    
+
+    if (message.author.id == message.guild.owner.id)
+        return;
+
     const { author: { id: author }, content } = message;
-    
+
     const now = Date.now();
     authors.push({ time: now, author });
     messageLog.push({ message: content, author });
