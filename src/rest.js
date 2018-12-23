@@ -5,7 +5,7 @@ const PORT = 3000;
 const api = express();
 
 module.exports = client => {
-    api.get('/user', async (req, res) => {
+    api.get('/user:id', async (req, res) => {
         const user = await client.sequelize.model('users').findByPk(req.param('id'));
         res.json(user
             ? user
@@ -13,7 +13,7 @@ module.exports = client => {
         );
     });
 
-    api.get('/warns', async (req, res) => {
+    api.get('/warns:id', async (req, res) => {
         const warns = await client.sequelize.model('warns').get(req.param('id'));
         res.json(warns
             ? warns
