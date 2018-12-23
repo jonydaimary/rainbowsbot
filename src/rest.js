@@ -8,6 +8,10 @@ api.use(bodyParser.json());
 api.use(bodyParser.urlencoded());
 
 require('./dbinit')().then(sequelize => {
+    api.get('/', (req, res) => {
+        res.send(`Rainbow\`s System: ${port}`);
+    });
+
     api.get('/api/user/:id', async (req, res) => {
         const user = await sequelize.model('users').findByPk(req.param('id'));
         res.json(user
