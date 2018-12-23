@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 8080;
 const api = express();
 api.use(bodyParser.json());
 
-require('./dbinit').then(sequelize => {
+require('./dbinit')().then(sequelize => {
     api.get('/user:id', async (req, res) => {
         const user = await sequelize.model('users').findByPk(req.param('id'));
         res.json(user
