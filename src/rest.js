@@ -8,7 +8,7 @@ api.use(bodyParser.json());
 api.use(bodyParser.urlencoded());
 
 require('./dbinit')().then(sequelize => {
-    api.get('/api/user:id', async (req, res) => {
+    api.get('/api/user/:id', async (req, res) => {
         const user = await sequelize.model('users').findByPk(req.param('id'));
         res.json(user
             ? user
@@ -16,7 +16,7 @@ require('./dbinit')().then(sequelize => {
         );
     });
     
-    api.get('/api/warns:id', async (req, res) => {
+    api.get('/api/warns/:id', async (req, res) => {
         const warns = await sequelize.model('warns').get(req.param('id'));
         res.json(warns
             ? warns
