@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "common-tags": "^1.8.0",
     "discord.js": "^11.4.2",
     "express": "^4.16.4",
