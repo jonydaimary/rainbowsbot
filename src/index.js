@@ -24,8 +24,4 @@ client.once('ready', async () => {
     client.emit('sync');
 });
 
-client.once('sync', () => {
-    require('./rest')(client);
-});
-
 client.login(process.env.TOKEN).catch(console.error);

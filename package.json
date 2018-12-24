@@ -21,6 +21,8 @@
   },
   "scripts": {
     "start": "node src/index.js",
+    "worker": "npm start",
+    "web": "node src/rest.js",
     "test": "eslint src"
   },
   "author": "",
