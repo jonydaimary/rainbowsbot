@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const port = process.env.PORT || 8080;
 
 const api = express();
 api.use(bodyParser.json());
 api.use(bodyParser.urlencoded());
+api.use(cors);
 
 require('./dbinit')().then(sequelize => {
     api.get('/', (req, res) => {
